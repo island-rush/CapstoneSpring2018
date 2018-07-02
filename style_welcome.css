@@ -2,13 +2,13 @@ body{
 	background-color:#f4f4f4;
 	color:#555555;
 	
-	font: normal 18px Arial, Helvetica, sans-serif
+	font: normal 18px Arial, Helvetica, sans-serif;
 	line-height: 1.6em;
 	margin:0;
 }
 h1{
 	color: #555;
-	margin: 10;
+	margin: 10%;
 	padding:0;
 	font-size: 40px;
 }

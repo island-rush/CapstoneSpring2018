@@ -1,8 +1,8 @@
 body{
-	background-color: #f4f4f4
+	background-color: #f4f4f4;
 	color:#555555;
 	
-	font: normal 16px Arial, Helvetica, sans-serif
+	font: normal 16px Arial, Helvetica, sans-serif;
 	
 	line-height: 1.6em;
 	margin:0;
@@ -11,7 +11,7 @@ body{
 	float: right;
 	width: 1239px;
 	height: 680px;
-	background-image:url("./images/old_board_main.png");
+	/*background-image:url("./images/old_board_main.png");*/
 	background-size: cover;
 	/*background-position: top right;*/
 	background-repeat: no-repeat;

@@ -1,5 +1,5 @@
 -- Final Database for CS364
--- Created by C2C Jack Kulp and C2C Christopher Darcy
+-- Created by C2C Jack Kulp and C2C Christopher Darcy (fixed by C1C Spencer Adolph)
 -- April 2018
 
 -- Database = island_rush
