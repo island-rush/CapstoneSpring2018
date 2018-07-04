@@ -4,6 +4,10 @@
     <title>Login to Island Rush</title>
     <link rel="stylesheet" type="text/css" href="style_welcome.css">
     <script>
+        var intUpdate;
+
+        intUpdate=window.setTimeout("cool_function()", 1000);
+
         function cool_function() {
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function () {
@@ -11,8 +15,9 @@
                     document.getElementById("coolnew_id").innerHTML = this.responseText;
                 }
             };
-            xmlhttp.open("GET", "event_handler.php", true);
+            xmlhttp.open("GET", "event_handler.php?question=life&answer=42", true);
             xmlhttp.send();
+            intUpdate=window.setTimeout("cool_function()", 1000);
         }
     </script>
 </head>
