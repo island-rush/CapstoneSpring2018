@@ -23,6 +23,7 @@ INSERT INTO `users` VALUES (1, 'admin', '$2y$10$9RiuIs3Er77Rrp5pB/QfkOHaV/jilXng
 INSERT INTO `users` VALUES (2, 'user', '$2y$10$DmBkepx05Zm9HWfNpHInFuHFPDjpl1r7TU1r2Yk6YXWsBLrHCpPEe', 3);
 
 
+
 -- Table of Games
 CREATE TABLE IF NOT EXISTS `games`(
 	`gameId` int(5) NOT NULL AUTO_INCREMENT,
@@ -81,3 +82,15 @@ INSERT INTO `placements` VALUES (3, 1, 1, 6, 1);
 INSERT INTO `placements` VALUES (4, 2, 5, 0, 0);
 INSERT INTO `placements` VALUES (5, 2, 3, 0, 0);
 INSERT INTO `placements` VALUES (6, 2, 4, 0, 0);
+
+
+-- Table for testing Ajax functionality (Spencer)
+CREATE TABLE IF NOT EXISTS `test_table` (
+	`testId` int(3) NOT NULL,
+	`testValue` varchar(10),
+    PRIMARY KEY(`testId`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
+INSERT INTO `test_table` VALUES (1, "red");
+
+SELECT * FROM test_table;
