@@ -20,3 +20,12 @@ To Do in list format:
 -Add troops to board
 -Delete troops from board
 -Move troops from cell to cell along board based on unit's move allowance.
+
+(spencer's todo)
+use session variable to figure out red team or blue team (set up in the game_login_verify)
+    then access the game in the database, it has a field for who's turn it is
+        match these values up to determine if a player is allowed to make a turn
+            possibly lock out moving or doing things if player is waiting for turn
+                after submitting, javascript to lock out stuff (using ajax to wait for update in database)
+                    after submitting a turn, set an update flag in the database for the other person to check
+                        event_handler_2
