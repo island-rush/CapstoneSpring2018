@@ -94,3 +94,4 @@ CREATE TABLE IF NOT EXISTS `test_table` (
 INSERT INTO `test_table` VALUES (1, "red");
 
 SELECT * FROM test_table;
+

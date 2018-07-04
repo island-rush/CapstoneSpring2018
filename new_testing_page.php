@@ -4,20 +4,37 @@
     <title>Login to Island Rush</title>
     <link rel="stylesheet" type="text/css" href="style_welcome.css">
     <script>
+        var time_to_wait = 1000;
         var intUpdate;
-        intUpdate=window.setTimeout("cool_function('skip')", 1000);
-        function cool_function(button_value) {
-            if (button_value != 'skip') {
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.onreadystatechange = function () {
-                    if (this.readyState === 4 && this.status === 200) {
-                        document.getElementById("coolnew_id").innerHTML = this.responseText;
+        intUpdate=window.setTimeout("check_for_update()", time_to_wait);
+
+        function check_for_update() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    var response = this.responseText;
+                    if (response == "update") {
+                        cool_function();
                     }
-                };
-                xmlhttp.open("GET", "event_handler.php?button=" + button_value, true);
-                xmlhttp.send();
-            }
-            intUpdate=window.setTimeout("cool_function('skip')", 1000);
+                }
+            };
+            xmlhttp.open("GET", "event_handler_2.php", true);
+            xmlhttp.send();
+            intUpdate=window.setTimeout("check_for_update()", time_to_wait);
+        }
+
+
+        function cool_function(button_value) {
+            clearTimeout(intUpdate);
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    document.getElementById("coolnew_id").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "event_handler.php?button=" + button_value, true);
+            xmlhttp.send();
+            intUpdate=window.setTimeout("check_for_update()", time_to_wait);
         }
     </script>
 </head>
@@ -32,7 +49,7 @@
 </nav>
 
 
-<button id="coolnew_id" onclick="clearTimeout(intUpdate); cool_function(document.getElementById('coolnew_id').innerHTML)">LOADING.</button>
+<button id="coolnew_id" onclick="clearTimeout(intUpdate); cool_function(document.getElementById('coolnew_id').innerHTML)">Loading...</button>
 
 
 </body>
