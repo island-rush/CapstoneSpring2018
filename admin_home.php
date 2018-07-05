@@ -1,5 +1,3 @@
-<!--admin_login.php handles user login before game   -->
-<!-- Created by Jack Kulp and Chris Darcy, April 2018   -->
 <?php
 
 // retrieve session information

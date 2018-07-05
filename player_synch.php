@@ -22,10 +22,8 @@ if ($team == "red") {
     }
     if ($gameBlueJoined == 1) {
         echo "start_game";
-        exit();
     } else {
         echo "keep_waiting";
-        exit();
     }
 } else {
     if ($gameBlueJoined == 0) {
@@ -36,10 +34,8 @@ if ($team == "red") {
     }
     if ($gameRedJoined == 1) {
         echo "start_game";
-        exit();
     } else {
         echo "keep_waiting";
-        exit();
     }
 }
 

@@ -1,5 +1,3 @@
-<!-- game_.php handles user login before game   -->
-<!-- Created by Jack Kulp and Chris Darcy, April 2018   -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
     <head>

@@ -9,7 +9,7 @@
     // }
 
     // $team = (isset($_SESSION['team']))?$_SESSION['team']:'';
-    $cash = 10000;
+    $cash = 10000;  //TODO: WHAT THE FUCK IS THIS SHIT
 ?>
 <!DOCTYPE html>
 <html>
