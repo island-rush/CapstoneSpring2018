@@ -1,15 +1,5 @@
 <?php
     session_start();
-    $gameId = $_SESSION['gameId'];
-    $team = $_SESSION['team'];
-    
-    //close database shit????(if above not taken out for another file)
-
-    //check if both players are joined
-    //display board based upon the gameId?(loading page or all ajax?)
-    //do logic based upon the turn of the game
-    //javascript to check moves?
-        //or something else to check game logic....
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +32,6 @@
         }
 
         function start_game() {
-            alert("starting_game");
             window.open("phase_movetroops.php", "_self")
         }
     </script>
@@ -51,9 +40,8 @@
 <body onload="keep_waiting()">
 <h1>Island Rush Loading Pages</h1>
 <nav>
-    <a href="./home.html">Home</a>
+    <a href="./home.php">Home</a>
     <a class="active" href="./game_login.php">Play the Game</a>
-    <a href="game_initialize.php">Testing Spencer's Shit</a>
     <a style="float:right" href="./admin_login.php">Admin</a>
 </nav>
 </body>

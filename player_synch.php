@@ -1,7 +1,4 @@
 <?php
-
-
-
 $gameId = $_REQUEST['gameId'];
 $team = $_REQUEST['team'];
 include("db.php");

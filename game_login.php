@@ -41,7 +41,7 @@
     <body>
     <h1>Island Rush</h1>
     <nav>
-        <a href="./home.html">Home</a>
+        <a href="./home.php">Home</a>
         <a class="active" href="./game_login.php">Play the Game</a>
         <a style="float:right" href="./admin_login.php">Admin</a>
     </nav>
