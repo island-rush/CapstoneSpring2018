@@ -43,7 +43,12 @@ if ( (isset($_POST['section'])) && (isset($_POST['instructor'])) && (isset($_POS
     $checkStmt->bind_result($result);
     $_SESSION['gameId'] = $result['gameId'];
     $_SESSION['team'] = $_POST['team'];
-    header("location:play.php"); // play.php interprets gamedata and sends the team to the appropriate phase/game state.
+
+    //Changed this for testing session information on turn based mechanisms
+//    header("location:play.php"); // play.php interprets gamedata and sends the team to the appropriate phase/game state.
+    header("location:new_testing_page.php");
+
+
 
     // close and exit query and database
     $checkStmt->close();
@@ -54,4 +59,3 @@ if ( (isset($_POST['section'])) && (isset($_POST['instructor'])) && (isset($_POS
     header("location:game_login.php?err=2");
     exit;
 }
-?>

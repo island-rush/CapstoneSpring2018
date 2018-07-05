@@ -11,10 +11,8 @@ body{
 	float: right;
 	width: 1239px;
 	height: 680px;
-	/*background-image:url("./images/old_board_main.png");*/
 	background-size: cover;
-	/*background-position: top right;*/
-	background-repeat: no-repeat;
+	background: url("/resources/Image files/Board_for_cropping.png") no-repeat top right;
 	margin: 0;
 	padding:0;
 }
