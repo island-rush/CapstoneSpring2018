@@ -41,7 +41,6 @@ if ( (isset($_POST['section'])) && (isset($_POST['instructor'])) && (isset($_POS
     $_SESSION['team'] = $_POST['team'];
 
     //Changed this for testing session information on turn based mechanisms
-//    header("location:play.php"); // play.php interprets gamedata and sends the team to the appropriate phase/game state.
     header("location:game_initialize.php");
 
 

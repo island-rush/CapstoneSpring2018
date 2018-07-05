@@ -35,7 +35,7 @@
                 <td colspan="4">
                     <br />
                     <div id="login_header">Login to Admin:</div>
-                    <form name="login" method="post" id="login" action="verifylogin.php" onsubmit="return checkLoginForm()">
+                    <form name="login" method="post" id="login" action="admin_login_verify.php" onsubmit="return checkLoginForm()">
                         <table border="0" cellpadding="3" cellspacing="1">
                             <tr>
                                 <td colspan="2">
