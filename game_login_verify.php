@@ -29,18 +29,20 @@ if ( (isset($_POST['section'])) && (isset($_POST['instructor'])) && (isset($_POS
     $checkStmt = $db->prepare($nameQuery);
     $checkStmt->bind_param("ss", $instructor,$section);
     $checkStmt->execute();
-
-    $checkStmt->store_result();
-    if(($checkStmt->errno <> 0) || ($checkStmt->num_rows == 0)){
-        header("location:game_login.php?err=0");
-    }
-    $checkStmt->bind_result($result);
-    $_SESSION['gameId'] = $result['gameId'];
+    $results = $checkStmt->get_result();
+    $r= $results->fetch_assoc();
+//    $checkStmt->store_result();
+//    if(($checkStmt->errno <> 0) || ($checkStmt->num_rows == 0)){
+//        header("location:game_login.php?err=0");
+//    }
+//    $checkStmt->bind_result($result);
+    $_SESSION['gameId'] = $r['gameId'];
+//    $_SESSION['gameId'] = 1;
     $_SESSION['team'] = $_POST['team'];
 
     //Changed this for testing session information on turn based mechanisms
 //    header("location:play.php"); // play.php interprets gamedata and sends the team to the appropriate phase/game state.
-    header("location:new_testing_page.php");
+    header("location:game_initialize.php");
 
 
 

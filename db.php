@@ -1,4 +1,3 @@
-<!--Connects to the database-->
 <?php
 @ $db = new mysqli('LOCALHOST', 'root', '', 'island_rush');
 if (mysqli_connect_errno()) {
