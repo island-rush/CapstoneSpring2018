@@ -60,25 +60,109 @@ INSERT INTO `units` VALUES (3, 'destroyer', 2, 3, 4);
 INSERT INTO `units` VALUES (4, 'submarine', 2, 4, 4);
 INSERT INTO `units` VALUES (5, 'soldier', 1, 2, 2);
 
+
+-- Table for Game Board Allowed Positions (for troops and whatnot)
+CREATE TABLE IF NOT EXISTS `positions` (
+	`positionId`int(4) NOT NULL,
+    `positionX` int(16) NOT NULL,
+    `positionY` int(16) NOT NULL,
+    PRIMARY KEY(`positionID`)
+) ;
+
+INSERT INTO `positions` VALUES (1, 400, 600);
+INSERT INTO `positions` VALUES (2, 400, 600);
+INSERT INTO `positions` VALUES (3, 400, 600);
+INSERT INTO `positions` VALUES (4, 400, 600);
+INSERT INTO `positions` VALUES (5, 400, 600);
+INSERT INTO `positions` VALUES (6, 400, 600);
+INSERT INTO `positions` VALUES (7, 400, 600);
+INSERT INTO `positions` VALUES (8, 400, 600);
+INSERT INTO `positions` VALUES (9, 400, 600);
+INSERT INTO `positions` VALUES (10, 400, 600);
+INSERT INTO `positions` VALUES (11, 400, 600);
+INSERT INTO `positions` VALUES (12, 400, 600);
+INSERT INTO `positions` VALUES (13, 400, 600);
+INSERT INTO `positions` VALUES (14, 400, 600);
+INSERT INTO `positions` VALUES (15, 400, 600);
+INSERT INTO `positions` VALUES (16, 400, 600);
+INSERT INTO `positions` VALUES (17, 400, 600);
+INSERT INTO `positions` VALUES (18, 400, 600);
+INSERT INTO `positions` VALUES (19, 400, 600);
+INSERT INTO `positions` VALUES (20, 400, 600);
+INSERT INTO `positions` VALUES (21, 400, 600);
+INSERT INTO `positions` VALUES (22, 400, 600);
+INSERT INTO `positions` VALUES (23, 400, 600);
+INSERT INTO `positions` VALUES (24, 400, 600);
+INSERT INTO `positions` VALUES (25, 400, 600);
+INSERT INTO `positions` VALUES (26, 400, 600);
+INSERT INTO `positions` VALUES (27, 400, 600);
+INSERT INTO `positions` VALUES (28, 400, 600);
+INSERT INTO `positions` VALUES (29, 400, 600);
+INSERT INTO `positions` VALUES (30, 400, 600);
+INSERT INTO `positions` VALUES (31, 400, 600);
+INSERT INTO `positions` VALUES (32, 400, 600);
+INSERT INTO `positions` VALUES (33, 400, 600);
+INSERT INTO `positions` VALUES (34, 400, 600);
+INSERT INTO `positions` VALUES (35, 400, 600);
+INSERT INTO `positions` VALUES (36, 400, 600);
+INSERT INTO `positions` VALUES (37, 400, 600);
+INSERT INTO `positions` VALUES (38, 400, 600);
+INSERT INTO `positions` VALUES (39, 400, 600);
+INSERT INTO `positions` VALUES (40, 400, 600);
+INSERT INTO `positions` VALUES (41, 400, 600);
+INSERT INTO `positions` VALUES (42, 400, 600);
+INSERT INTO `positions` VALUES (43, 400, 600);
+INSERT INTO `positions` VALUES (44, 400, 600);
+INSERT INTO `positions` VALUES (45, 400, 600);
+INSERT INTO `positions` VALUES (46, 400, 600);
+INSERT INTO `positions` VALUES (47, 400, 600);
+INSERT INTO `positions` VALUES (48, 400, 600);
+INSERT INTO `positions` VALUES (49, 400, 600);
+INSERT INTO `positions` VALUES (50, 400, 600);
+INSERT INTO `positions` VALUES (51, 400, 600);
+INSERT INTO `positions` VALUES (52, 400, 600);
+INSERT INTO `positions` VALUES (53, 400, 600);
+INSERT INTO `positions` VALUES (54, 400, 600);
+INSERT INTO `positions` VALUES (55, 400, 600);
+INSERT INTO `positions` VALUES (56, 400, 600);
+INSERT INTO `positions` VALUES (57, 400, 600);
+INSERT INTO `positions` VALUES (58, 400, 600);
+INSERT INTO `positions` VALUES (59, 400, 600);
+INSERT INTO `positions` VALUES (60, 400, 600);
+INSERT INTO `positions` VALUES (61, 400, 600);
+INSERT INTO `positions` VALUES (62, 400, 600);
+INSERT INTO `positions` VALUES (63, 400, 600);
+INSERT INTO `positions` VALUES (64, 400, 600);
+INSERT INTO `positions` VALUES (65, 400, 600);
+INSERT INTO `positions` VALUES (66, 400, 600);
+INSERT INTO `positions` VALUES (67, 400, 600);
+INSERT INTO `positions` VALUES (68, 400, 600);
+INSERT INTO `positions` VALUES (69, 400, 600);
+INSERT INTO `positions` VALUES (70, 400, 600);
+INSERT INTO `positions` VALUES (71, 400, 600);
+
+
+
+
 -- Table of Units
 CREATE TABLE IF NOT EXISTS `placements`(
 	`placeId` int(16) NOT NULL AUTO_INCREMENT,
     `gameId` int(5) NOT NULL,
     `unitId` int(5) NOT NULL,
-    `placeX` int(2) NOT NULL,
-    `placeY` int(2) NOT NULL,
+    `positionId` int(4) NOT NULL,
     PRIMARY KEY(`placeId`),
     FOREIGN KEY (unitId) REFERENCES units(unitId),
-    FOREIGN KEY (gameId) REFERENCES games(gameId)
+    FOREIGN KEY (gameId) REFERENCES games(gameId),
+    FOREIGN KEY (positionId) REFERENCES positions(positionId)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 -- Insert placements into table.
-INSERT INTO `placements` VALUES (1, 1, 1, 3, 5);
-INSERT INTO `placements` VALUES (2, 1, 2, 5, 2);
-INSERT INTO `placements` VALUES (3, 1, 1, 6, 1);
-INSERT INTO `placements` VALUES (4, 2, 5, 0, 0);
-INSERT INTO `placements` VALUES (5, 2, 3, 0, 0);
-INSERT INTO `placements` VALUES (6, 2, 4, 0, 0);
+INSERT INTO `placements` VALUES (1, 1, 1, 1);
+INSERT INTO `placements` VALUES (2, 1, 2, 1);
+INSERT INTO `placements` VALUES (3, 1, 1, 1);
+INSERT INTO `placements` VALUES (4, 2, 5, 1);
+INSERT INTO `placements` VALUES (5, 2, 3, 1);
+INSERT INTO `placements` VALUES (6, 2, 4, 1);
 
 
 -- SELECT gameRedJoined, gameBlueJoined FROM games WHERE gameId = 1;
