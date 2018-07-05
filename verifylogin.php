@@ -13,13 +13,7 @@ if ( (isset($_POST['username'])) && (isset($_POST['password'])) ){
     // open connection to the database on LOCALHOST with
     // userid of 'root', password of '', and database 'island_rush'
 
-    $db = new mysqli('LOCALHOST', 'root', '', 'island_rush');
-
-    if (mysqli_connect_errno())
-    {
-        echo 'ERROR: Could not connect to database, error is '.mysqli_connect_error();
-        exit;
-    }
+    include("db.php");
     // sanitize the input from the form to eliminate possible SQL Injection
 
     $myusername = stripslashes($_POST['username']);

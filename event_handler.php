@@ -4,11 +4,7 @@
 //$a = $_REQUEST["answer"];
 //$c = $_REQUEST["button"];
 
-@ $db = new mysqli('LOCALHOST', 'root', '', 'island_rush');
-if (mysqli_connect_errno()) {
-    echo 'ERROR: Could not connect to database.  Error is '.mysqli_connect_error();
-    exit;
-}
+include("db.php");
 
 
 $query = 'SELECT * FROM test_table WHERE testId = 2';

@@ -5,15 +5,7 @@
   // open connection to the database on LOCALHOST with 
   // userid of 'root', password 'secret', and database 'csl'
 
-  @ $db = new mysqli('LOCALHOST', 'root', '', 'island_rush');
-
-  // Check if there were error and if so, report and exit
-
-  if (mysqli_connect_errno()) 
-  { 
-    echo 'ERROR: Could not connect to database, error is '.mysqli_connect_error();
-    exit;
-  }
+  include("db.php");
 
   // run the SQL query to retrieve the user info
 

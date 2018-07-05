@@ -2,7 +2,7 @@
     session_start();
     $gameId = $_SESSION['gameId'];
     $team = $_SESSION['team'];
-
+    include("db.php");
     $query = 'SELECT * FROM games WHERE gameId = '.$gameId;
     $query = $db->prepare($query);
     $query->execute();
