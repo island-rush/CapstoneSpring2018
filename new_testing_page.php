@@ -3,15 +3,45 @@
     $gameId = $_SESSION['gameId'];
     $team = $_SESSION['team'];
     include("db.php");
-    $query = 'SELECT * FROM games WHERE gameId = '.$gameId;
+    $query = 'SELECT * FROM games WHERE gameId = ?';
     $query = $db->prepare($query);
+    $query->bind_param("i", $gameId);
     $query->execute();
     $results = $query->get_result();
     $r= $results->fetch_assoc();
     $gameTurn = $r['gameTurn'];
-    $gamePhase = $r['gamePhase']
-    //check if database knows player has joined
-    //tell database that this team has joined (gameBlueJoined = 1)
+    $gamePhase = $r['gamePhase'];
+    $gameBlueJoined = $r['gameBlueJoined'];
+    $gameRedJoined = $r['gameRedJoined'];
+
+    if ($team == "red") {
+        if ($gameRedJoined == 0) {
+            $query = 'UPDATE games SET gameRedJoined=1 WHERE gameId = ?';
+            $query = $db->prepare($query);
+            $query->bind_param("i", $gameId);
+            $query->execute();
+        }
+        if ($gameBlueJoined == 1) {
+            //both teams here, stop 'loading' or 'waiting' for sync
+        } else {
+            //keep waiting for the other team to join...
+        }
+    } else {
+        if ($gameBlueJoined == 0) {
+            $query = 'UPDATE games SET gameBlueJoined=1 WHERE gameId = ?';
+            $query = $db->prepare($query);
+            $query->bind_param("i", $gameId);
+            $query->execute();
+        }
+        if ($gameRedJoined == 1) {
+            //both teams here, stop 'loading'
+        } else {
+            //keep waiting for the other team to join...
+        }
+    }
+
+
+
     //check if both players are joined
     //display board based upon the gameId?(loading page or all ajax?)
     //do logic based upon the turn of the game

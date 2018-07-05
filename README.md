@@ -24,3 +24,4 @@ use session variable to figure out red team or blue team (set up in the game_log
                 after submitting, javascript to lock out stuff (using ajax to wait for update in database)
                     after submitting a turn, set an update flag in the database for the other person to check
                         event_handler_2
+-sanitize comments and clean up code to be better than what jack fucking did

@@ -1,7 +1,7 @@
 <!-- play.php is the primary page for playing the game   -->
 <!-- Created by Jack Kulp and Chris Darcy, May 2018   -->
 <?php
- header("location:phase_movetroops.php");
+// header("location:phase_movetroops.php");
     // retrieve session information
     session_start();
 
