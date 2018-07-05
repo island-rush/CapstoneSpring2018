@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: C19Christopher.Darcy
- * Date: 4/11/2018
- * Time: 2:20 PM
- */
 
 session_start();
 
@@ -29,7 +23,7 @@ if ( (isset($_POST['username'])) && (isset($_POST['password'])) ){
 
     // prepared statement to check username
 
-    $nameQuery = "SELECT * FROM USERS WHERE (userName = ?)";
+    $nameQuery = "SELECT * FROM admins WHERE (adminName = ?)";
 
     $checkStmt = $db->prepare($nameQuery);
     $checkStmt->bind_param("s", $myusername);
@@ -44,13 +38,9 @@ if ( (isset($_POST['username'])) && (isset($_POST['password'])) ){
     }
     $result = $result->fetch_assoc();
 
-    if (password_verify($mypassword, $result['userPassword'])){
+    if (password_verify($mypassword, $result['adminPassword'])){
         $_SESSION['username'] = $_POST['username'];
-        if($result['userAdmin'] == 1){
-            header("location:admin_home.php");
-        }else{
-            header("location:home.html");
-        }
+        header("location:admin_home.php");
 
     }else{
         $checkStmt->close();
@@ -64,4 +54,3 @@ if ( (isset($_POST['username'])) && (isset($_POST['password'])) ){
     header("location:admin_login.php?err=2");
     exit;
 }
-?>
