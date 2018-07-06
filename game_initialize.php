@@ -32,7 +32,7 @@
         }
 
         function start_game() {
-            window.open("phase_movetroops.php", "_self")
+            window.open("play_game2.php", "_self")
         }
     </script>
 </head>

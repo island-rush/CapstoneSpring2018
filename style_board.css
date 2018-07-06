@@ -1,9 +1,9 @@
 body{
 	background-color: #f4f4f4;
 	color:#555555;
-	
+
 	font: normal 16px Arial, Helvetica, sans-serif;
-	
+
 	line-height: 1.6em;
 	margin:0;
 }
@@ -11,8 +11,10 @@ body{
 	float: right;
 	width: 1239px;
 	height: 680px;
+	background-image:url("resources/Image files/big_map2.png");
 	background-size: cover;
-	background: url("/resources/Image files/Board_for_cropping.png") no-repeat top right;
+	/*background-position: top right;*/
+	background-repeat: no-repeat;
 	margin: 0;
 	padding:0;
 }
@@ -30,7 +32,7 @@ body{
 
 }
 .gridblock:hover{
-	  background-color: white;  
+	background-color: white;
 }
 
 .sidepanel{
