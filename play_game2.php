@@ -4,7 +4,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Buy Troops Phase</title>
+    <title>Main Game Title</title>
     <link rel="stylesheet" type="text/css" href="style_board2.css">
     <script type="text/javascript">
 
@@ -13,7 +13,79 @@ session_start();
 <body>
 
 <div id="game_board">
-
+    <div class="grid">
+        <div class="gridblockLeftBig"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblockRightBig"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblockEmptyLeft"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+        <div class="gridblock"></div>
+    </div>
 </div>
 
 </body>

@@ -60,6 +60,9 @@ INSERT INTO `units` VALUES (3, 'destroyer', 2, 3, 4);
 INSERT INTO `units` VALUES (4, 'submarine', 2, 4, 4);
 INSERT INTO `units` VALUES (5, 'soldier', 1, 2, 2);
 
+-- for testing the html shit
+INSERT INTO `units` VALUES (6, 'test_piece', 2, 2, 2)
+
 
 -- Table for Game Board Allowed Positions (for troops and whatnot)
 CREATE TABLE IF NOT EXISTS `positions` (
@@ -158,11 +161,13 @@ CREATE TABLE IF NOT EXISTS `placements`(
 
 -- Insert placements into table.
 INSERT INTO `placements` VALUES (1, 1, 1, 1);
-INSERT INTO `placements` VALUES (2, 1, 2, 1);
-INSERT INTO `placements` VALUES (3, 1, 1, 1);
-INSERT INTO `placements` VALUES (4, 2, 5, 1);
-INSERT INTO `placements` VALUES (5, 2, 3, 1);
-INSERT INTO `placements` VALUES (6, 2, 4, 1);
+-- INSERT INTO `placements` VALUES (2, 1, 2, 1);
+-- INSERT INTO `placements` VALUES (3, 1, 1, 1);
+-- INSERT INTO `placements` VALUES (4, 2, 5, 1);
+-- INSERT INTO `placements` VALUES (5, 2, 3, 1);
+-- INSERT INTO `placements` VALUES (6, 2, 4, 1);
 
 
 -- SELECT gameRedJoined, gameBlueJoined FROM games WHERE gameId = 1;
+-- UPDATE games SET gameRedJoined=1 WHERE gameId = 1;
+UPDATE games SET gameBlueJoined=1 WHERE gameId = 1;
