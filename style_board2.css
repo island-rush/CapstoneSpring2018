@@ -7,6 +7,7 @@
     background-image: url("resources/Image files/big_map3.png");
     background-size:contain;
     background-repeat: no-repeat;
+    z-index: 10;
 }
 
 .grid{
@@ -14,6 +15,8 @@
 }
 
 .gridblockLeftBig{
+    z-index: 15;
+    position: relative;
     width: 210px;
     height: 212px;
     margin-bottom: 2px;
@@ -26,6 +29,8 @@
 }
 
 .gridblockRightBig{
+    z-index: 15;
+    position: relative;
     width: 240px;
     height: 493px;
     margin-top: 2px;
@@ -38,6 +43,8 @@
 }
 
 .gridblock{
+    z-index: 15;
+    position: relative;
     width: 82px;
     height: 67px;
     margin-left: 2px;
@@ -52,6 +59,8 @@
 }
 
 .gridblockEmptyLeft{
+    z-index: 15;
+    position: relative;
     width: 35px;
     height: 352px;
     margin-left: 2px;
@@ -64,3 +73,17 @@
     background-color: deeppink;
 }
 
+#bigblock1{
+    visibility: hidden;
+    z-index: 20;
+    position: absolute;
+    width: 250px;
+    height: 205px;
+    margin-left: 390px;
+    margin-right: 3px;
+    margin-top: 5px;
+    margin-bottom: 2.5px;
+}
+#bigblock1:hover{
+    background-color: green;
+}
