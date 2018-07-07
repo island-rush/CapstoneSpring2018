@@ -25,7 +25,7 @@
 }
 
 .gridblockLeftBig:hover{
-    background-color: deeppink;
+    background-color: darkred;
 }
 
 .gridblockRightBig{
@@ -39,7 +39,7 @@
 }
 
 .gridblockRightBig:hover{
-    background-color: deeppink;
+    background-color: darkred;
 }
 
 .gridblock{
@@ -56,6 +56,22 @@
 
 .gridblock:hover{
     background-color: deeppink;
+}
+
+.gridblock2{
+    z-index: 15;
+    position: relative;
+    width: 82px;
+    height: 67px;
+    margin-left: 2px;
+    margin-right: 3px;
+    margin-top: 3px;
+    margin-bottom: 2.5px;
+    float: left;
+}
+
+.gridblock2:hover{
+    background-color: floralwhite;
 }
 
 .gridblockEmptyLeft{
@@ -77,13 +93,15 @@
     visibility: hidden;
     z-index: 20;
     position: absolute;
+    background-color: green;
     width: 250px;
     height: 205px;
-    margin-left: 390px;
+    margin-left: 565px;
     margin-right: 3px;
-    margin-top: 5px;
+    margin-top: 295px;
     margin-bottom: 2.5px;
 }
-#bigblock1:hover{
-    background-color: green;
+
+.bigblock{
+
 }
