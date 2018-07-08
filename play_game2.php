@@ -68,7 +68,11 @@ session_start();
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" id="special_island3" onclick="make_big(event, this)"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
-        <div class="gridblockRightBig" onclick="hideall_big()"></div>
+        <div class="gridblockRightBig" onclick="hideall_big()">
+            <div>
+
+            </div>
+        </div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
