@@ -1,3 +1,5 @@
+/*TODO: Consolidate these better (multi classes for single divs...bigblock class not implemented yet)*/
+
 #game_board{
     float:right;
     width:1067px;
@@ -96,12 +98,151 @@
     background-color: green;
     width: 250px;
     height: 205px;
+    margin-left: 44px;
+    margin-right: 3px;
+    margin-top: 3px;
+    margin-bottom: 2.5px;
+}
+
+#bigblock2{
+    visibility: hidden;
+    z-index: 20;
+    position: absolute;
+    background-color: green;
+    width: 250px;
+    height: 205px;
+    margin-left: 300px;
+    margin-right: 3px;
+    margin-top: 100px;
+    margin-bottom: 2.5px;
+}
+
+#bigblock3{
+    visibility: hidden;
+    z-index: 20;
+    position: absolute;
+    background-color: green;
+    width: 250px;
+    height: 205px;
     margin-left: 565px;
     margin-right: 3px;
     margin-top: 295px;
     margin-bottom: 2.5px;
 }
 
-.bigblock{
+#bigblock4{
+    visibility: hidden;
+    z-index: 20;
+    position: absolute;
+    background-color: green;
+    width: 250px;
+    height: 205px;
+    margin-left: 565px;
+    margin-right: 3px;
+    margin-top: 295px;
+    margin-bottom: 2.5px;
+}
 
+#bigblock5{
+    visibility: hidden;
+    z-index: 20;
+    position: absolute;
+    background-color: green;
+    width: 250px;
+    height: 205px;
+    margin-left: 565px;
+    margin-right: 3px;
+    margin-top: 295px;
+    margin-bottom: 2.5px;
+}
+
+#bigblock6{
+    visibility: hidden;
+    z-index: 20;
+    position: absolute;
+    background-color: green;
+    width: 250px;
+    height: 205px;
+    margin-left: 565px;
+    margin-right: 3px;
+    margin-top: 295px;
+    margin-bottom: 2.5px;
+}
+
+#bigblock7{
+    visibility: hidden;
+    z-index: 20;
+    position: absolute;
+    background-color: green;
+    width: 250px;
+    height: 205px;
+    margin-left: 565px;
+    margin-right: 3px;
+    margin-top: 295px;
+    margin-bottom: 2.5px;
+}
+
+#bigblock8{
+    visibility: hidden;
+    z-index: 20;
+    position: absolute;
+    background-color: green;
+    width: 250px;
+    height: 205px;
+    margin-left: 565px;
+    margin-right: 3px;
+    margin-top: 295px;
+    margin-bottom: 2.5px;
+}
+
+#bigblock9{
+    visibility: hidden;
+    z-index: 20;
+    position: absolute;
+    background-color: green;
+    width: 250px;
+    height: 205px;
+    margin-left: 565px;
+    margin-right: 3px;
+    margin-top: 295px;
+    margin-bottom: 2.5px;
+}
+
+#bigblock10{
+    visibility: hidden;
+    z-index: 20;
+    position: absolute;
+    background-color: green;
+    width: 250px;
+    height: 205px;
+    margin-left: 565px;
+    margin-right: 3px;
+    margin-top: 295px;
+    margin-bottom: 2.5px;
+}
+
+#bigblock11{
+    visibility: hidden;
+    z-index: 20;
+    position: absolute;
+    background-color: green;
+    width: 250px;
+    height: 205px;
+    margin-left: 565px;
+    margin-right: 3px;
+    margin-top: 295px;
+    margin-bottom: 2.5px;
+}
+
+#bigblock12{
+    visibility: hidden;
+    z-index: 20;
+    position: absolute;
+    background-color: green;
+    width: 250px;
+    height: 205px;
+    margin-left: 565px;
+    margin-right: 3px;
+    margin-top: 295px;
+    margin-bottom: 2.5px;
 }
