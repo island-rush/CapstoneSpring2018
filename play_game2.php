@@ -49,19 +49,20 @@ session_start();
 </head>
 <body>
 <!--TODO: redo the entire board in php? (maybe not)-->
+<!--TODO: how to re-store / save the new positions into the database....-->
 <div id="game_board" onmouseleave="hideall_big()">
     <div class="grid">
-        <div class="gridblockLeftBig" onclick="hideall_big()"></div>
+        <div class="gridblockLeftBig" onclick="hideall_big()">
+            <div>
+                <?php $special_island = 13; include("display_pieces.php"); ?>
+            </div>
+        </div>
         <div class="gridblock" onclick="hideall_big()">
             <div class="pieceblock">
                 <?php $positionId = 1; include("display_pieces.php"); ?>
             </div>
         </div>
-        <div class="gridblock" onclick="hideall_big()">
-            <div>
-                <?php include("display_pieces.php"); ?>
-            </div>
-        </div>
+        <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
