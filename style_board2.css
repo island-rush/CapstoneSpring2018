@@ -91,6 +91,8 @@
     background-color: deeppink;
 }
 
+
+
 #bigblock1{
     visibility: hidden;
     z-index: 20;
@@ -98,9 +100,9 @@
     background-color: green;
     width: 250px;
     height: 205px;
-    margin-left: 44px;
+    margin-left: 130px;
     margin-right: 3px;
-    margin-top: 3px;
+    margin-top: 4px;
     margin-bottom: 2.5px;
 }
 
@@ -111,9 +113,9 @@
     background-color: green;
     width: 250px;
     height: 205px;
-    margin-left: 300px;
+    margin-left: 390px;
     margin-right: 3px;
-    margin-top: 100px;
+    margin-top: 4px;
     margin-bottom: 2.5px;
 }
 
@@ -126,7 +128,7 @@
     height: 205px;
     margin-left: 565px;
     margin-right: 3px;
-    margin-top: 295px;
+    margin-top: 4px;
     margin-bottom: 2.5px;
 }
 
@@ -137,9 +139,9 @@
     background-color: green;
     width: 250px;
     height: 205px;
-    margin-left: 565px;
+    margin-left: 390px;
     margin-right: 3px;
-    margin-top: 295px;
+    margin-top: 77px;
     margin-bottom: 2.5px;
 }
 
@@ -149,10 +151,10 @@
     position: absolute;
     background-color: green;
     width: 250px;
-    height: 205px;
-    margin-left: 565px;
+    height: 278px;
+    margin-left: 217px;
     margin-right: 3px;
-    margin-top: 295px;
+    margin-top: 150px;
     margin-bottom: 2.5px;
 }
 
@@ -165,7 +167,7 @@
     height: 205px;
     margin-left: 565px;
     margin-right: 3px;
-    margin-top: 295px;
+    margin-top: 150px;
     margin-bottom: 2.5px;
 }
 
@@ -176,9 +178,9 @@
     background-color: green;
     width: 250px;
     height: 205px;
-    margin-left: 565px;
+    margin-left: 43px;
     margin-right: 3px;
-    margin-top: 295px;
+    margin-top: 223px;
     margin-bottom: 2.5px;
 }
 
@@ -189,9 +191,9 @@
     background-color: green;
     width: 250px;
     height: 205px;
-    margin-left: 565px;
+    margin-left: 390px;
     margin-right: 3px;
-    margin-top: 295px;
+    margin-top: 223px;
     margin-bottom: 2.5px;
 }
 
@@ -202,7 +204,7 @@
     background-color: green;
     width: 250px;
     height: 205px;
-    margin-left: 565px;
+    margin-left: 304px;
     margin-right: 3px;
     margin-top: 295px;
     margin-bottom: 2.5px;
@@ -228,9 +230,9 @@
     background-color: green;
     width: 250px;
     height: 205px;
-    margin-left: 565px;
+    margin-left: 130px;
     margin-right: 3px;
-    margin-top: 295px;
+    margin-top: 365px;
     margin-bottom: 2.5px;
 }
 
@@ -241,8 +243,8 @@
     background-color: green;
     width: 250px;
     height: 205px;
-    margin-left: 565px;
+    margin-left: 390px;
     margin-right: 3px;
-    margin-top: 295px;
+    margin-top: 365px;
     margin-bottom: 2.5px;
 }

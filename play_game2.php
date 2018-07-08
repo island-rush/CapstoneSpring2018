@@ -18,8 +18,31 @@ session_start();
         function make_big(ev, element) {
             ev.preventDefault();
             hideall_big();
-            if (element.id == "special_island10") {
+            // TODO: make this better with taking out numbers...you know...parallel fucking shit
+            if (element.id === "special_island1") {
+                document.getElementById("bigblock1").style.visibility = "visible";
+            } else if (element.id === "special_island2") {
+                document.getElementById("bigblock2").style.visibility = "visible";
+            } else if (element.id === "special_island3") {
+                document.getElementById("bigblock3").style.visibility = "visible";
+            } else if (element.id === "special_island4") {
+                document.getElementById("bigblock4").style.visibility = "visible";
+            } else if (element.id === "special_island5") {
+                document.getElementById("bigblock5").style.visibility = "visible";
+            } else if (element.id === "special_island6") {
+                document.getElementById("bigblock6").style.visibility = "visible";
+            } else if (element.id === "special_island7") {
+                document.getElementById("bigblock7").style.visibility = "visible";
+            } else if (element.id === "special_island8") {
+                document.getElementById("bigblock8").style.visibility = "visible";
+            } else if (element.id === "special_island9") {
+                document.getElementById("bigblock9").style.visibility = "visible";
+            } else if (element.id === "special_island10") {
                 document.getElementById("bigblock10").style.visibility = "visible";
+            } else if (element.id === "special_island11") {
+                document.getElementById("bigblock11").style.visibility = "visible";
+            } else if (element.id === "special_island12") {
+                document.getElementById("bigblock12").style.visibility = "visible";
             }
         }
     </script>
@@ -38,18 +61,18 @@ session_start();
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
-        <div class="gridblock2" id="special_island1" onclick="hideall_big()"></div>
+        <div class="gridblock2" id="special_island1" onclick="make_big(event, this)"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
-        <div class="gridblock2" onclick="hideall_big()"></div>
+        <div class="gridblock2" id="special_island2" onclick="make_big(event, this)"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
-        <div class="gridblock2" onclick="hideall_big()"></div>
+        <div class="gridblock2" id="special_island3" onclick="make_big(event, this)"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblockRightBig" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
-        <div class="gridblock2" onclick="hideall_big()"></div>
+        <div class="gridblock2" id="special_island4" onclick="make_big(event, this)"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
@@ -57,36 +80,36 @@ session_start();
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
-        <div class="gridblock2" onclick="hideall_big()"></div>
+        <div class="gridblock2" id="special_island5" onclick="make_big(event, this)"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
-        <div class="gridblock2" onclick="hideall_big()"></div>
+        <div class="gridblock2" id="special_island6" onclick="make_big(event, this)"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
-        <div class="gridblock2" onclick="hideall_big()"></div>
+        <div class="gridblock2" id="special_island7" onclick="make_big(event, this)"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
-        <div class="gridblock2" onclick="hideall_big()"></div>
+        <div class="gridblock2" id="special_island5" onclick="make_big(event, this)"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
-        <div class="gridblock2" onclick="hideall_big()"></div>
-        <div class="gridblock" onclick="hideall_big()"></div>
-        <div class="gridblock" onclick="hideall_big()"></div>
-        <div class="gridblock" onclick="hideall_big()"></div>
+        <div class="gridblock2" id="special_island8" onclick="make_big(event, this)"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
-        <div class="gridblock2" onclick="hideall_big()"></div>
+        <div class="gridblock" onclick="hideall_big()"></div>
+        <div class="gridblock" onclick="hideall_big()"></div>
+        <div class="gridblock" onclick="hideall_big()"></div>
+        <div class="gridblock2" id="special_island9" onclick="make_big(event, this)"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock2" id="special_island10" onclick="make_big(event, this)"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
-        <div class="gridblock2" onclick="hideall_big()"></div>
+        <div class="gridblock2" id="special_island11" onclick="make_big(event, this)"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
-        <div class="gridblock2" onclick="hideall_big()"></div>
+        <div class="gridblock2" id="special_island12" onclick="make_big(event, this)"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
