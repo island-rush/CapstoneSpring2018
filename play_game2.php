@@ -48,12 +48,20 @@ session_start();
     </script>
 </head>
 <body>
-
+<!--TODO: redo the entire board in php? (maybe not)-->
 <div id="game_board" onmouseleave="hideall_big()">
     <div class="grid">
         <div class="gridblockLeftBig" onclick="hideall_big()"></div>
-        <div class="gridblock" onclick="hideall_big()"></div>
-        <div class="gridblock" onclick="hideall_big()"></div>
+        <div class="gridblock" onclick="hideall_big()">
+            <div class="pieceblock">
+                <?php $positionId = 1; include("display_pieces.php"); ?>
+            </div>
+        </div>
+        <div class="gridblock" onclick="hideall_big()">
+            <div>
+                <?php include("display_pieces.php"); ?>
+            </div>
+        </div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
@@ -68,11 +76,7 @@ session_start();
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" id="special_island3" onclick="make_big(event, this)"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
-        <div class="gridblockRightBig" onclick="hideall_big()">
-            <div>
-
-            </div>
-        </div>
+        <div class="gridblockRightBig" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
