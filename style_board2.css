@@ -6,7 +6,7 @@
     height:680px;
     margin:5px;
     border:3px solid black;
-    background-image: url("resources/Image files/big_map3.png");
+    background-image: url("resources/Image files/big_map4.png");
     background-size:contain;
     background-repeat: no-repeat;
     z-index: 10;
@@ -34,7 +34,7 @@
     z-index: 15;
     position: relative;
     width: 240px;
-    height: 493px;
+    height: 505px;
     margin-top: 2px;
     margin-right: 3px;
     float: right;
@@ -70,33 +70,34 @@
     width: 250px;
     height: 205px;
     position: absolute;
+    background-repeat: no-repeat;
+    background-size: 240px 195px;
+    background-color: #a30004;
+    background-position: center;
+    z-index: 20;
 }
 
 #bigblock1{
     visibility: hidden;
-    z-index: 20;
-    background-color: green;
+    background-image: url("resources/Image files/special_island1.png");
     margin: 4px 3px 2.5px 130px;
 }
 
 #bigblock2{
     visibility: hidden;
-    z-index: 20;
-    background-color: green;
+    background-image: url("resources/Image files/special_island2.png");
     margin: 4px 3px 2.5px 390px;
 }
 
 #bigblock3{
     visibility: hidden;
-    z-index: 20;
-    background-color: green;
+    background-image: url("resources/Image files/special_island3.png");
     margin: 4px 3px 2.5px 565px;
 }
 
 #bigblock4{
     visibility: hidden;
-    z-index: 20;
-    background-color: green;
+    background-image: url("resources/Image files/special_island4.png");
     margin: 77px 3px 2.5px 390px;
 }
 
@@ -104,7 +105,11 @@
     visibility: hidden;
     z-index: 20;
     position: absolute;
-    background-color: green;
+    background-image: url("resources/Image files/special_island5.png");
+    background-repeat: no-repeat;
+    background-size: 240px 268px;
+    background-color: #a30004;
+    background-position: center;
     width: 250px;
     height: 278px;
     margin: 150px 3px 2.5px 217px;
@@ -112,49 +117,42 @@
 
 #bigblock6{
     visibility: hidden;
-    z-index: 20;
-    background-color: green;
+    background-image: url("resources/Image files/special_island6.png");
     margin: 150px 3px 2.5px 565px;
 }
 
 #bigblock7{
     visibility: hidden;
-    z-index: 20;
-    background-color: green;
+    background-image: url("resources/Image files/special_island7.png");
     margin: 223px 3px 2.5px 43px;
 }
 
 #bigblock8{
     visibility: hidden;
-    z-index: 20;
-    background-color: green;
+    background-image: url("resources/Image files/special_island8.png");
     margin: 223px 3px 2.5px 390px;
 }
 
 #bigblock9{
     visibility: hidden;
-    z-index: 20;
-    background-color: green;
+    background-image: url("resources/Image files/special_island9.png");
     margin: 295px 3px 2.5px 304px;
 }
 
 #bigblock10{
     visibility: hidden;
-    z-index: 20;
-    background-color: green;
+    background-image: url("resources/Image files/special_island10.png");
     margin: 295px 3px 2.5px 565px;
 }
 
 #bigblock11{
     visibility: hidden;
-    z-index: 20;
-    background-color: green;
+    background-image: url("resources/Image files/special_island11.png");
     margin: 365px 3px 2.5px 130px;
 }
 
 #bigblock12{
     visibility: hidden;
-    z-index: 20;
-    background-color: green;
+    background-image: url("resources/Image files/special_island12.png");
     margin: 365px 3px 2.5px 390px;
 }
