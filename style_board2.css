@@ -27,7 +27,7 @@
 }
 
 .gridblockLeftBig:hover{
-    background-color: darkred;
+    background-color: rgba(236, 1, 255, 0.16)
 }
 
 .gridblockRightBig{
@@ -41,7 +41,7 @@
 }
 
 .gridblockRightBig:hover{
-    background-color: darkred;
+    background-color: rgba(236, 1, 255, 0.16)
 }
 
 .gridblock{
@@ -49,31 +49,12 @@
     position: relative;
     width: 82px;
     height: 67px;
-    margin-left: 2px;
-    margin-right: 3px;
-    margin-top: 3px;
-    margin-bottom: 2.5px;
+    margin: 3px 3px 2.5px 2px;
     float: left;
 }
 
 .gridblock:hover{
-    background-color: deeppink;
-}
-
-.gridblock2{
-    z-index: 15;
-    position: relative;
-    width: 82px;
-    height: 67px;
-    margin-left: 2px;
-    margin-right: 3px;
-    margin-top: 3px;
-    margin-bottom: 2.5px;
-    float: left;
-}
-
-.gridblock2:hover{
-    background-color: floralwhite;
+    background-color: rgba(236, 1, 255, 0.15)
 }
 
 .gridblockEmptyLeft{
@@ -81,68 +62,42 @@
     position: relative;
     width: 35px;
     height: 352px;
-    margin-left: 2px;
-    margin-right: 2px;
-    margin-top: 2px;
-    margin-bottom: 5px;
+    margin: 2px 2px 5px;
     float: left;
 }
-.gridblockEmptyLeft:hover{
-    background-color: deeppink;
+
+.bigblock3x3{
+    width: 250px;
+    height: 205px;
+    position: absolute;
 }
-
-
 
 #bigblock1{
     visibility: hidden;
     z-index: 20;
-    position: absolute;
     background-color: green;
-    width: 250px;
-    height: 205px;
-    margin-left: 130px;
-    margin-right: 3px;
-    margin-top: 4px;
-    margin-bottom: 2.5px;
+    margin: 4px 3px 2.5px 130px;
 }
 
 #bigblock2{
     visibility: hidden;
     z-index: 20;
-    position: absolute;
     background-color: green;
-    width: 250px;
-    height: 205px;
-    margin-left: 390px;
-    margin-right: 3px;
-    margin-top: 4px;
-    margin-bottom: 2.5px;
+    margin: 4px 3px 2.5px 390px;
 }
 
 #bigblock3{
     visibility: hidden;
     z-index: 20;
-    position: absolute;
     background-color: green;
-    width: 250px;
-    height: 205px;
-    margin-left: 565px;
-    margin-right: 3px;
-    margin-top: 4px;
-    margin-bottom: 2.5px;
+    margin: 4px 3px 2.5px 565px;
 }
 
 #bigblock4{
     visibility: hidden;
     z-index: 20;
-    position: absolute;
     background-color: green;
-    width: 250px;
-    height: 205px;
-    margin-left: 390px;
-    margin-right: 3px;
-    margin-top: 77px;
-    margin-bottom: 2.5px;
+    margin: 77px 3px 2.5px 390px;
 }
 
 #bigblock5{
@@ -152,99 +107,54 @@
     background-color: green;
     width: 250px;
     height: 278px;
-    margin-left: 217px;
-    margin-right: 3px;
-    margin-top: 150px;
-    margin-bottom: 2.5px;
+    margin: 150px 3px 2.5px 217px;
 }
 
 #bigblock6{
     visibility: hidden;
     z-index: 20;
-    position: absolute;
     background-color: green;
-    width: 250px;
-    height: 205px;
-    margin-left: 565px;
-    margin-right: 3px;
-    margin-top: 150px;
-    margin-bottom: 2.5px;
+    margin: 150px 3px 2.5px 565px;
 }
 
 #bigblock7{
     visibility: hidden;
     z-index: 20;
-    position: absolute;
     background-color: green;
-    width: 250px;
-    height: 205px;
-    margin-left: 43px;
-    margin-right: 3px;
-    margin-top: 223px;
-    margin-bottom: 2.5px;
+    margin: 223px 3px 2.5px 43px;
 }
 
 #bigblock8{
     visibility: hidden;
     z-index: 20;
-    position: absolute;
     background-color: green;
-    width: 250px;
-    height: 205px;
-    margin-left: 390px;
-    margin-right: 3px;
-    margin-top: 223px;
-    margin-bottom: 2.5px;
+    margin: 223px 3px 2.5px 390px;
 }
 
 #bigblock9{
     visibility: hidden;
     z-index: 20;
-    position: absolute;
     background-color: green;
-    width: 250px;
-    height: 205px;
-    margin-left: 304px;
-    margin-right: 3px;
-    margin-top: 295px;
-    margin-bottom: 2.5px;
+    margin: 295px 3px 2.5px 304px;
 }
 
 #bigblock10{
     visibility: hidden;
     z-index: 20;
-    position: absolute;
     background-color: green;
-    width: 250px;
-    height: 205px;
-    margin-left: 565px;
-    margin-right: 3px;
-    margin-top: 295px;
-    margin-bottom: 2.5px;
+    margin: 295px 3px 2.5px 565px;
 }
 
 #bigblock11{
     visibility: hidden;
     z-index: 20;
-    position: absolute;
     background-color: green;
-    width: 250px;
-    height: 205px;
-    margin-left: 130px;
-    margin-right: 3px;
-    margin-top: 365px;
-    margin-bottom: 2.5px;
+    margin: 365px 3px 2.5px 130px;
 }
 
 #bigblock12{
     visibility: hidden;
     z-index: 20;
-    position: absolute;
     background-color: green;
-    width: 250px;
-    height: 205px;
-    margin-left: 390px;
-    margin-right: 3px;
-    margin-top: 365px;
-    margin-bottom: 2.5px;
+    margin: 365px 3px 2.5px 390px;
 }
