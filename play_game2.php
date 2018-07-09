@@ -104,7 +104,16 @@ include("db.php");
         <div class="gridblock" id="special_island3" onclick="make_big(event, this)"></div>
         <div class="gridblock" data-positionId="13" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 13; include("display_pieces.php"); ?></div>
         <div class="gridblockRightBig" onclick="hideall_big()">
-            <?php $special_island = 13; include("display_pieces.php"); ?>
+<!--            <div class="gridblockTiny" id="pos14a" data-positionId="66" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 66; include("display_pieces.php"); ?><!--</div>-->
+<!--            <div class="gridblockTiny" id="pos14b" data-positionId="67" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 67; include("display_pieces.php"); ?><!--</div>-->
+<!--            <div class="gridblockTiny" id="pos14c" data-positionId="68" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 68; include("display_pieces.php"); ?><!--</div>-->
+<!--            <div class="gridblockTiny" id="pos14d" data-positionId="69" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 69; include("display_pieces.php"); ?><!--</div>-->
+<!--            <div class="gridblockTiny" id="pos14e" data-positionId="70" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 70; include("display_pieces.php"); ?><!--</div>-->
+<!--            <div class="gridblockTiny" id="pos14f" data-positionId="71" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 71; include("display_pieces.php"); ?><!--</div>-->
+<!--            <div class="gridblockTiny" id="pos14g" data-positionId="72" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 72; include("display_pieces.php"); ?><!--</div>-->
+<!--            <div class="gridblockTiny" id="pos14h" data-positionId="73" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 73; include("display_pieces.php"); ?><!--</div>-->
+<!--            <div class="gridblockTiny" id="pos14i" data-positionId="74" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 74; include("display_pieces.php"); ?><!--</div>-->
+<!--            <div class="gridblockTiny" id="pos14j" data-positionId="75" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 75; include("display_pieces.php"); ?><!--</div>-->
         </div>
         <div class="gridblock" data-positionId="14" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 14; include("display_pieces.php"); ?></div>
         <div class="gridblock" data-positionId="15" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 15; include("display_pieces.php"); ?></div>
@@ -160,19 +169,72 @@ include("db.php");
         <div class="gridblock" data-positionId="54" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 54; include("display_pieces.php"); ?></div>
         <div class="gridblock" data-positionId="55" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 55; include("display_pieces.php"); ?></div>
         <div id="bigblock1" class="bigblock bigblock3x3">
-            //put divs here like the water divs, each with positionId...and a php call?
+            <div class="gridblockTiny" id="pos1a" data-positionId="76" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 76; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos1b" data-positionId="77" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 77; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos1c" data-positionId="78" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 78; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos1d" data-positionId="79" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 79; include("display_pieces.php"); ?></div>
         </div>
-        <div id="bigblock2" class="bigblock bigblock3x3"></div>
-        <div id="bigblock3" class="bigblock bigblock3x3"></div>
-        <div id="bigblock4" class="bigblock bigblock3x3"></div>
-        <div id="bigblock5" class="bigblock bigblock3x3"></div>
-        <div id="bigblock6" class="bigblock bigblock3x3"></div>
-        <div id="bigblock7" class="bigblock bigblock3x3"></div>
-        <div id="bigblock8" class="bigblock bigblock3x3"></div>
-        <div id="bigblock9" class="bigblock bigblock3x3"></div>
-        <div id="bigblock10" class="bigblock bigblock3x3"></div>
-        <div id="bigblock11" class="bigblock bigblock3x3"></div>
-        <div id="bigblock12" class="bigblock bigblock3x3"></div>
+        <div id="bigblock2" class="bigblock bigblock3x3">
+            <div class="gridblockTiny" id="pos2a" data-positionId="80" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 80; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos2b" data-positionId="81" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 81; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos2c" data-positionId="82" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 82; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos2d" data-positionId="83" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 83; include("display_pieces.php"); ?></div>
+        </div>
+        <div id="bigblock3" class="bigblock bigblock3x3">
+            <div class="gridblockTiny" id="pos3a" data-positionId="84" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 84; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos3b" data-positionId="85" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 85; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos3c" data-positionId="86" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 86; include("display_pieces.php"); ?></div>
+        </div>
+        <div id="bigblock4" class="bigblock bigblock3x3">
+            <div class="gridblockTiny" id="pos4a" data-positionId="87" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 87; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos4b" data-positionId="88" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 88; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos4c" data-positionId="89" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 89; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos4d" data-positionId="90" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 90; include("display_pieces.php"); ?></div>
+        </div>
+        <div id="bigblock5" class="bigblock bigblock3x3">
+            <div class="gridblockTiny" id="pos5a" data-positionId="91" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 91; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos5b" data-positionId="92" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 92; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos5c" data-positionId="93" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 93; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos5d" data-positionId="94" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 94; include("display_pieces.php"); ?></div>
+        </div>
+        <div id="bigblock6" class="bigblock bigblock3x3">
+            <div class="gridblockTiny" id="pos6a" data-positionId="95" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 95; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos6b" data-positionId="96" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 96; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos6c" data-positionId="97" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 97; include("display_pieces.php"); ?></div>
+        </div>
+        <div id="bigblock7" class="bigblock bigblock3x3">
+            <div class="gridblockTiny" id="pos7a" data-positionId="98" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 98; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos7b" data-positionId="99" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 99; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos7c" data-positionId="100" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 100; include("display_pieces.php"); ?></div>
+        </div>
+        <div id="bigblock8" class="bigblock bigblock3x3">
+            <div class="gridblockTiny" id="pos8a" data-positionId="101" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 101; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos8b" data-positionId="102" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 102; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos8c" data-positionId="103" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 103; include("display_pieces.php"); ?></div>
+        </div>
+        <div id="bigblock9" class="bigblock bigblock3x3">
+            <div class="gridblockTiny" id="pos9a" data-positionId="104" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 104; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos9b" data-positionId="105" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 105; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos9c" data-positionId="106" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 106; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos9d" data-positionId="107" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 107; include("display_pieces.php"); ?></div>
+        </div>
+        <div id="bigblock10" class="bigblock bigblock3x3">
+            <div class="gridblockTiny" id="pos10a" data-positionId="108" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 108; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos10b" data-positionId="109" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 109; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos10c" data-positionId="110" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 110; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos10d" data-positionId="111" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 111; include("display_pieces.php"); ?></div>
+        </div>
+        <div id="bigblock11" class="bigblock bigblock3x3">
+            <div class="gridblockTiny" id="pos11a" data-positionId="112" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 112; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos11b" data-positionId="113" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 113; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos11c" data-positionId="114" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 114; include("display_pieces.php"); ?></div>
+        </div>
+        <div id="bigblock12" class="bigblock bigblock3x3">
+            <div class="gridblockTiny" id="pos12a" data-positionId="115" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 115; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos12b" data-positionId="116" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 116; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos12c" data-positionId="117" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 117; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos12d" data-positionId="118" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 118; include("display_pieces.php"); ?></div>
+        </div>
     </div>
 </div>
 
