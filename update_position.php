@@ -1,11 +1,12 @@
 <?php
 include("db.php");
 
-//need new positionId
-//need placementId
+$placementId = $_REQUEST['placementId'];
+$positionId = $_REQUEST['positionId'];
 
-//UPDATE placements SET positionId = NEWPOSITION WHERE placementId = PLACEMENTID
-
-//or perhaps this will look at everything? not sure yet....
+$query = 'UPDATE placements SET positionId = ? WHERE (placementId = ?)';
+$query = $db->prepare($query);
+$query->bind_param("ii", $positionId, $placementId);
+$query->execute();
 
 

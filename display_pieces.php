@@ -22,7 +22,7 @@ if (isset($special_island)) {
                 $r= $results->fetch_assoc();
                 $unitName = $r['unitName'];
                 $placementId = $r['placementId'];
-                echo "<div class='".$unitName." game_piece' data-placementId='".$placementId."'></div>";
+                echo "<div class='".$unitName." game_piece' data-placementId='".$placementId."' draggable='true' ondragstart='drag(event)'></div>";
             }
         }
     }

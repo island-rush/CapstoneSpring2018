@@ -16,10 +16,6 @@ include("db.php");
             }
         }
 
-        function piece_click() {
-
-        }
-
         function make_big(ev, element) {
             ev.preventDefault();
             hideall_big();
@@ -50,6 +46,37 @@ include("db.php");
                 document.getElementById("bigblock12").style.visibility = "visible";
             }
         }
+
+        function drag(event) {
+            event.dataTransfer.setData("placementId", event.target.getAttribute("data-placementId"));
+        }
+
+        function drop(event, element) {
+            event.preventDefault();
+            var placementId = event.dataTransfer.getData("placementId");
+            element.appendChild(document.querySelector("[data-placementId='" + placementId + "']"));
+            var newposition = event.target.getAttribute("data-positionId");
+
+            //check valid move here, and if it is valid, update_piece_placement
+            // TODO: check validity of moves and adjust function call below inside the if
+
+            update_piece_placement(placementId, newposition);
+
+            //do stuff for database updating
+            //have the placementid from data?
+            //have the new positionid from the target?
+        }
+
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+
+        function update_piece_placement(placement, position) {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("POST", "update_position.php?placementId=" + placement + "&positionId=" + position, true);
+            xmlhttp.send();
+        }
+
     </script>
 </head>
 <body>
@@ -60,10 +87,10 @@ include("db.php");
         <div class="gridblockLeftBig" onclick="hideall_big()">
             <?php $special_island = 13; include("display_pieces.php"); ?>
         </div>
-        <div class="gridblock" data-positionId="1" onclick="hideall_big()">
+        <div class="gridblock" data-positionId="1" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">
             <?php $positionId = 1; include("display_pieces.php"); ?>
         </div>
-        <div class="gridblock" data-positionId="2" onclick="hideall_big()">
+        <div class="gridblock" data-positionId="2" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">
             <?php $positionId = 2; include("display_pieces.php"); ?>
         </div>
         <div class="gridblock" onclick="hideall_big()"></div>
