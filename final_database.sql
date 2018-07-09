@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `positions` (
     PRIMARY KEY(`positionID`)
 ) ;
 
--- 55 empty water positions?
+-- 55 empty water positions? (1-55 top left going right, then restart row on the left counting (because float divs)
 INSERT INTO `positions` VALUES (1, 'water', 400, 600);
 INSERT INTO `positions` VALUES (2, 'water', 400, 600);
 INSERT INTO `positions` VALUES (3, 'water', 400, 600);
@@ -227,6 +227,7 @@ INSERT INTO `placements` VALUES (1, 1, 6, 1);
 INSERT INTO `placements` VALUES (2, 1, 6, 1);
 INSERT INTO `placements` VALUES (3, 1, 6, 1);
 INSERT INTO `placements` VALUES (4, 1, 6, 1);
+INSERT INTO `placements` VALUES (5, 1, 6, 1);
 
 -- UPDATE placements SET positionId = NEWPOSITION WHERE placementId = PLACEMENTID
 
@@ -243,3 +244,5 @@ INSERT INTO `placements` VALUES (4, 1, 6, 1);
 UPDATE games SET gameBlueJoined=1 WHERE gameId = 1;
 
 SELECT * FROM placements NATURAL JOIN units WHERE (gameId = 1) AND (positionId = 1);
+
+SELECT * FROM placements;
