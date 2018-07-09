@@ -118,7 +118,7 @@ body {
     margin: 77px 3px 2.5px 390px;
 }
 #bigblock5{
-    visibility: visible;
+    visibility: hidden;
     background-image: url("resources/Image files/special_island5.png");
     margin: 187px 3px 2.5px 217px;
 }
@@ -173,3 +173,34 @@ body {
 .destroyer_piece{}
 .submarine_piece{}
 .soldier_piece{}
+
+.gridblockTiny{
+    margin-right: 1px;
+    margin-bottom: 1px;
+    position: absolute;
+    background-color: rgba(255, 15, 0, 0.45);
+    z-index: 16;
+}
+
+/*TODO: this different color so it stands out?    how does hovering work with pieces on the mouse dragging???*/
+.gridblockTiny:hover{
+    /*background-color: rgba(236, 1, 255, 0.15)*/
+}
+
+#pos13a{
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    margin-top: 95px;
+}
+
+#pos13b{
+
+}
+
+#pos13c{}
+#pos13d{}
+
+
+
+

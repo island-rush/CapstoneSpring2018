@@ -76,7 +76,16 @@ include("db.php");
 <div id="game_board" onmouseleave="hideall_big()">
     <div class="grid">
         <div class="gridblockLeftBig" onclick="hideall_big()">
-            <?php $special_island = 13; include("display_pieces.php"); ?>
+            <div class="gridblockTiny" id="pos13a" data-positionId="56" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 56; include("display_pieces.php"); ?></div>
+<!--            <div class="gridblockTiny" id="pos13b" data-positionId="57" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 57; include("display_pieces.php"); ?><!--</div>-->
+<!--            <div class="gridblockTiny" id="pos13c" data-positionId="58" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 58; include("display_pieces.php"); ?><!--</div>-->
+<!--            <div class="gridblockTiny" id="pos13d" data-positionId="59" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 59; include("display_pieces.php"); ?><!--</div>-->
+<!--            <div class="gridblockTiny" id="pos13e" data-positionId="60" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 60; include("display_pieces.php"); ?><!--</div>-->
+<!--            <div class="gridblockTiny" id="pos13f" data-positionId="61" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 61; include("display_pieces.php"); ?><!--</div>-->
+<!--            <div class="gridblockTiny" id="pos13g" data-positionId="62" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 62; include("display_pieces.php"); ?><!--</div>-->
+<!--            <div class="gridblockTiny" id="pos13h" data-positionId="63" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 63; include("display_pieces.php"); ?><!--</div>-->
+<!--            <div class="gridblockTiny" id="pos13i" data-positionId="64" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 64; include("display_pieces.php"); ?><!--</div>-->
+<!--            <div class="gridblockTiny" id="pos13j" data-positionId="65" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 65; include("display_pieces.php"); ?><!--</div>-->
         </div>
         <div class="gridblock" data-positionId="1" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 1; include("display_pieces.php"); ?></div>
         <div class="gridblock" data-positionId="2" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 2; include("display_pieces.php"); ?></div>
@@ -150,7 +159,9 @@ include("db.php");
         <div class="gridblock" data-positionId="53" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 53; include("display_pieces.php"); ?></div>
         <div class="gridblock" data-positionId="54" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 54; include("display_pieces.php"); ?></div>
         <div class="gridblock" data-positionId="55" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 55; include("display_pieces.php"); ?></div>
-        <div id="bigblock1" class="bigblock bigblock3x3"></div>
+        <div id="bigblock1" class="bigblock bigblock3x3">
+            //put divs here like the water divs, each with positionId...and a php call?
+        </div>
         <div id="bigblock2" class="bigblock bigblock3x3"></div>
         <div id="bigblock3" class="bigblock bigblock3x3"></div>
         <div id="bigblock4" class="bigblock bigblock3x3"></div>
