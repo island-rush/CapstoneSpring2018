@@ -156,3 +156,19 @@
     background-image: url("resources/Image files/special_island12.png");
     margin: 365px 3px 2.5px 390px;
 }
+
+.game_piece{
+    width: 45%;
+    height: 45%;
+    visibility: visible;
+    z-index: 25;
+    float: left;
+    position: relative;
+}
+
+.test_piece{background-image: url("resources/Image files/test_piece.png");}
+.transport_piece{}
+.aircraftcarrier_piece{}
+.destroyer_piece{}
+.submarine_piece{}
+.soldier_piece{}

@@ -50,18 +50,20 @@ CREATE TABLE IF NOT EXISTS `units`(
     `unitMoves` int(3) NOT NULL,
     `unitAttack` int(3) NOT NULL,
     `unitDefense` int(3) NOT NULL,
+    `unitTeam` varchar(10) NOT NULL,
+    `unitImageUrl` varchar(64) NOT NULL,
     PRIMARY KEY(`unitId`)
 );
 
 -- Insert units into table.
-INSERT INTO `units` VALUES (1, 'transport', 2, 0, 2);
-INSERT INTO `units` VALUES (2, 'aircraft carrier', 2, 1, 3);
-INSERT INTO `units` VALUES (3, 'destroyer', 2, 3, 4);
-INSERT INTO `units` VALUES (4, 'submarine', 2, 4, 4);
-INSERT INTO `units` VALUES (5, 'soldier', 1, 2, 2);
+-- INSERT INTO `units` VALUES (1, 'transport', 2, 0, 2);
+-- INSERT INTO `units` VALUES (2, 'aircraft carrier', 2, 1, 3);
+-- INSERT INTO `units` VALUES (3, 'destroyer', 2, 3, 4);
+-- INSERT INTO `units` VALUES (4, 'submarine', 2, 4, 4);
+-- INSERT INTO `units` VALUES (5, 'soldier', 1, 2, 2);
 
 -- for testing the html shit
-INSERT INTO `units` VALUES (6, 'test_piece', 2, 2, 2);
+INSERT INTO `units` VALUES (6, 'test_piece', 2, 2, 2, 'blue', 'resources/Image files/test_piece.png');
 
 
 -- Table for Game Board Allowed Positions (for troops and whatnot)
@@ -210,11 +212,11 @@ INSERT INTO `positions` VALUES (118, 'special_island12', 400, 600);
 
 -- Table of Units
 CREATE TABLE IF NOT EXISTS `placements`(
-	`placeId` int(16) NOT NULL AUTO_INCREMENT,
+	`placementId` int(16) NOT NULL AUTO_INCREMENT,
     `gameId` int(5) NOT NULL,
     `unitId` int(5) NOT NULL,
     `positionId` int(4) NOT NULL,
-    PRIMARY KEY(`placeId`),
+    PRIMARY KEY(`placementId`),
     FOREIGN KEY (unitId) REFERENCES units(unitId),
     FOREIGN KEY (gameId) REFERENCES games(gameId),
     FOREIGN KEY (positionId) REFERENCES positions(positionId)
@@ -222,6 +224,13 @@ CREATE TABLE IF NOT EXISTS `placements`(
 
 -- Insert placements into table.
 INSERT INTO `placements` VALUES (1, 1, 6, 1);
+INSERT INTO `placements` VALUES (2, 1, 6, 1);
+INSERT INTO `placements` VALUES (3, 1, 6, 1);
+INSERT INTO `placements` VALUES (4, 1, 6, 1);
+
+-- UPDATE placements SET positionId = NEWPOSITION WHERE placementId = PLACEMENTID
+
+
 -- INSERT INTO `placements` VALUES (2, 1, 2, 1);
 -- INSERT INTO `placements` VALUES (3, 1, 1, 1);
 -- INSERT INTO `placements` VALUES (4, 2, 5, 1);
@@ -232,3 +241,5 @@ INSERT INTO `placements` VALUES (1, 1, 6, 1);
 -- SELECT gameRedJoined, gameBlueJoined FROM games WHERE gameId = 1;
 -- UPDATE games SET gameRedJoined=1 WHERE gameId = 1;
 UPDATE games SET gameBlueJoined=1 WHERE gameId = 1;
+
+SELECT * FROM placements NATURAL JOIN units WHERE (gameId = 1) AND (positionId = 1);

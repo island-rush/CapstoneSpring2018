@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("db.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,6 +14,10 @@ session_start();
             for (i = 0; i < x.length; i++) {
                 x[i].style.visibility = "hidden";
             }
+        }
+
+        function piece_click() {
+
         }
 
         function make_big(ev, element) {
@@ -53,16 +58,14 @@ session_start();
 <div id="game_board" onmouseleave="hideall_big()">
     <div class="grid">
         <div class="gridblockLeftBig" onclick="hideall_big()">
-            <div>
-                <?php $special_island = 13; include("display_pieces.php"); ?>
-            </div>
+            <?php $special_island = 13; include("display_pieces.php"); ?>
         </div>
-        <div class="gridblock" onclick="hideall_big()">
-            <div class="pieceblock">
-                <?php $positionId = 1; include("display_pieces.php"); ?>
-            </div>
+        <div class="gridblock" data-positionId="1" onclick="hideall_big()">
+            <?php $positionId = 1; include("display_pieces.php"); ?>
         </div>
-        <div class="gridblock" onclick="hideall_big()"></div>
+        <div class="gridblock" data-positionId="2" onclick="hideall_big()">
+            <?php $positionId = 2; include("display_pieces.php"); ?>
+        </div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
         <div class="gridblock" onclick="hideall_big()"></div>
