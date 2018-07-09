@@ -17,34 +17,20 @@ include("db.php");
         }
 
         function make_big(ev, element) {
-            ev.preventDefault();
+            ev.preventDefault();  //this perhaps not needed, which would remove event parameter
             hideall_big();
-            // TODO: make this better with taking out numbers...you know...parallel fucking shit
-            if (element.id === "special_island1") {
-                document.getElementById("bigblock1").style.visibility = "visible";
-            } else if (element.id === "special_island2") {
-                document.getElementById("bigblock2").style.visibility = "visible";
-            } else if (element.id === "special_island3") {
-                document.getElementById("bigblock3").style.visibility = "visible";
-            } else if (element.id === "special_island4") {
-                document.getElementById("bigblock4").style.visibility = "visible";
-            } else if (element.id === "special_island5") {
-                document.getElementById("bigblock5").style.visibility = "visible";
-            } else if (element.id === "special_island6") {
-                document.getElementById("bigblock6").style.visibility = "visible";
-            } else if (element.id === "special_island7") {
-                document.getElementById("bigblock7").style.visibility = "visible";
-            } else if (element.id === "special_island8") {
-                document.getElementById("bigblock8").style.visibility = "visible";
-            } else if (element.id === "special_island9") {
-                document.getElementById("bigblock9").style.visibility = "visible";
-            } else if (element.id === "special_island10") {
-                document.getElementById("bigblock10").style.visibility = "visible";
-            } else if (element.id === "special_island11") {
-                document.getElementById("bigblock11").style.visibility = "visible";
-            } else if (element.id === "special_island12") {
-                document.getElementById("bigblock12").style.visibility = "visible";
-            }
+            if (element.id === "special_island1") {document.getElementById("bigblock1").style.visibility = "visible";
+            } else if (element.id === "special_island2") {document.getElementById("bigblock2").style.visibility = "visible";
+            } else if (element.id === "special_island3") {document.getElementById("bigblock3").style.visibility = "visible";
+            } else if (element.id === "special_island4") {document.getElementById("bigblock4").style.visibility = "visible";
+            } else if (element.id === "special_island5") {document.getElementById("bigblock5").style.visibility = "visible";
+            } else if (element.id === "special_island6") {document.getElementById("bigblock6").style.visibility = "visible";
+            } else if (element.id === "special_island7") {document.getElementById("bigblock7").style.visibility = "visible";
+            } else if (element.id === "special_island8") {document.getElementById("bigblock8").style.visibility = "visible";
+            } else if (element.id === "special_island9") {document.getElementById("bigblock9").style.visibility = "visible";
+            } else if (element.id === "special_island10") {document.getElementById("bigblock10").style.visibility = "visible";
+            } else if (element.id === "special_island11") {document.getElementById("bigblock11").style.visibility = "visible";
+            } else if (element.id === "special_island12") {document.getElementById("bigblock12").style.visibility = "visible";}
         }
 
         function drag(event) {
@@ -168,7 +154,7 @@ include("db.php");
         <div id="bigblock2" class="bigblock bigblock3x3"></div>
         <div id="bigblock3" class="bigblock bigblock3x3"></div>
         <div id="bigblock4" class="bigblock bigblock3x3"></div>
-        <div id="bigblock5" class="bigblock"></div>
+        <div id="bigblock5" class="bigblock bigblock3x3"></div>
         <div id="bigblock6" class="bigblock bigblock3x3"></div>
         <div id="bigblock7" class="bigblock bigblock3x3"></div>
         <div id="bigblock8" class="bigblock bigblock3x3"></div>
