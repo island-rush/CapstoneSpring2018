@@ -46,7 +46,7 @@ use session variable to figure out red team or blue team (set up in the game_log
                         
 -sanitize comments and clean up code to be better than what jack fucking did
 
--mouse dragging hover over islands for popup and leave hover for
+DONE-mouse dragging hover over islands for popup and leave hover for
     only when mouse is dragging something (variable to keep track of it...)
     after 1 second-do the things
     if dragging out with an item on the mouse....wait 1 second and close the popup
@@ -64,3 +64,21 @@ use session variable to figure out red team or blue team (set up in the game_log
         although....if they make changes, and the other refreshes...they will regrab the database...so maybe the placement needs more variables
             locked positionId, and newpositionId...and the submitting (after verifying moves) will update the locked ones in the database to what the new ones are
                 and now the board updates based upon the locked position...so any updates don't become final until the submit occurs
+
+-fix redundancy within sql, remove unused features (like url for unit)
+
+-possibly generate the board with php, because of how redundant each element is
+    only differences between ocean blocks is positionId?
+    DO THIS ABSOLUTELY LAST (changing/adding elements is a bitch within php echo statements)
+    ONLY do this for readability ('clean code') of main gameboard?...should not affect performance (may even decrease it)
+
+--------------------------------------------------------------
+NOTES ABOUT SIDE PANEL (during call between spencer and jack)
+    display purchasing cash / points
+    panel for choosing what to buy (click and buy)
+    empty panel for storing what was bought (position 118 adjacent to everything)
+        drag and drop pieces from here onto the board (check all things were placed?)
+    buttons for saving game/exiting game (these possibly in an upper nav bar? drop down menu?)
+    buttons for going to next phase
+    display for what phase a player is on
+    buttons for other stuff player does during phases...
