@@ -71,25 +71,20 @@ DONE-mouse dragging hover over islands for popup and leave hover for
     either thing works (but may need to consider backwards (undo) movements?)
         unless there is an undo button (which would have to access a previous movement)
             confirmed using new table of movements... (and keep track of turn?) (only undo what was in this turn?)
-    
     -need to add turns to the game table and include these in the movements
         if only undo movements in current phase, turn++ on every phase
         if undo movements in any phase, turn++ on every change of team's turn
             this may be harder and unlikely, may have any phase completion be final
                 otherwise, need to keep track of the phase as well in movements
                     as well as tracking the phase changes to 'undo' them to get back into them
-                        you can see why this is not ideal
-                        
+                        you can see why this is not ideal                  
     -undo mechanics, only dealing with current phase
         -clear the movements after phase is done?
             -may make things slightly easier
         -don't clear movements, keep adding to it only with updated turns/phases
-            -little more complex, but adds future capability to replay the game (admin feature?)
-        
-        -delete a movement after undoing it is a must
-        
+            -little more complex, but adds future capability to replay the game (admin feature?)      
+        -delete a movement after undoing it is a must       
         -things are still displayed from the placements database, and movements only use temp positions (which become final if no undo)
-        
         -only make a movement after it is valid from javascript checks (adj matrix/unit moves...etc)
         
 -possibly remove positions table in sql entirely (not used yet)
@@ -102,6 +97,7 @@ DONE-mouse dragging hover over islands for popup and leave hover for
     DO THIS ABSOLUTELY LAST (changing/adding elements is a bitch within php echo statements)
     ONLY do this for readability ('clean code') of main gameboard?...should not affect performance (may even decrease it)
 
+Sidepanel
 --------------------------------------------------------------
 NOTES ABOUT SIDE PANEL (during call between spencer and jack)
     display purchasing cash / points
