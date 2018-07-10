@@ -20,7 +20,7 @@ To Do in list format:
 
 -Display board
 -Create sidepanel (optional design)
--display troops on board based on  database
+-display troops on board based on  database (done)
 -Add troops to board
 -Delete troops from board
 -Move troops from cell to cell along board based on unit's move allowance.
@@ -47,6 +47,10 @@ use session variable to figure out red team or blue team (set up in the game_log
 -sanitize comments and clean up code to be better than what jack fucking did
 
 -mouse dragging hover over islands for popup and leave hover for
+    only when mouse is dragging something (variable to keep track of it...)
+    after 1 second-do the things
+    if dragging out with an item on the mouse....wait 1 second and close the popup
+    if mouse leaves without an item...don't close the popup...(unless default leaves map? (this functionality may change))
 
 -figure out how logic of moving will work, what kinds of things need to happen with a side panel?
     sidepanel = adding troops and turn changes?

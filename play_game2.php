@@ -70,7 +70,7 @@ include("db.php");
 
     </script>
 </head>
-<body>
+<body onload="hideall_big()">
 <!--TODO: redo the entire board in php? (maybe not)-->
 <!--TODO: how to re-store / save the new positions into the database....-->
 <div id="game_board" onmouseleave="hideall_big()">
