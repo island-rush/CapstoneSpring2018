@@ -43,4 +43,20 @@ use session variable to figure out red team or blue team (set up in the game_log
                 after submitting, javascript to lock out stuff (using ajax to wait for update in database)
                     after submitting a turn, set an update flag in the database for the other person to check
                         event_handler_2
+                        
 -sanitize comments and clean up code to be better than what jack fucking did
+
+-mouse dragging hover over islands for popup and leave hover for
+
+-figure out how logic of moving will work, what kinds of things need to happen with a side panel?
+    sidepanel = adding troops and turn changes?
+        perhaps a trashcan icon? (like drag things into it for deletion?)
+        perhaps clicking a gamepiece will display info about it (or just text shown "selected: troops")
+        figure out movement parameters for gameplay
+            add logic for displaying remaining moves and have this update with each movement (if thats how it works)
+            
+-make sure turn based gameplay works
+    add "locking out" mechanism and possibly another synch php to push out changes the other player makes? (after submitting)
+        although....if they make changes, and the other refreshes...they will regrab the database...so maybe the placement needs more variables
+            locked positionId, and newpositionId...and the submitting (after verifying moves) will update the locked ones in the database to what the new ones are
+                and now the board updates based upon the locked position...so any updates don't become final until the submit occurs
