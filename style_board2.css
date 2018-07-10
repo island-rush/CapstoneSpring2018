@@ -211,7 +211,9 @@ body {
 #pos13g{}
 #pos13h{}
 #pos13i{}
-#pos13j{}
+#pos13j{
+    /*This position has no letter (small bottom triangle shit)...not sure if should be included?*/
+}
 
 #pos14a{}
 #pos14b{}

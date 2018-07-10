@@ -94,6 +94,8 @@ DONE-mouse dragging hover over islands for popup and leave hover for
         
 -possibly remove positions table in sql entirely (not used yet)
     -only uses could be for game logic (if the current position is water...if the current position is land...)
+    
+-change formatting in sql file to match everywhere (not sometimes `` and without....all or none)
 
 -possibly generate the board with php, because of how redundant each element is
     only differences between ocean blocks is positionId?
