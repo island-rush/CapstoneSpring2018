@@ -12,25 +12,25 @@ include("db.php");
             var x = document.getElementsByClassName("bigblock");
             var i;
             for (i = 0; i < x.length; i++) {
-                x[i].style.visibility = "hidden";
+                x[i].style.display = "none";
             }
         }
 
         function make_big(ev, element) {
             ev.preventDefault();  //this perhaps not needed, which would remove event parameter
             hideall_big();
-            if (element.id === "special_island1") {document.getElementById("bigblock1").style.visibility = "visible";
-            } else if (element.id === "special_island2") {document.getElementById("bigblock2").style.visibility = "visible";
-            } else if (element.id === "special_island3") {document.getElementById("bigblock3").style.visibility = "visible";
-            } else if (element.id === "special_island4") {document.getElementById("bigblock4").style.visibility = "visible";
-            } else if (element.id === "special_island5") {document.getElementById("bigblock5").style.visibility = "visible";
-            } else if (element.id === "special_island6") {document.getElementById("bigblock6").style.visibility = "visible";
-            } else if (element.id === "special_island7") {document.getElementById("bigblock7").style.visibility = "visible";
-            } else if (element.id === "special_island8") {document.getElementById("bigblock8").style.visibility = "visible";
-            } else if (element.id === "special_island9") {document.getElementById("bigblock9").style.visibility = "visible";
-            } else if (element.id === "special_island10") {document.getElementById("bigblock10").style.visibility = "visible";
-            } else if (element.id === "special_island11") {document.getElementById("bigblock11").style.visibility = "visible";
-            } else if (element.id === "special_island12") {document.getElementById("bigblock12").style.visibility = "visible";}
+            if (element.id === "special_island1") {document.getElementById("bigblock1").style.display = "block";
+            } else if (element.id === "special_island2") {document.getElementById("bigblock2").style.display = "block";
+            } else if (element.id === "special_island3") {document.getElementById("bigblock3").style.display = "block";
+            } else if (element.id === "special_island4") {document.getElementById("bigblock4").style.display = "block";
+            } else if (element.id === "special_island5") {document.getElementById("bigblock5").style.display = "block";
+            } else if (element.id === "special_island6") {document.getElementById("bigblock6").style.display = "block";
+            } else if (element.id === "special_island7") {document.getElementById("bigblock7").style.display = "block";
+            } else if (element.id === "special_island8") {document.getElementById("bigblock8").style.display = "block";
+            } else if (element.id === "special_island9") {document.getElementById("bigblock9").style.display = "block";
+            } else if (element.id === "special_island10") {document.getElementById("bigblock10").style.display = "block";
+            } else if (element.id === "special_island11") {document.getElementById("bigblock11").style.display = "block";
+            } else if (element.id === "special_island12") {document.getElementById("bigblock12").style.display = "block";}
         }
 
         function drag(event) {
@@ -77,9 +77,9 @@ include("db.php");
     <div class="grid">
         <div class="gridblockLeftBig" onclick="hideall_big()">
             <div class="gridblockTiny" id="pos13a" data-positionId="56" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 56; include("display_pieces.php"); ?></div>
-<!--            <div class="gridblockTiny" id="pos13b" data-positionId="57" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 57; include("display_pieces.php"); ?><!--</div>-->
-<!--            <div class="gridblockTiny" id="pos13c" data-positionId="58" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 58; include("display_pieces.php"); ?><!--</div>-->
-<!--            <div class="gridblockTiny" id="pos13d" data-positionId="59" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 59; include("display_pieces.php"); ?><!--</div>-->
+            <div class="gridblockTiny" id="pos13b" data-positionId="57" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 57; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos13c" data-positionId="58" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 58; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos13d" data-positionId="59" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 59; include("display_pieces.php"); ?></div>
 <!--            <div class="gridblockTiny" id="pos13e" data-positionId="60" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 60; include("display_pieces.php"); ?><!--</div>-->
 <!--            <div class="gridblockTiny" id="pos13f" data-positionId="61" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 61; include("display_pieces.php"); ?><!--</div>-->
 <!--            <div class="gridblockTiny" id="pos13g" data-positionId="62" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 62; include("display_pieces.php"); ?><!--</div>-->
@@ -169,8 +169,8 @@ include("db.php");
         <div class="gridblock" data-positionId="54" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 54; include("display_pieces.php"); ?></div>
         <div class="gridblock" data-positionId="55" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 55; include("display_pieces.php"); ?></div>
         <div id="bigblock1" class="bigblock bigblock3x3">
-<!--            <div class="gridblockTiny" id="pos1a" data-positionId="76" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 76; include("display_pieces.php"); ?><!--</div>-->
-<!--            <div class="gridblockTiny" id="pos1b" data-positionId="77" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 77; include("display_pieces.php"); ?><!--</div>-->
+            <div class="gridblockTiny" id="pos1a" data-positionId="76" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 76; include("display_pieces.php"); ?></div>
+            <div class="gridblockTiny" id="pos1b" data-positionId="77" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 77; include("display_pieces.php"); ?></div>
 <!--            <div class="gridblockTiny" id="pos1c" data-positionId="78" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 78; include("display_pieces.php"); ?><!--</div>-->
 <!--            <div class="gridblockTiny" id="pos1d" data-positionId="79" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 79; include("display_pieces.php"); ?><!--</div>-->
         </div>

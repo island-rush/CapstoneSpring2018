@@ -227,7 +227,7 @@ INSERT INTO `placements` VALUES (1, 1, 6, 1);
 INSERT INTO `placements` VALUES (2, 1, 6, 1);
 INSERT INTO `placements` VALUES (3, 1, 6, 1);
 INSERT INTO `placements` VALUES (4, 1, 6, 1);
-INSERT INTO `placements` VALUES (5, 1, 6, 1);
+-- INSERT INTO `placements` VALUES (5, 1, 6, 1);
 
 -- UPDATE placements SET positionId = NEWPOSITION WHERE placementId = PLACEMENTID
 

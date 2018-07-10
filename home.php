@@ -17,7 +17,7 @@
     <input type="Submit" name="Submit" value="Logout">
 </form> -->
 <div class="spacer">
-    <p>Welcome to Island Rush, the MSS251 Strategic Wargame created by Nic Marron, Bailey Little, JD Kalt, Griffin Gluck, and Juan Duque. Their board game has been computerized by Jack Kulp, Chris Darcy, and Spencer Adolph.</p>
+    <p>Welcome to Island Rush, the MSS251 Strategic Wargame created by Nic Marron, Bailey Little, JD Kalt, Griffin Gluck, and Juan Duque. Their board game has been computerized by Jack Kulp, Chris Darcy, and Spencer Adolph (mostly me lol).</p>
     <h4>How to Play</h4>
     <p>This is a paragraph explaining the basic rules. blah blah blah. To see a powerpoint about how to play, <a href="https://docs.google.com/presentation/d/1RCPrUlMYaVzH34MNZrsaX2WKfp3Fzu1cS3Lv0zq-cIg/edit?usp=sharing">Click Here</a>.</p>
     <img style="float:right" src="resources/Image%20files/Board_for_cropping.png" alt="Original Game Board" width="70%" height="auto">
