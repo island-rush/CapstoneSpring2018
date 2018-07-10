@@ -89,8 +89,6 @@ include("db.php");
     </script>
 </head>
 <body onload="hideall_big()">
-<!--TODO: redo the entire board in php? (maybe not)-->
-<!--TODO: how to re-store / save the new positions into the database....-->
 <div id="game_board" onmouseleave="hideall_big()">
     <div class="grid">
         <div class="gridblockLeftBig" ondragenter="clear_hover_timer(event, this)" onclick="hideall_big()">
