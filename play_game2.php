@@ -93,20 +93,30 @@ include("db.php");
 
         function update_piece_placement(placement, position) {
             var xmlhttp = new XMLHttpRequest();
+            //TODO: This may be good as GET instead of POST
             xmlhttp.open("POST", "update_position.php?placementId=" + placement + "&positionId=" + position, true);
             xmlhttp.send();
         }
 
         function create_piece_placement() {
-            // alert("hereeeeee");
             var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("POST", "place_newpiece.php", true);
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    var response = this.responseText;
+                    var parent = document.querySelector("[data-positionId='119']");
+                    parent.innerHTML += response;
+                }
+            };
+            xmlhttp.open("GET", "place_newpiece.php", true);
             xmlhttp.send();
-            // alert("noooo");
         }
 
         function hidecover() {
             document.getElementById("cover").style.visibility = "hidden"
+        }
+
+        function throwaway(event) {
+            alert("throwing away");
         }
     </script>
 </head>
@@ -117,6 +127,7 @@ include("db.php");
             <div class="gridblock" ondragenter="clear_hover_timer(event)" data-positionId="119" ondragover="allowDrop(event)" ondrop="drop(event, this)">
                 <?php $positionId = 119; include("display_pieces.php"); ?>
             </div>
+            <div id="trashbox" class="gridblock" ondragover="allowDrop(event)" ondrop="throwaway(event)"></div>
         </div>
         <div class="subside_panel" id="middle_panel">Phase2</div>
         <div class="subside_panel" id="bottom_panel">Other</div>

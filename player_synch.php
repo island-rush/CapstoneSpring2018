@@ -37,5 +37,6 @@ if ($team == "red") {
     }
 }
 
+//TODO: add these everywhere...
 $results->free();
 $db->close();
