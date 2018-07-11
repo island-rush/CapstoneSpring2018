@@ -88,11 +88,15 @@ include("db.php");
             xmlhttp.send();
         }
 
+        function hidecover() {
+            document.getElementById("cover").style.visibility = "hidden"
+        }
     </script>
 </head>
-<body onload="hideall_big()">
+<body onload="hideall_big(); hidecover();">
 <div id="game_board" onmouseleave="hideall_big()">
     <div class="grid">
+        <div id="cover"></div>
         <div class="gridblockLeftBig" ondragenter="clear_hover_timer(event)" onclick="hideall_big()">
             <div class="gridblockTiny" id="pos13a" data-positionId="56" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 56; include("display_pieces.php"); ?></div>
             <div class="gridblockTiny" id="pos13b" data-positionId="57" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 57; include("display_pieces.php"); ?></div>

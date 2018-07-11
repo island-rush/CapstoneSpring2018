@@ -65,8 +65,6 @@ DONE-mouse dragging hover over islands for popup and leave hover for
             locked positionId, and newpositionId...and the submitting (after verifying moves) will update the locked ones in the database to what the new ones are
                 and now the board updates based upon the locked position...so any updates don't become final until the submit occurs
 
--fix redundancy within sql, remove unused features (like url for unit)
-
 -add temp and confirmed placements...or add table called 'movements' that are added to...
     either thing works (but may need to consider backwards (undo) movements?)
         unless there is an undo button (which would have to access a previous movement)

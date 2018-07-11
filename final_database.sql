@@ -210,22 +210,20 @@ CREATE TABLE IF NOT EXISTS `placements`(
     `gameId` int(5) NOT NULL,
     `unitId` int(5) NOT NULL,
     `teamId` varchar(10) NOT NULL,
-    `confirmedPositionId` int(4) NOT NULL,
-    `temporaryPositionId` int(4) NOT NULL,
+    `positionId` int(4) NOT NULL,
     PRIMARY KEY(`placementId`),
     FOREIGN KEY (unitId) REFERENCES units(unitId),
     FOREIGN KEY (gameId) REFERENCES games(gameId),
-    FOREIGN KEY (confirmedPositionId) REFERENCES positions(positionId),
-    FOREIGN KEY (temporaryPositionId) REFERENCES positions(positionId)
+    FOREIGN KEY (positionId) REFERENCES positions(positionId)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 -- Insert placements into table.
-INSERT INTO `placements` VALUES (1, 1, 6, 'red', 1, 1);
-INSERT INTO `placements` VALUES (2, 1, 6, 'red', 1, 1);
-INSERT INTO `placements` VALUES (3, 1, 6, 'red', 1, 1);
-INSERT INTO `placements` VALUES (4, 1, 6, 'red', 1, 1);
+INSERT INTO `placements` VALUES (1, 1, 6, 'red', 1);
+INSERT INTO `placements` VALUES (2, 1, 6, 'red', 1);
+-- INSERT INTO `placements` VALUES (3, 1, 6, 'red', 1);
+-- INSERT INTO `placements` VALUES (4, 1, 6, 'red', 1);
 -- this shows overflow mechanics (may change to 9 per position possible)
--- INSERT INTO `placements` VALUES (5, 1, 6, 1);
+-- INSERT INTO `placements` VALUES (5, 1, 6, 'red', 1);
 
 
 -- Table of Movements
@@ -247,3 +245,5 @@ CREATE TABLE IF NOT EXISTS `movements`(
 UPDATE games SET gameBlueJoined=1 WHERE gameId = 1;
 
 SELECT * FROM placements;
+
+-- SELECT * FROM placements NATURAL JOIN units WHERE (gameId = 1) AND (temporaryPositionId)

@@ -1,7 +1,7 @@
 <?php
 $gameId = $_SESSION['gameId'];
 if (isset($positionId)) {
-    $query = 'SELECT * FROM placements NATURAL JOIN units WHERE (gameId = ?) AND (temporaryPositionId = ?)';
+    $query = 'SELECT * FROM placements NATURAL JOIN units WHERE (gameId = ?) AND (positionId = ?)';
     $query = $db->prepare($query);
     $query->bind_param("ii", $gameId, $positionId);
     $query->execute();
