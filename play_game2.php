@@ -43,6 +43,13 @@ include("db.php");
             event.dataTransfer.setData("placementId", event.target.getAttribute("data-placementId"));
         }
 
+        function drag2(event, element) {
+            event.dataTransfer.setData("placementId", event.target.getAttribute("data-placementId"));
+            var el2 = element.cloneNode();
+            element.parentNode.appendChild(el2);
+            // alert(element.parentNode.id);
+        }
+
         function drop(event, element) {
             event.preventDefault();
             var placementId = event.dataTransfer.getData("placementId");
@@ -95,7 +102,15 @@ include("db.php");
     </script>
 </head>
 <body onload="hideall_big(); hidecover();">
-    <div id="side_panel"></div>
+    <div id="side_panel">
+        <div class="subside_panel" id="top_panel">
+            <div class="gridblock" ondragenter="clear_hover_timer(event)" data-positionId="119" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">
+                <?php $positionId = 119; include("display_pieces.php"); ?>
+            </div>
+        </div>
+        <div class="subside_panel" id="middle_panel">Phase2</div>
+        <div class="subside_panel" id="bottom_panel">Other</div>
+    </div>
 
     <div id="game_board" onmouseleave="hideall_big()">
         <div class="grid">

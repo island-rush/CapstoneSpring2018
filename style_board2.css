@@ -1,4 +1,5 @@
 /*TODO: Consolidate these better (multi classes for single divs...bigblock class not implemented yet)*/
+/*TODO: find out way to stop google from caching the css etc...*/
 
 html,body {
     /*width: 100%;*/
@@ -13,6 +14,12 @@ html,body {
     height: 95vh;
     width: 28vw;
     float: left;
+}
+
+.subside_panel{
+    background-color: yellow;
+    width: 100%;
+    height: 33.33%;
 }
 
 #cover{

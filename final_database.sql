@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `games`(
     `gameRedLeader`  varchar(50), -- just a name for the cadet commander
     `gameBlueLeader`  varchar(50), -- just a name for the cadet commander
     `gameCurrentTeam`  varchar(5) NOT NULL, -- 'Red' or 'Blue'
-    `gameCurrentTurn` int(4) NOT NULL, -- 0, 1, 2, 3, ....changes each team's turn (hopefully?)
+    `gameTurn` int(4) NOT NULL, -- 0, 1, 2, 3, ....changes each team's turn (hopefully?)
     `gamePhase`  varchar(20) NOT NULL, -- ex: 'BuyTroops', 'PlaceTroops', 'Attack', 'Fortify'
     `gameRedRpoints` int(5) NOT NULL,
     `gameBlueRpoints` int(5) NOT NULL,
@@ -202,6 +202,7 @@ INSERT INTO `positions` VALUES (115, 'special_island12');
 INSERT INTO `positions` VALUES (116, 'special_island12');
 INSERT INTO `positions` VALUES (117, 'special_island12');
 INSERT INTO `positions` VALUES (118, 'special_island12');
+INSERT INTO `positions` VALUES (119, 'special_island12');
 
 
 -- Table of Units
@@ -222,6 +223,9 @@ INSERT INTO `placements` VALUES (1, 1, 6, 'red', 1);
 INSERT INTO `placements` VALUES (2, 1, 6, 'red', 1);
 INSERT INTO `placements` VALUES (3, 1, 6, 'red', 1);
 INSERT INTO `placements` VALUES (4, 1, 6, 'red', 1);
+
+INSERT INTO `placements` VALUES (5, 1, 6, 'red', 119);
+
 -- this shows overflow mechanics (may change to 9 per position possible)
 -- INSERT INTO `placements` VALUES (5, 1, 6, 'red', 1);
 

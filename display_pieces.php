@@ -12,7 +12,7 @@ if (isset($positionId)) {
             $r= $results->fetch_assoc();
             $unitName = $r['unitName'];
             $placementId = $r['placementId'];
-            echo "<div class='".$unitName." game_piece' data-placementId='".$placementId."' draggable='true' ondragstart='drag(event)'></div>";
+            echo "<div class='".$unitName." game_piece' data-placementId='".$placementId."' draggable='true' ondragstart='drag2(event, this)'></div>";
         }
     }
 }
