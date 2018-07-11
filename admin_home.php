@@ -1,5 +1,4 @@
 <?php
-
 // retrieve session information
 session_start();
 
