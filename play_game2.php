@@ -127,7 +127,7 @@ include("db.php");
             //TODO: This may be good as GET instead of POST
             xmlhttp.open("POST", "delete_piece.php?placementId=" + placementId, true);
             xmlhttp.send();
-
+            //TODO: there are better ways of deleting elements from html... (try to get it on 1 line)
             trashbox.appendChild(document.querySelector("[data-placementId='" + placementId + "']"));
             trashbox.removeChild(document.querySelector("[data-placementId='" + placementId + "']"));
         }
@@ -178,7 +178,7 @@ include("db.php");
             <div class="gridblock" id="special_island3" onclick="make_big(event, this)" ondragleave="check_prevent_popup(event)" ondragenter="start_hover_timer(event, this)"></div>
             <div class="gridblock" ondragenter="clear_hover_timer(event)" data-positionId="13" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 13; include("display_pieces.php"); ?></div>
             <div class="gridblockRightBig" ondragenter="clear_hover_timer(event)" onclick="hideall_big()">
-                <div class="gridblockTiny" id="pos14a" data-positionId="66" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 66; include("display_pieces.php"); ?></div>
+<!--                <div class="gridblockTiny" id="pos14a" data-positionId="66" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 66; include("display_pieces.php"); ?><!--</div>-->
     <!--            <div class="gridblockTiny" id="pos14b" data-positionId="67" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 67; include("display_pieces.php"); ?><!--</div>-->
     <!--            <div class="gridblockTiny" id="pos14c" data-positionId="68" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 68; include("display_pieces.php"); ?><!--</div>-->
     <!--            <div class="gridblockTiny" id="pos14d" data-positionId="69" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">--><?php //$positionId = 69; include("display_pieces.php"); ?><!--</div>-->

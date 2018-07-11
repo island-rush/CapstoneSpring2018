@@ -221,21 +221,14 @@ html,body {
 }
 #pos13e{}
 #pos13f{}
-#pos13g{}
-#pos13h{}
-#pos13i{}
-#pos13j{
+#pos13g{
     /*This position has no letter (small bottom triangle shit)...not sure if should be included?*/
 }
+#pos13h{}
+#pos13i{}
+#pos13j{}
 
-#pos14a{
-    width: 22%;
-    height: 22%;
-    margin-left: 28%;
-    margin-top: 68%;
-    -ms-transform: rotate(-20deg); /* IE 9 */
-    -webkit-transform: rotate(-20deg); /* Safari */
-    transform: rotate(-20deg);}
+#pos14a{}
 #pos14b{}
 #pos14c{}
 #pos14d{}
