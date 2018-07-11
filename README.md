@@ -30,9 +30,10 @@ what the fuck will an admin do?
     (what does an admin need to do (teacher's needs))
         ideas
             -create game? (or just have the games already in there)
+                -SPENC: setup a game and insert all of the Game parameters so it can be played
             -reset a game?
             -set parameters for a game
-                -set the game state manually?
+                -SPENC: Change the list of newsflash events (lategame)
             -view a game in progress/saved
             -edit game info (team leads/points...other shit...)
 
@@ -44,7 +45,7 @@ use session variable to figure out red team or blue team (set up in the game_log
                     after submitting a turn, set an update flag in the database for the other person to check
                         event_handler_2
                         
--sanitize comments and clean up code to be better than what jack fucking did
+-sanitize comments and clean up code to be better than what jack fucking did - lol
 
 DONE-mouse dragging hover over islands for popup and leave hover for
     only when mouse is dragging something (variable to keep track of it...)
@@ -98,11 +99,18 @@ DONE-mouse dragging hover over islands for popup and leave hover for
 Sidepanel
 --------------------------------------------------------------
 NOTES ABOUT SIDE PANEL (during call between spencer and jack)
-    display purchasing cash / points
+    display purchasing cash / points (infinite for now)
     panel for choosing what to buy (click and buy)
-    empty panel for storing what was bought (position 118 adjacent to everything)
-        drag and drop pieces from here onto the board (check all things were placed?)
+    empty box for storing what was bought 
+        -position 118 adjacent to everything that is a valid drop
+            -check for the individual piece type's valid drops using JScript
+        -pieces in 'bought' box cant be moved onto board
+            -pieces can be deleted from bought box to refund cost
+        -drag and drop pieces from here onto the board (check all things were placed?)
+            -once the player confirms they are done buying (and it's the place-bought-troops phase), 
+             the delete is locked and the map opens for moving into. All troops must be moved onto map
     buttons for saving game/exiting game (these possibly in an upper nav bar? drop down menu?)
-    buttons for going to next phase
-    display for what phase a player is on
-    buttons for other stuff player does during phases...
+    buttons for going to next phase (lategame stuff)
+    display for what phase a player is on (still lategame but good to add an area for this now)
+    buttons for other stuff player does during phases... 
+        -(we could copy code and have diff pages for diff phases and just change the sidepanel for whats relevant)
