@@ -220,8 +220,8 @@ CREATE TABLE IF NOT EXISTS `placements`(
 -- Insert placements into table.
 INSERT INTO `placements` VALUES (1, 1, 6, 'red', 1);
 INSERT INTO `placements` VALUES (2, 1, 6, 'red', 1);
--- INSERT INTO `placements` VALUES (3, 1, 6, 'red', 1);
--- INSERT INTO `placements` VALUES (4, 1, 6, 'red', 1);
+INSERT INTO `placements` VALUES (3, 1, 6, 'red', 1);
+INSERT INTO `placements` VALUES (4, 1, 6, 'red', 1);
 -- this shows overflow mechanics (may change to 9 per position possible)
 -- INSERT INTO `placements` VALUES (5, 1, 6, 'red', 1);
 

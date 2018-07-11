@@ -69,6 +69,7 @@ include("db.php");
             hovertimer = setTimeout(function() { make_big(event, element);}, 1000);
         }
 
+        // TODO: may make one of these functions island depended, so doesnt reset each time when enter 2 seperate special islands waiting for 3rd to close
         function clear_hover_timer(event) {
             event.preventDefault();
             clearTimeout(hovertimer);

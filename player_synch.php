@@ -8,8 +8,6 @@ $query->bind_param("i", $gameId);
 $query->execute();
 $results = $query->get_result();
 $r= $results->fetch_assoc();
-$gameTurn = $r['gameTurn'];
-$gamePhase = $r['gamePhase'];
 $gameBlueJoined = $r['gameBlueJoined'];
 $gameRedJoined = $r['gameRedJoined'];
 
