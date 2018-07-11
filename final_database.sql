@@ -202,7 +202,8 @@ INSERT INTO `positions` VALUES (115, 'special_island12');
 INSERT INTO `positions` VALUES (116, 'special_island12');
 INSERT INTO `positions` VALUES (117, 'special_island12');
 INSERT INTO `positions` VALUES (118, 'special_island12');
-INSERT INTO `positions` VALUES (119, 'special_island12');
+
+INSERT INTO `positions` VALUES (119, 'purchase_square');
 
 
 -- Table of Units
@@ -224,7 +225,7 @@ INSERT INTO `placements` VALUES (2, 1, 6, 'red', 1);
 INSERT INTO `placements` VALUES (3, 1, 6, 'red', 1);
 INSERT INTO `placements` VALUES (4, 1, 6, 'red', 1);
 
-INSERT INTO `placements` VALUES (5, 1, 6, 'red', 119);
+-- INSERT INTO `placements` VALUES (5, 1, 6, 'red', 119);
 
 -- this shows overflow mechanics (may change to 9 per position possible)
 -- INSERT INTO `placements` VALUES (5, 1, 6, 'red', 1);

@@ -56,9 +56,10 @@ include("db.php");
             element.appendChild(document.querySelector("[data-placementId='" + placementId + "']"));
             var newposition = event.target.getAttribute("data-positionId");
             // TODO: check validity of moves and adjust function call below inside the if
+            //possibly check if need to update an old placement or create a new one? (no placementId exists yet)
             update_piece_placement(placementId, newposition);
 
-            // TODO: Use the temporary placements / create a movement (possibly carry more info in the event?)
+            // TODO: create a movement (possibly carry more info in the event?) (this may go in update_piece_placement)
         }
 
         function allowDrop(event) {
@@ -96,6 +97,14 @@ include("db.php");
             xmlhttp.send();
         }
 
+        function create_piece_placement() {
+            // alert("hereeeeee");
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("POST", "place_newpiece.php", true);
+            xmlhttp.send();
+            // alert("noooo");
+        }
+
         function hidecover() {
             document.getElementById("cover").style.visibility = "hidden"
         }
@@ -104,7 +113,8 @@ include("db.php");
 <body onload="hideall_big(); hidecover();">
     <div id="side_panel">
         <div class="subside_panel" id="top_panel">
-            <div class="gridblock" ondragenter="clear_hover_timer(event)" data-positionId="119" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)">
+            <button onclick="create_piece_placement()">Create a New Piece</button>
+            <div class="gridblock" ondragenter="clear_hover_timer(event)" data-positionId="119" ondragover="allowDrop(event)" ondrop="drop(event, this)">
                 <?php $positionId = 119; include("display_pieces.php"); ?>
             </div>
         </div>
