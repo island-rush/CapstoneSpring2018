@@ -32,12 +32,16 @@ html,body {
     z-index:9999;
 }
 
+#trashbox{
+    background-color: green;
+}
+
 /*TODO annoying as fuck not all the way to the right (some mysterious whitspace)*/
 /*TODO: all px to % on everything, should fix different screens and shit*/
 #game_board{
     float:right;
-    /*width:1067px;*/
-    width: 69.85vw;
+    width:1067px;
+    /*width: 69.85vw;*/
     height:680px;
     background-image: url("resources/Image files/big_map4.png");
     background-size:contain;
@@ -46,7 +50,8 @@ html,body {
 }
 
 .grid{
-    /*margin: 1px;*/
+    width: 100%;
+    height: 100%;
 }
 
 .gridblockLeftBig{
@@ -58,7 +63,7 @@ html,body {
 }
 
 .gridblockLeftBig:hover{
-    /*background-color: rgba(236, 1, 255, 0.16)*/
+    background-color: rgba(236, 1, 255, 0.16)
 }
 
 .gridblockRightBig{
@@ -71,7 +76,7 @@ html,body {
 
 /*TODO: implement slight hover highlight?*/
 .gridblockRightBig:hover{
-    /*background-color: rgba(236, 1, 255, 0.16)*/
+    background-color: rgba(236, 1, 255, 0.16)
 }
 
 .gridblock{
@@ -177,6 +182,7 @@ html,body {
     position: absolute;
     background-color: rgba(255, 15, 0, 0.45);
     z-index: 16;
+    /*float: left;*/
 }
 /*TODO: this different color so it stands out?    how does hovering work with pieces on the mouse dragging???*/
 .gridblockTiny:hover{
@@ -222,7 +228,14 @@ html,body {
     /*This position has no letter (small bottom triangle shit)...not sure if should be included?*/
 }
 
-#pos14a{}
+#pos14a{
+    width: 22%;
+    height: 22%;
+    margin-left: 28%;
+    margin-top: 68%;
+    -ms-transform: rotate(-20deg); /* IE 9 */
+    -webkit-transform: rotate(-20deg); /* Safari */
+    transform: rotate(-20deg);}
 #pos14b{}
 #pos14c{}
 #pos14d{}
