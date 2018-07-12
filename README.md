@@ -128,3 +128,14 @@ NOTES ABOUT SIDE PANEL (during call between spencer and jack)
     display for what phase a player is on (still lategame but good to add an area for this now)
     buttons for other stuff player does during phases... 
         -(we could copy code and have diff pages for diff phases and just change the sidepanel for whats relevant)
+
+
+notes about changing placement table to store currentMoves about a piece
+    need to change update_move php (subtract the moves from current piece)
+    need to change movement_undo php (look up how far a move is and add that to the piece's moves)
+    need to change the display_pieces php to use the currentMove, not the unitMove (can't refresh for more moves hack)
+    for reset->
+    need to create a JSON object at top of script to store each units default (max) moves
+        or just (yet) another php file to access the database
+            this drawback is 1 access at beginning of game vs multiple access (at end of each phase)
+                probably not terrible, since phases last a long time...but if it just happens once while loading that would be ideal

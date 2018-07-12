@@ -2,6 +2,9 @@
 session_start();
 include("db.php");
 
+//TODO: make sure matrix works by testing spots can't move to?
+//TODO: update move from 119? (don't want that to count as a move?)(create with 1 extra move?) (1 more in table UnitMoves)
+
 $placementId = $_REQUEST['placementId'];
 $positionId = $_REQUEST['positionId'];
 
@@ -16,9 +19,10 @@ $movementFromPosition = $_REQUEST['oldpositionId'];
 $movementGameId = $_SESSION['gameId'];
 $movementTurn = $_SESSION['gameTurn'];
 $movementPhase = $_SESSION['gamePhase'];
+$movementCost = $_SESSION['dist'][$positionId][$movementFromPosition];
 
-$query = 'INSERT INTO movements (movementFromPosition, movementNowPlacement, movementGameId, movementTurn, movementPhase) VALUES(?, ?, ?, ?, ?)';
+$query = 'INSERT INTO movements (movementFromPosition, movementNowPlacement, movementCost, movementGameId, movementTurn, movementPhase) VALUES(?, ?, ?, ?, ?, ?)';
 $query = $db->prepare($query);
-$query->bind_param("iiiis", $movementFromPosition, $placementId, $movementGameId, $movementTurn, $movementPhase);
+$query->bind_param("iiiiis", $movementFromPosition, $placementId, $movementCost, $movementGameId, $movementTurn, $movementPhase);
 $query->execute();
 

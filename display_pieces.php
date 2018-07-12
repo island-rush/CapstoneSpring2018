@@ -11,9 +11,9 @@ if (isset($positionId)) {
         for ($i=0; $i < $num_results; $i++) {
             $r= $results->fetch_assoc();
             $unitName = $r['unitName'];
-            $unitMoves = $r['unitMoves'];
+            $unitMoves = $r['currentMoves'];
             $placementId = $r['placementId'];
-            echo "<div class='".$unitName." game_piece' data-moves='".$unitMoves."' data-placementId='".$placementId."' draggable='true' ondragstart='drag(event, this)'></div>";
+            echo "<div class='".$unitName." game_piece' data-unitName='".$unitName."' data-moves='".$unitMoves."' data-placementId='".$placementId."' draggable='true' ondragstart='drag(event, this)'></div>";
         }
     }
 }

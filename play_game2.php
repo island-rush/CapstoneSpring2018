@@ -12,6 +12,8 @@ include("readexcel.php");
         var hovertimer;
         var bigblockvisible = "false";  //used in check_prevent_popup (prevent if not already visible)
 
+        var unitsMoves = <?php include("unit_moves.php"); ?>;
+
         function hideall_big() {
             var x = document.getElementsByClassName("bigblock");
             var i;
@@ -73,6 +75,12 @@ include("readexcel.php");
 
         function reset_moves() {
             var allpieces = document.getElementsByClassName("gamepiece");
+            var i;
+            for (i = 0; i < allpieces.length; i++) {
+                var unitName = allpieces[i].getAttribute("data-unitName");
+                allpieces[i].setAttribute("data-moves", unitsMoves[unitName]);
+            }
+
         }
 
         function allowDrop(event) {
