@@ -1,12 +1,11 @@
 <?php
 session_start();
-
-$newPos = $_REQUEST['newPos'];
-$oldPos = $_REQUEST['oldPos'];
-$moves = $_REQUEST['moves'];
-
-if ($_SESSION['dist'][$oldPos][$newPos] >= $moves) {
-    echo "true";
+$newPos = (int)$_REQUEST['newPos'];
+$oldPos = (int)$_REQUEST['oldPos'];
+$moves = (int)$_REQUEST['moves'];
+if ($_SESSION['dist'][$oldPos][$newPos] <= $moves) {
+    $answer = $moves - $_SESSION['dist'][$oldPos][$newPos];
+    echo $answer;
 } else {
     echo "false";
 }

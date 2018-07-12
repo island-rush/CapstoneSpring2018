@@ -49,35 +49,30 @@ include("readexcel.php");
         function drop(event, element) {
             event.preventDefault();
             var placementId = event.dataTransfer.getData("placementId");
-            element.appendChild(document.querySelector("[data-placementId='" + placementId + "']"));
-            var newposition = event.target.getAttribute("data-positionId");
-            var oldposition = event.dataTransfer.getData("positionId");
+            var newPos = event.target.getAttribute("data-positionId");
+            var oldPos = event.dataTransfer.getData("positionId");
             var moves = event.dataTransfer.getData("moves");
-
             // TODO: check validity of moves and adjust ajax php function call below inside the if
-            if (check_valid_move(newposition, oldposition, moves)) {
-                var xmlhttp = new XMLHttpRequest();
-                //TODO: This may be good as GET instead of POST
-                xmlhttp.open("POST", "update_position.php?placementId=" + placementId + "&positionId=" + newposition + "&oldpositionId=" + oldposition, true);
-                xmlhttp.send()
-                element.lastChild.setAttribute("data-moves", moves);
-            }
-        }
-
-        function check_valid_move(newPos, oldPos, moves) {
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function () {
                 if (this.readyState === 4 && this.status === 200) {
-                    var response = this.responseText;
-                    if (response === "true") {
-                        return true;
-                    } else {
-                        return false;
+                    var answer = this.responseText;
+                    if (answer !== "false") {
+                        var xmlhttp2 = new XMLHttpRequest();
+                        //TODO: This may be good as GET instead of POST
+                        xmlhttp2.open("POST", "update_position.php?placementId=" + placementId + "&positionId=" + newPos + "&oldpositionId=" + oldPos, true);
+                        xmlhttp2.send();
+                        element.appendChild(document.querySelector("[data-placementId='" + placementId + "']"));
+                        document.querySelector("[data-placementId='" + placementId + "']").setAttribute("data-moves", answer);
                     }
                 }
             };
-            xmlhttp.open("GET", "checkvalid.php?newpos=" + newPos + "&oldpos=" + oldPos + "&moves=" + moves, true);
+            xmlhttp.open("POST", "checkvalid.php?newPos=" + newPos + "&oldPos=" + oldPos + "&moves=" + moves, true);
             xmlhttp.send();
+        }
+
+        function reset_moves() {
+            var allpieces = document.getElementsByClassName("gamepiece");
         }
 
         function allowDrop(event) {
