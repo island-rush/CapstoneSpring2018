@@ -1,6 +1,8 @@
 <?php
 include("db.php");
 
+//TODO: possibly make this more with display_pieces, since both echo a piece div...but different php code?
+
 //get these values from the button's to create them? (or session variables for game/team... (119 may be hardcoded here?)
 //may want to not hardcode 119 here for clean coding practices, may create another space for pieces to go?
 $gameId = 1;

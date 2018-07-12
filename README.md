@@ -35,6 +35,8 @@ To Do in list format:
 -Move troops from cell to cell along board based on unit's move allowance.
 
 (spencer's todo)
+CLICK A PIECE TO SEE VALID MOVES WITH HIGHLIGHTED SHADING?
+
 what the fuck will an admin do?
     (what does an admin need to do (teacher's needs))
         ideas
