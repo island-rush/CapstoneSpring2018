@@ -1,5 +1,5 @@
 <?php
-$filename = 'resources/adjacency_matrix.csv';
+$filename = 'resources/test_adjMatrix.csv';
 if (($handle = fopen($filename, "r")) !== FALSE) {
     $counter = 0;
     $_SESSION['test2'] = array();

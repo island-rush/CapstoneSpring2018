@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("db.php");
-include("readexcel.php")
+include("readexcel.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -125,24 +125,22 @@ include("readexcel.php")
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function () {
                 if (this.readyState === 4 && this.status === 200) {
-                    var response = this.responseText;
-                    var decoded = JSON.parse(response);
-                    var placementId = decoded.placementId;
-                    var oldPositionId = decoded.oldPositionId;
-                    var newPositionId = decoded.newPositionId;
-                    var gamepiece = document.querySelector("[data-placementId='" + placementId + "']");
-                    var oldspot = document.querySelector("[data-positionId='" + oldPositionId + "']");
-                    var newspot = document.querySelector("[data-positionId='" + newPositionId + "']");
-                    oldspot.removeChild(gamepiece);
-                    newspot.appendChild(gamepiece);
+                    var decoded = JSON.parse(this.responseText);
+                    var gamepiece = document.querySelector("[data-placementId='" + decoded.placementId + "']");
+                    document.querySelector("[data-positionId='" + decoded.oldPositionId + "']").removeChild(gamepiece);
+                    document.querySelector("[data-positionId='" + decoded.newPositionId + "']").appendChild(gamepiece);
                 }
             };
             xmlhttp.open("GET", "movement_undo.php", true);
             xmlhttp.send();
         }
+
+        function test_function() {
+            alert('<?php echo $_SESSION["dist"][1][49] ?>');
+        }
     </script>
 </head>
-<body onload="hideall_big(); hidecover(); test_function();">
+<body onload="hideall_big(); hidecover(event);">
     <div id="side_panel">
         <div class="subside_panel" id="top_panel">
             <button onclick="create_piece_placement(event)">Create a New Piece</button>
