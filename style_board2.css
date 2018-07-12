@@ -228,8 +228,18 @@ html,body {
 #pos13i{}
 #pos13j{}
 
-#pos14a{}
-#pos14b{}
+#pos14a{
+    width: 30%;
+    height: 15%;
+    margin-left: 50%;
+    margin-top: 55%;
+}
+#pos14b{
+    width: 30%;
+    height: 19%;
+    margin-left: 7%;
+    margin-top: 12%;
+}
 #pos14c{}
 #pos14d{}
 #pos14e{}
