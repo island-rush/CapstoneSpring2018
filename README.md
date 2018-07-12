@@ -16,6 +16,15 @@ Players need to be able to
     ***(suggestion a side panel from which you can manage adding and deletion). 
 We also need to have a safe close for the game.
 
+What has been done (in a functional sense, not fully implemented (like with all pieces...etc)):
+    add troops to board button
+    move troops around board to each spot
+    delete troops from board
+    undo last movement button
+    red/blue teams must both login to start game
+    admin page with minimal functionality
+    game auto saves (for now....)
+
 To Do in list format:
 
 -Display board
@@ -95,6 +104,9 @@ DONE-mouse dragging hover over islands for popup and leave hover for
     only differences between ocean blocks is positionId?
     DO THIS ABSOLUTELY LAST (changing/adding elements is a bitch within php echo statements)
     ONLY do this for readability ('clean code') of main gameboard?...should not affect performance (may even decrease it)
+    
+-high latency may become a problem with some of the game functionality, but won't know until most of game is done.
+    look into improving some of the 'http' requests / ajax stuff, network latency probably worst offender
 
 Sidepanel
 --------------------------------------------------------------
