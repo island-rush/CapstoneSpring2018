@@ -4,8 +4,8 @@
 html,body {
     /*width: 100%;*/
     /*height: 100%;*/
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
 }
 
@@ -112,6 +112,7 @@ html,body {
     z-index: 20;
 }
 
+/*TODO: possibly make these children of the special_island divs, and set margins with negative px?*/
 #bigblock1{
     background-image: url("resources/Image files/special_island1.png");
     margin: 4px 3px 2.5px 130px;
