@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("db.php");
+include("readexcel.php")
 ?>
 <!DOCTYPE html>
 <html>
@@ -131,9 +132,13 @@ include("db.php");
             trashbox.appendChild(document.querySelector("[data-placementId='" + placementId + "']"));
             trashbox.removeChild(document.querySelector("[data-placementId='" + placementId + "']"));
         }
+
+        function test_function() {
+            //alert("<?php //echo $_SESSION['dist'][5][34]; ?>//");
+        }
     </script>
 </head>
-<body onload="hideall_big(); hidecover();">
+<body onload="hideall_big(); hidecover(); test_function();">
     <div id="side_panel">
         <div class="subside_panel" id="top_panel">
             <button onclick="create_piece_placement(event)">Create a New Piece</button>
