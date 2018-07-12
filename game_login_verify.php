@@ -33,6 +33,8 @@ if ( (isset($_POST['section'])) && (isset($_POST['instructor'])) && (isset($_POS
     $_SESSION['gameId'] = $r['gameId'];
 //    $_SESSION['gameId'] = 1;
     $_SESSION['team'] = $_POST['team'];
+    $_SESSION['gameTurn'] = $r['gameTurn'];
+    $_SESSION['gamePhase'] = $r['gamePhase'];
 
     //Changed this for testing session information on turn based mechanisms
     header("location:game_initialize.php");

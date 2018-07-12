@@ -42,13 +42,7 @@ include("readexcel.php")
         function drag(event) {
             //function set inside "display_pieces.php"
             event.dataTransfer.setData("placementId", event.target.getAttribute("data-placementId"));
-        }
-
-        function drag2(event, element) {
-            event.dataTransfer.setData("placementId", event.target.getAttribute("data-placementId"));
-            var el2 = element.cloneNode();
-            element.parentNode.appendChild(el2);
-            // alert(element.parentNode.id);
+            event.dataTransfer.setData("positionId", event.target.parentNode.getAttribute("data-positionId"));
         }
 
         function drop(event, element) {
@@ -56,11 +50,12 @@ include("readexcel.php")
             var placementId = event.dataTransfer.getData("placementId");
             element.appendChild(document.querySelector("[data-placementId='" + placementId + "']"));
             var newposition = event.target.getAttribute("data-positionId");
-            // TODO: check validity of moves and adjust function call below inside the if
-            //possibly check if need to update an old placement or create a new one? (no placementId exists yet)
-            update_piece_placement(placementId, newposition);
-
-            // TODO: create a movement (possibly carry more info in the event?) (this may go in update_piece_placement)
+            var oldposition = event.dataTransfer.getData("positionId");
+            // TODO: check validity of moves and adjust ajax php function call below inside the if
+            var xmlhttp = new XMLHttpRequest();
+            //TODO: This may be good as GET instead of POST
+            xmlhttp.open("POST", "update_position.php?placementId=" + placementId + "&positionId=" + newposition + "&oldpositionId=" + oldposition, true);
+            xmlhttp.send();
         }
 
         function allowDrop(event) {
@@ -92,13 +87,6 @@ include("readexcel.php")
             }
         }
 
-        function update_piece_placement(placement, position) {
-            var xmlhttp = new XMLHttpRequest();
-            //TODO: This may be good as GET instead of POST
-            xmlhttp.open("POST", "update_position.php?placementId=" + placement + "&positionId=" + position, true);
-            xmlhttp.send();
-        }
-
         function create_piece_placement(event) {
             event.preventDefault();
             var xmlhttp = new XMLHttpRequest();
@@ -123,7 +111,6 @@ include("readexcel.php")
             event.preventDefault();
             //TODO: add logic to not throw away pieces already placed onto the board...(undo for those...)(check event/add more details to event if needed)
             var placementId = event.dataTransfer.getData("placementId");
-            // alert(placementId);
             var xmlhttp = new XMLHttpRequest();
             //TODO: This may be good as GET instead of POST
             xmlhttp.open("POST", "delete_piece.php?placementId=" + placementId, true);
@@ -133,8 +120,25 @@ include("readexcel.php")
             trashbox.removeChild(document.querySelector("[data-placementId='" + placementId + "']"));
         }
 
-        function test_function() {
-            //alert("<?php //echo $_SESSION['dist'][5][34]; ?>//");
+        function undo_movement(event) {
+            event.preventDefault();
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    var response = this.responseText;
+                    var decoded = JSON.parse(response);
+                    var placementId = decoded.placementId;
+                    var oldPositionId = decoded.oldPositionId;
+                    var newPositionId = decoded.newPositionId;
+                    var gamepiece = document.querySelector("[data-placementId='" + placementId + "']");
+                    var oldspot = document.querySelector("[data-positionId='" + oldPositionId + "']");
+                    var newspot = document.querySelector("[data-positionId='" + newPositionId + "']");
+                    oldspot.removeChild(gamepiece);
+                    newspot.appendChild(gamepiece);
+                }
+            };
+            xmlhttp.open("GET", "movement_undo.php", true);
+            xmlhttp.send();
         }
     </script>
 </head>
@@ -147,7 +151,10 @@ include("readexcel.php")
             </div>
             <div id="trashbox" class="gridblock" ondragover="allowDrop(event)" ondrop="throwaway(event, this)"></div>
         </div>
-        <div class="subside_panel" id="middle_panel">Phase2</div>
+        <div class="subside_panel" id="middle_panel">
+            Phase2<br>
+            <button onclick="undo_movement(event)">Undo a movement</button>
+        </div>
         <div class="subside_panel" id="bottom_panel">Other</div>
     </div>
 
