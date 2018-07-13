@@ -7,10 +7,11 @@ include("db.php");
 
 $placementId = $_REQUEST['placementId'];
 $positionId = $_REQUEST['positionId'];
+$newCurrentMoves = $_REQUEST['newmoves'];
 
-$query = 'UPDATE placements SET positionId = ? WHERE (placementId = ?)';
+$query = 'UPDATE placements SET positionId = ?, currentMoves = ? WHERE (placementId = ?)';
 $query = $db->prepare($query);
-$query->bind_param("ii", $positionId, $placementId);
+$query->bind_param("iii", $positionId, $placementId, $newCurrentMoves);
 $query->execute();
 
 //TODO: change movement names in sql table to shorter?

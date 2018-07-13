@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("db.php");
+//TODO: what happens when try to undo but no moves have been made? (yet)
 
 //TODO: this page (among others) should use more error checking...???
 

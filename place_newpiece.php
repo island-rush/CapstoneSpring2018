@@ -7,6 +7,9 @@ include("db.php");
 //may want to not hardcode 119 here for clean coding practices, may create another space for pieces to go?
 $gameId = 1;
 $unitId = 6;
+//get unit moves
+$unitMoves = 3;
+
 $teamId = 'red';
 $positionId = 119;
 
@@ -25,7 +28,7 @@ $results = $query->get_result();
 $num_results = $results->num_rows;
 $r= $results->fetch_assoc();
 $newPlacementId = $r['LAST_INSERT_ID()'];
-echo "<div class='".$unitName." game_piece' data-placementId='".$newPlacementId."' draggable='true' ondragstart='drag(event, this)'></div>";
+echo "<div class='".$unitName." game_piece' data-moves='".$unitMoves."' data-placementId='".$newPlacementId."' draggable='true' ondragstart='drag(event, this)'></div>";
 
 //TODO: check for errors on all of these
 

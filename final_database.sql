@@ -212,6 +212,7 @@ CREATE TABLE IF NOT EXISTS `placements`(
     `gameId` int(5) NOT NULL,
     `unitId` int(5) NOT NULL,
     `teamId` varchar(10) NOT NULL,
+    `currentMoves` int(3) NOT NULL,
     `positionId` int(4) NOT NULL,
     PRIMARY KEY(`placementId`),
     FOREIGN KEY (unitId) REFERENCES units(unitId),
@@ -220,10 +221,10 @@ CREATE TABLE IF NOT EXISTS `placements`(
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 -- Insert placements into table.
-INSERT INTO `placements` VALUES (1, 1, 6, 'red', 1);
-INSERT INTO `placements` VALUES (2, 1, 6, 'red', 1);
-INSERT INTO `placements` VALUES (3, 1, 6, 'red', 1);
-INSERT INTO `placements` VALUES (4, 1, 6, 'red', 1);
+INSERT INTO `placements` VALUES (1, 1, 6, 'red', 2, 1);
+-- INSERT INTO `placements` VALUES (2, 1, 6, 'red', 1);
+-- INSERT INTO `placements` VALUES (3, 1, 6, 'red', 1);
+-- INSERT INTO `placements` VALUES (4, 1, 6, 'red', 1);
 
 -- INSERT INTO `placements` VALUES (5, 1, 6, 'red', 119);
 
@@ -236,6 +237,7 @@ CREATE TABLE IF NOT EXISTS `movements`(
 	`movementId` int(16) NOT NULL AUTO_INCREMENT,
     `movementFromPosition` int(4) NOT NULL,  -- meat of what is used
     `movementNowPlacement` int(16) NOT NULL,  -- used for undo moves
+    `movementCost` int(3) NOT NULL,
     `movementGameId` int(5) NOT NULL,  -- which game is the movement
     `movementTurn` int(5) NOT NULL,  -- need what phase/turn movement was made (only undo current phase/turn)
     `movementPhase` varchar(20) NOT NULL,
@@ -248,7 +250,11 @@ CREATE TABLE IF NOT EXISTS `movements`(
 
 -- this used for easy testing alone
 UPDATE games SET gameBlueJoined=1 WHERE gameId = 1;
+-- INSERT INTO placements (gameId, unitId, teamId, positionId) VALUES(1, 6, 'red', 119);
 
 SELECT * FROM placements;
 
--- SELECT * FROM placements NATURAL JOIN units WHERE (gameId = 1) AND (temporaryPositionId)
+SELECT * FROM movements;
+
+SELECT * FROM movements ORDER BY movementId DESC LIMIT 0, 1;
+

@@ -59,12 +59,17 @@ include("readexcel.php");
             xmlhttp.onreadystatechange = function () {
                 if (this.readyState === 4 && this.status === 200) {
                     var answer = this.responseText;
+                    // alert(placementId);
+                    // alert(newPos);
+                    // alert(oldPos);
+                    // alert(answer);
                     if (answer !== "false") {
                         var xmlhttp2 = new XMLHttpRequest();
                         //TODO: This may be good as GET instead of POST
-                        xmlhttp2.open("POST", "update_position.php?placementId=" + placementId + "&positionId=" + newPos + "&oldpositionId=" + oldPos, true);
+                        xmlhttp2.open("POST", "update_position.php?placementId=" + placementId + "&positionId=" + newPos + "&oldpositionId=" + oldPos + "&newmoves=" + answer, true);
                         xmlhttp2.send();
                         element.appendChild(document.querySelector("[data-placementId='" + placementId + "']"));
+                        //this line not getting called?
                         document.querySelector("[data-placementId='" + placementId + "']").setAttribute("data-moves", answer);
                     }
                 }
@@ -80,7 +85,8 @@ include("readexcel.php");
                 var unitName = allpieces[i].getAttribute("data-unitName");
                 allpieces[i].setAttribute("data-moves", unitsMoves[unitName]);
             }
-
+            //reset in the database as well...
+            //ajax to php file here
         }
 
         function allowDrop(event) {
@@ -177,6 +183,7 @@ include("readexcel.php");
         <div class="subside_panel" id="middle_panel">
             Phase2<br>
             <button onclick="undo_movement(event)">Undo a movement</button>
+            <button onclick="reset_moves()">Rest Moves for all pieces</button>
         </div>
         <div class="subside_panel" id="bottom_panel">Other</div>
     </div>
