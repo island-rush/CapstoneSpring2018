@@ -115,7 +115,7 @@ Sidepanel
 NOTES ABOUT SIDE PANEL (during call between spencer and jack)
     display purchasing cash / points (infinite for now)
     panel for choosing what to buy (click and buy)
-    empty box for storing what was bought 
+    empty box for storing what was bought
         -position 118 adjacent to everything that is a valid drop
             -check for the individual piece type's valid drops using JScript
         -pieces in 'bought' box cant be moved onto board
