@@ -16,6 +16,15 @@ Players need to be able to
     ***(suggestion a side panel from which you can manage adding and deletion). 
 We also need to have a safe close for the game.
 
+What has been done (in a functional sense, not fully implemented (like with all pieces...etc)):
+    add troops to board button
+    move troops around board to each spot
+    delete troops from board
+    undo last movement button
+    red/blue teams must both login to start game
+    admin page with minimal functionality
+    game auto saves (for now....)
+
 To Do in list format:
 
 -Display board
@@ -26,6 +35,8 @@ To Do in list format:
 -Move troops from cell to cell along board based on unit's move allowance.
 
 (spencer's todo)
+CLICK A PIECE TO SEE VALID MOVES WITH HIGHLIGHTED SHADING?
+
 what the fuck will an admin do?
     (what does an admin need to do (teacher's needs))
         ideas
@@ -95,6 +106,9 @@ DONE-mouse dragging hover over islands for popup and leave hover for
     only differences between ocean blocks is positionId?
     DO THIS ABSOLUTELY LAST (changing/adding elements is a bitch within php echo statements)
     ONLY do this for readability ('clean code') of main gameboard?...should not affect performance (may even decrease it)
+    
+-high latency may become a problem with some of the game functionality, but won't know until most of game is done.
+    look into improving some of the 'http' requests / ajax stuff, network latency probably worst offender
 
 Sidepanel
 --------------------------------------------------------------
@@ -114,3 +128,14 @@ NOTES ABOUT SIDE PANEL (during call between spencer and jack)
     display for what phase a player is on (still lategame but good to add an area for this now)
     buttons for other stuff player does during phases... 
         -(we could copy code and have diff pages for diff phases and just change the sidepanel for whats relevant)
+
+
+notes about changing placement table to store currentMoves about a piece
+    need to change update_move php (subtract the moves from current piece)
+    need to change movement_undo php (look up how far a move is and add that to the piece's moves)
+    need to change the display_pieces php to use the currentMove, not the unitMove (can't refresh for more moves hack)
+    for reset->
+    need to create a JSON object at top of script to store each units default (max) moves
+        or just (yet) another php file to access the database
+            this drawback is 1 access at beginning of game vs multiple access (at end of each phase)
+                probably not terrible, since phases last a long time...but if it just happens once while loading that would be ideal

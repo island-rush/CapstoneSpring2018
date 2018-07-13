@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("db.php");
-include("readexcel.php")
+include("readexcel.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,6 +11,8 @@ include("readexcel.php")
     <script type="text/javascript">
         var hovertimer;
         var bigblockvisible = "false";  //used in check_prevent_popup (prevent if not already visible)
+
+        var unitsMoves = <?php include("unit_moves.php"); ?>;
 
         function hideall_big() {
             var x = document.getElementsByClassName("bigblock");
@@ -42,25 +44,49 @@ include("readexcel.php")
         function drag(event) {
             //function set inside "display_pieces.php"
             event.dataTransfer.setData("placementId", event.target.getAttribute("data-placementId"));
-        }
-
-        function drag2(event, element) {
-            event.dataTransfer.setData("placementId", event.target.getAttribute("data-placementId"));
-            var el2 = element.cloneNode();
-            element.parentNode.appendChild(el2);
-            // alert(element.parentNode.id);
+            event.dataTransfer.setData("positionId", event.target.parentNode.getAttribute("data-positionId"));
+            event.dataTransfer.setData("moves", event.target.getAttribute("data-moves"));
         }
 
         function drop(event, element) {
             event.preventDefault();
             var placementId = event.dataTransfer.getData("placementId");
-            element.appendChild(document.querySelector("[data-placementId='" + placementId + "']"));
-            var newposition = event.target.getAttribute("data-positionId");
-            // TODO: check validity of moves and adjust function call below inside the if
-            //possibly check if need to update an old placement or create a new one? (no placementId exists yet)
-            update_piece_placement(placementId, newposition);
+            var newPos = event.target.getAttribute("data-positionId");
+            var oldPos = event.dataTransfer.getData("positionId");
+            var moves = event.dataTransfer.getData("moves");
+            // TODO: check validity of moves and adjust ajax php function call below inside the if
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    var answer = this.responseText;
+                    // alert(placementId);
+                    // alert(newPos);
+                    // alert(oldPos);
+                    // alert(answer);
+                    if (answer !== "false") {
+                        var xmlhttp2 = new XMLHttpRequest();
+                        //TODO: This may be good as GET instead of POST
+                        xmlhttp2.open("POST", "update_position.php?placementId=" + placementId + "&positionId=" + newPos + "&oldpositionId=" + oldPos + "&newmoves=" + answer, true);
+                        xmlhttp2.send();
+                        element.appendChild(document.querySelector("[data-placementId='" + placementId + "']"));
+                        //this line not getting called?
+                        document.querySelector("[data-placementId='" + placementId + "']").setAttribute("data-moves", answer);
+                    }
+                }
+            };
+            xmlhttp.open("POST", "checkvalid.php?newPos=" + newPos + "&oldPos=" + oldPos + "&moves=" + moves, true);
+            xmlhttp.send();
+        }
 
-            // TODO: create a movement (possibly carry more info in the event?) (this may go in update_piece_placement)
+        function reset_moves() {
+            var allpieces = document.getElementsByClassName("gamepiece");
+            var i;
+            for (i = 0; i < allpieces.length; i++) {
+                var unitName = allpieces[i].getAttribute("data-unitName");
+                allpieces[i].setAttribute("data-moves", unitsMoves[unitName]);
+            }
+            //reset in the database as well...
+            //ajax to php file here
         }
 
         function allowDrop(event) {
@@ -92,13 +118,6 @@ include("readexcel.php")
             }
         }
 
-        function update_piece_placement(placement, position) {
-            var xmlhttp = new XMLHttpRequest();
-            //TODO: This may be good as GET instead of POST
-            xmlhttp.open("POST", "update_position.php?placementId=" + placement + "&positionId=" + position, true);
-            xmlhttp.send();
-        }
-
         function create_piece_placement(event) {
             event.preventDefault();
             var xmlhttp = new XMLHttpRequest();
@@ -123,7 +142,6 @@ include("readexcel.php")
             event.preventDefault();
             //TODO: add logic to not throw away pieces already placed onto the board...(undo for those...)(check event/add more details to event if needed)
             var placementId = event.dataTransfer.getData("placementId");
-            // alert(placementId);
             var xmlhttp = new XMLHttpRequest();
             //TODO: This may be good as GET instead of POST
             xmlhttp.open("POST", "delete_piece.php?placementId=" + placementId, true);
@@ -133,12 +151,27 @@ include("readexcel.php")
             trashbox.removeChild(document.querySelector("[data-placementId='" + placementId + "']"));
         }
 
+        function undo_movement(event) {
+            event.preventDefault();
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    var decoded = JSON.parse(this.responseText);
+                    var gamepiece = document.querySelector("[data-placementId='" + decoded.placementId + "']");
+                    document.querySelector("[data-positionId='" + decoded.oldPositionId + "']").removeChild(gamepiece);
+                    document.querySelector("[data-positionId='" + decoded.newPositionId + "']").appendChild(gamepiece);
+                }
+            };
+            xmlhttp.open("GET", "movement_undo.php", true);
+            xmlhttp.send();
+        }
+
         function test_function() {
-            //alert("<?php //echo $_SESSION['dist'][5][34]; ?>//");
+            alert('<?php echo $_SESSION["dist"][1][49] ?>');
         }
     </script>
 </head>
-<body onload="hideall_big(); hidecover(); test_function();">
+<body onload="hideall_big(); hidecover(event);">
     <div id="side_panel">
         <div class="subside_panel" id="top_panel">
             <button onclick="create_piece_placement(event)">Create a New Piece</button>
@@ -147,7 +180,11 @@ include("readexcel.php")
             </div>
             <div id="trashbox" class="gridblock" ondragover="allowDrop(event)" ondrop="throwaway(event, this)"></div>
         </div>
-        <div class="subside_panel" id="middle_panel">Phase2</div>
+        <div class="subside_panel" id="middle_panel">
+            Phase2<br>
+            <button onclick="undo_movement(event)">Undo a movement</button>
+            <button onclick="reset_moves()">Rest Moves for all pieces</button>
+        </div>
         <div class="subside_panel" id="bottom_panel">Other</div>
     </div>
 
