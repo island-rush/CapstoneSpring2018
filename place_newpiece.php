@@ -16,9 +16,9 @@ $positionId = 119;
 //also get this from the button
 $unitName = 'test_piece';
 
-$query = 'INSERT INTO placements (gameId, unitId, teamId, positionId) VALUES(?, ?, ?, ?)';
+$query = 'INSERT INTO placements (gameId, unitId, teamId, currentMoves, positionId) VALUES(?, ?, ?, ?, ?)';
 $query = $db->prepare($query);
-$query->bind_param("iisi", $gameId, $unitId, $teamId, $positionId);
+$query->bind_param("iisii", $gameId, $unitId, $teamId, $unitMoves, $positionId);
 $query->execute();
 
 $query = 'SELECT LAST_INSERT_ID()';
@@ -28,7 +28,7 @@ $results = $query->get_result();
 $num_results = $results->num_rows;
 $r= $results->fetch_assoc();
 $newPlacementId = $r['LAST_INSERT_ID()'];
-echo "<div class='".$unitName." game_piece' data-moves='".$unitMoves."' data-placementId='".$newPlacementId."' draggable='true' ondragstart='drag(event, this)'></div>";
+echo "<div class='".$unitName." game_piece' data-unitName='".$unitName."' data-moves='".$unitMoves."' data-placementId='".$newPlacementId."' draggable='true' ondragstart='drag(event, this)'></div>";
 
 //TODO: check for errors on all of these
 

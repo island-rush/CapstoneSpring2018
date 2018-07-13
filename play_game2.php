@@ -66,7 +66,7 @@ include("readexcel.php");
                     if (answer !== "false") {
                         var xmlhttp2 = new XMLHttpRequest();
                         //TODO: This may be good as GET instead of POST
-                        xmlhttp2.open("POST", "update_position.php?placementId=" + placementId + "&positionId=" + newPos + "&oldpositionId=" + oldPos + "&newmoves=" + answer, true);
+                        xmlhttp2.open("POST", "update_position.php?placementId=" + placementId + "&newPos=" + newPos + "&oldPos=" + oldPos + "&newmoves=" + answer, true);
                         xmlhttp2.send();
                         element.appendChild(document.querySelector("[data-placementId='" + placementId + "']"));
                         //this line not getting called?
@@ -79,12 +79,16 @@ include("readexcel.php");
         }
 
         function reset_moves() {
+            var copyUnitsMoves = unitsMoves;
             var allpieces = document.getElementsByClassName("gamepiece");
+            // alert(allpieces);
             var i;
             for (i = 0; i < allpieces.length; i++) {
                 var unitName = allpieces[i].getAttribute("data-unitName");
-                allpieces[i].setAttribute("data-moves", unitsMoves[unitName]);
+                // alert(copyUnitsMoves[unitName]);
+                allpieces[i].setAttribute("data-moves", copyUnitsMoves[unitName]);
             }
+            // alert("gothere,hellow");
             //reset in the database as well...
             //ajax to php file here
         }
