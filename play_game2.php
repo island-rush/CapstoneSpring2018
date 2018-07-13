@@ -6,7 +6,7 @@ include("readexcel.php");
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Main Game Title</title>
+    <title></title>
     <link rel="stylesheet" type="text/css" href="style_board2.css">
     <script type="text/javascript">
         var hovertimer;
@@ -161,9 +161,13 @@ include("readexcel.php");
             xmlhttp.onreadystatechange = function () {
                 if (this.readyState === 4 && this.status === 200) {
                     var decoded = JSON.parse(this.responseText);
+
                     var gamepiece = document.querySelector("[data-placementId='" + decoded.placementId + "']");
+                    var move2 = parseInt(gamepiece.getAttribute("data-moves"));
+                    var update_move = move2 + decoded.movementCost;
                     document.querySelector("[data-positionId='" + decoded.oldPositionId + "']").removeChild(gamepiece);
                     document.querySelector("[data-positionId='" + decoded.newPositionId + "']").appendChild(gamepiece);
+                    gamepiece.setAttribute("data-moves", update_move);
                 }
             };
             xmlhttp.open("GET", "movement_undo.php", true);
@@ -171,7 +175,7 @@ include("readexcel.php");
         }
 
         function test_function() {
-            alert('<?php echo $_SESSION["dist"][1][49] ?>');
+            alert('<?php echo $_SESSION["dist"][25][83] ?>');
         }
     </script>
 </head>

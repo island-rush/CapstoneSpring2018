@@ -139,3 +139,33 @@ notes about changing placement table to store currentMoves about a piece
         or just (yet) another php file to access the database
             this drawback is 1 access at beginning of game vs multiple access (at end of each phase)
                 probably not terrible, since phases last a long time...but if it just happens once while loading that would be ideal
+                
+                
+Transport
+-------------------------------------------------
+NOTES ABOUT TRANSPORT (during call between spencer and jack) + other thoughts about how to solve it
+    piece in piece
+    transport stays on water
+    popup like the special_islands (fill in a single grid? (easy to graphically put from div of parent grid?))
+    new attribute in placement table, transportId = placementId foreign key (default null or 0?)
+    special rules in the drop, check if unit is a transport, then do extra steps to also move stuff?
+        extra step = change positions of troops in the transport to match the transport?
+    to prevent refresh hacking
+        check if transportid not null, and if its not null, don't display it? (put in popup? somehow...)
+    dynamically create the popup? (it changes position?)
+    same functionality as other special_islands with dragging over to make pop, and dragging off to erase?
+    need to find best way to dynamically show/move them in and out...
+        have hidden divs at the bottom?
+        each transport piece gets created with a div inside it? (this would be easy in the display pieces php/place newpiece)
+    movements also need special attention not to break
+        moving troops in and out of transports (how to tell that this happened for undo mechanics?)
+    still check adj matrix for troops entering transport from far away
+    maybe good way of solving is to write step by step the logic of each transport mechanic
+        -create a transport (display / newpiece)
+        -move a transport (only water tile? - may need this functionality for other pieces)
+        -move troop into a transport
+        -move transport with troops inside it
+        -move troops out of a transport
+        -accessing the transport's insides/storing what is inside of it?
+    
+    
