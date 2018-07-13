@@ -8,7 +8,7 @@ include("db.php");
 $gameId = 1;
 $unitId = 6;
 //get unit moves
-$unitMoves = 3;
+$unitMoves = 5;
 
 $teamId = 'red';
 $positionId = 119;

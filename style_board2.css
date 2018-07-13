@@ -162,6 +162,18 @@ html,body {
     margin: 365px 3px 2.5px 390px;
 }
 
+/*//TODO: make this line up better?*/
+.transportContainer{
+
+}
+
+#abc{
+    height: 225%;
+    width: 225%;
+    background-color: navajowhite;
+    /*visibility: visible;*/
+}
+
 .game_piece{
     width: 45%;
     height: 45%;
@@ -170,12 +182,18 @@ html,body {
     float: left;
     position: relative;
 }
+
+/*//TODO: better naming convention for these? (get a solid convention going and stick with it (add to readme...)))*/
+/*TODO: images for other pieces not working, figure out what format is best*/
 .test_piece{background-image: url("resources/Image files/test_piece.png");}
-.transport_piece{}
-.aircraftcarrier_piece{}
-.destroyer_piece{}
-.submarine_piece{}
-.soldier_piece{}
+.transport{
+    /*background-image: url("resources/Image files/test_piece.png");*/
+    background-color: black;
+}
+.aircraftCarrier{background-image: url("resources/Image files/test_piece.png");}
+.destroyer{background-image: url("resources/Image files/test_piece.png");}
+.submarine{background-image: url("resources/Image files/test_piece.png");}
+.soldier{background-image: url("resources/Image files/test_piece.png");}
 
 .gridblockTiny{
     margin-right: 1px;

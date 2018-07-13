@@ -13,7 +13,13 @@ if (isset($positionId)) {
             $unitName = $r['unitName'];
             $unitMoves = $r['currentMoves'];
             $placementId = $r['placementId'];
-            echo "<div class='".$unitName." game_piece' data-unitName='".$unitName."' data-moves='".$unitMoves."' data-placementId='".$placementId."' draggable='true' ondragstart='drag(event, this)'></div>";
+            echo "<div class='".$unitName." game_piece' data-unitName='".$unitName."' data-moves='".$unitMoves."' data-placementId='".$placementId."' draggable='true' ondragstart='drag(event, this)' onclick='make_visible(event, this)'>";
+
+            if ($unitName == "transport") {
+                echo "<div id='abc' class='transportContainer'></div>";
+            }
+
+            echo "</div>";
         }
     }
 }

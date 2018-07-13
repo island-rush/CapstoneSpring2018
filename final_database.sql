@@ -44,6 +44,7 @@ INSERT INTO `games` VALUES (1, 'M1A', 'Darcy', 'Jacobs', 'Brown', 'Red', 0, 'Att
 INSERT INTO `games` VALUES (2, 'T2B', 'Kulp', 'Hillmann', 'George', 'Blue', 0, 'Fortify', 0, 53, 0, 4, 0, 0);
 
 -- Table of Units
+-- should unitName be unique? (as well as id?)(or only id?)(maybe not worth changing, just as convention)
 CREATE TABLE IF NOT EXISTS `units`(
 	`unitId` int(5) NOT NULL ,
     `unitName` varchar(20) NOT NULL,
@@ -54,12 +55,12 @@ CREATE TABLE IF NOT EXISTS `units`(
 );
 
 -- Insert units into table.
-INSERT INTO `units` VALUES (1, 'transport', 2, 0, 2);
-INSERT INTO `units` VALUES (2, 'aircraft carrier', 2, 1, 3);
-INSERT INTO `units` VALUES (3, 'destroyer', 2, 3, 4);
-INSERT INTO `units` VALUES (4, 'submarine', 2, 4, 4);
-INSERT INTO `units` VALUES (5, 'soldier', 1, 2, 2);
-INSERT INTO `units` VALUES (6, 'test_piece', 2, 2, 2);
+INSERT INTO `units` VALUES (1, 'transport', 5, 0, 2);
+INSERT INTO `units` VALUES (2, 'aircraftCarrier', 5, 1, 3);
+INSERT INTO `units` VALUES (3, 'destroyer', 5, 3, 4);
+INSERT INTO `units` VALUES (4, 'submarine', 5, 4, 4);
+INSERT INTO `units` VALUES (5, 'soldier', 5, 2, 2);
+INSERT INTO `units` VALUES (6, 'test_piece', 5, 2, 2);
 
 
 -- Table for Game Board Allowed Positions (for troops and whatnot)
@@ -221,7 +222,13 @@ CREATE TABLE IF NOT EXISTS `placements`(
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 -- Insert placements into table.
-INSERT INTO `placements` VALUES (1, 1, 6, 'red', 2, 1);
+INSERT INTO `placements` VALUES (1, 1, 6, 'red', 10, 1);
+INSERT INTO `placements` VALUES (2, 1, 1, 'red', 10, 2);
+-- INSERT INTO `placements` VALUES (3, 1, 2, 'red', 10, 3);
+-- INSERT INTO `placements` VALUES (4, 1, 3, 'red', 10, 4);
+-- INSERT INTO `placements` VALUES (5, 1, 4, 'red', 10, 5);
+-- INSERT INTO `placements` VALUES (6, 1, 5, 'red', 10, 6);
+
 -- INSERT INTO `placements` VALUES (2, 1, 6, 'red', 1);
 -- INSERT INTO `placements` VALUES (3, 1, 6, 'red', 1);
 -- INSERT INTO `placements` VALUES (4, 1, 6, 'red', 1);
@@ -255,6 +262,3 @@ UPDATE games SET gameBlueJoined=1 WHERE gameId = 1;
 SELECT * FROM placements;
 
 SELECT * FROM movements;
-
-SELECT * FROM movements ORDER BY movementId DESC LIMIT 0, 1;
-
