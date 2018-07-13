@@ -13,12 +13,17 @@ if (isset($positionId)) {
             $unitName = $r['unitName'];
             $unitMoves = $r['currentMoves'];
             $placementId = $r['placementId'];
-            echo "<div class='".$unitName." game_piece' data-unitName='".$unitName."' data-moves='".$unitMoves."' data-placementId='".$placementId."' draggable='true' ondragstart='drag(event, this)' onclick='make_visible(event, this)'>";
+            echo "<div class='".$unitName." game_piece' data-unitName='".$unitName."' data-moves='".$unitMoves."' ";
 
+            // other pieces don't do stuff when you click them (or they take the parent click (hideall probably))
             if ($unitName == "transport") {
-                echo "<div id='abc' class='transportContainer'></div>";
+                echo "onclick='make_visible(event, this)' ";
             }
 
+            echo "data-placementId='".$placementId."' draggable='true' ondragstart='drag(event, this)'>";
+            if ($unitName == "transport") {
+                echo "<div class='transportContainer' draggable='false'></div>";
+            }
             echo "</div>";
         }
     }

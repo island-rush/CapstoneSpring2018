@@ -164,14 +164,9 @@ html,body {
 
 /*//TODO: make this line up better?*/
 .transportContainer{
-
-}
-
-#abc{
     height: 225%;
     width: 225%;
     background-color: navajowhite;
-    /*visibility: visible;*/
 }
 
 .game_piece{

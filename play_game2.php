@@ -38,16 +38,10 @@ include("readexcel.php");
         //TODO: make this the main make_big function, and put bigblocks within the special islands?
         function make_visible(ev, element) {
             ev.preventDefault();
-            // alert("makevisible2");
-            // ev.dataTransfer.dropEffect = "none";  // used for something (drop into itself prevention in function below?)
-
             hideall_big();
-            var child = element.firstElementChild;
-            // document.getElementById("abc").style.display = "block";
-            child.style.display = "block";
+            element.firstElementChild.style.display = "block";
             bigblockvisible = "true";
             skip = "yes";
-            // alert("makevisible");
         }
 
         function make_big(ev, element) {
@@ -223,7 +217,7 @@ include("readexcel.php");
         <div class="subside_panel" id="bottom_panel">Other</div>
     </div>
 
-    <div id="game_board">
+    <div id="game_board" onmouseleave="hideall_big()">
         <div class="grid">
             <div id="cover"></div>
             <div class="gridblockLeftBig" ondragenter="clear_hover_timer(event)" onclick="hideall_big()">
