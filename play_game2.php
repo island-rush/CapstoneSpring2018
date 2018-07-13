@@ -161,7 +161,6 @@ include("readexcel.php");
             xmlhttp.onreadystatechange = function () {
                 if (this.readyState === 4 && this.status === 200) {
                     var decoded = JSON.parse(this.responseText);
-
                     var gamepiece = document.querySelector("[data-placementId='" + decoded.placementId + "']");
                     var move2 = parseInt(gamepiece.getAttribute("data-moves"));
                     var update_move = move2 + decoded.movementCost;

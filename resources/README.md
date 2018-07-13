@@ -28,10 +28,10 @@ What has been done (in a functional sense, not fully implemented (like with all 
 To Do in list format:
 
 -Display board
--Create sidepanel (optional design)
+-Create sidepanel (optional design) (working on it)
 -display troops on board based on  database (done)
--Add troops to board
--Delete troops from board
+-Add troops to board (functionality done)
+-Delete troops from board (functionality done)
 -Move troops from cell to cell along board based on unit's move allowance.
 
 (spencer's todo)
@@ -162,10 +162,68 @@ NOTES ABOUT TRANSPORT (during call between spencer and jack) + other thoughts ab
     still check adj matrix for troops entering transport from far away
     maybe good way of solving is to write step by step the logic of each transport mechanic
         -create a transport (display / newpiece)
+            on both php files, add check for unitName, if transport add onclick, ondragenter, ...etc (whatever is needed)
+                this can happen inside the already formed piece echo div... (or possibly more than 1 echo works just as well...)
+            for display, need extra check to see what is inside of it? (database check) and then add those pieces to inside the div
+            for create, don't need to add anything to the inside of it (unless theres an extra 'block' or 'container' that we put for the pieces)
         -move a transport (only water tile? - may need this functionality for other pieces)
+            checks need to happen (with database) to make sure the position it moves to is a water block (or starting block)
+            some same actions occur, (check if moving it also moves its children (it should in theory))
+            update the position in database, as well as its children's positions in database
+                this happens inside update position?
+                how to undo the movement of a transport with things inside of it
+                undo still has the piece, still knows both positions
+                    needs to grab any pieces with that transportId and change their positions as well (extra step)
+                movements stay the same (transport piece is only one that moves* for a movement insert)
+                    this way only 1 movement insertion for all the pieces to move together (keeps track cause still attached)
+                        what about moving into and out of a ship
+                            movement may need before transportId and after transportId (amphibious vehicles?)
+                                but this may not be a problem, since we can assert that whatever it carries can't be in the water
+                                    but still problem of which transport was it in (2 transports same position)
+                                        movement will need the transportId before and after (or just before, after = placement table already (also not needed))
         -move troop into a transport
+            need to figure out graphically how to display dynamically moving popups (even if it fits within the gridblock)
+                although may be good to keep the gridblock size because it will look better (ships are small / islands are big (have lots of stuff))
+                    (island has multiple positions with multiple pieces in each...transport has 3 max inside the single position)
+                drag troops into the parent div of the parent (parent will have ondrop (special ondrop?))
+                    the ondrop will change their transportId, as well as appendChild to parent (transport)
+                    more functions to make the popup appear / disappear (onclick to show? like islands) (hoverstart may be able to be used again in the same way)
+                        probably don't have to worry about user interaction being worse with dragging and hovering on a piece size smaller than the gridblock (test this first/last?)
+                            if hover doesn't work, can always click to make pop
+                                hide_all needs to now include the transport popups (so clicking anywhere will clear the board (keep that functionality at all times))
+                potentially no new php files, all can be special catches inside already built php files (but need to take not of what will break / what gets used when changes are implemented)
+                    (most bugs come from forgetting to change database calls, or other calls being made not directly to this, but using same tables...)
+                adjacency matrix should not need to change (still need to travel 1 space to enter the transport) (not a free move)
+                dragging them into the popup (that then can be hidden or shown...)
+                    possibly need to have a container div inside the parent transport (that way all pieces rely on 1 div)
+                        could be an easy way to display it with css magic, give it a special class
+                            but still need dynamically move it around with the transport
+                                first figure out how to put the div inside, (display it), and have it have gridblock css, not gamepiece css
+                                    if this can happen, it solve the graphical problems...
+                                        everything else is hidden around it when poped, so don't worry about other ships's divs in the same position
         -move transport with troops inside it
+            movement is just for the transport, but now has beforeTransportId (for other gamepieces to move in and out)...but this will always be null/default for transport ships themselves
+            update position is (fingers crossed) only updating the transport shit, (it has the divs and pieces as children of itself...which hopefully follows it around)
+            before this, regular checking (javascript) if legal moves (add checks for position = water) and dist[][]
+            move the parent normally (like the other stuff) html wise..
         -move troops out of a transport
+            movement will update the positions, and update the transport id to null (beforeTransportId) (it will store the new one in the placement table)
+                (note to update the placement table
         -accessing the transport's insides/storing what is inside of it?
+            onclick to make the popup
+            possibly use the same hover over methods
+            hideall needs to include it
+-----------------------
+major changes that effect lots of shit for transport
+    update placements table for transportId
+        many php files use this (creating, displaying, moving, ....maybe list them all to make sure I change them correctly the first time))
+            starting to get too complex to find all errors with quick testing
+    update movements table for beforeTransportId
+        undo movements may need special attention (html moving things back into the child container div)
+        inserting the movement
+        also updating positions of the troops inside the transport
+            check if UnitName = transport...then do extra steps (loop through the children) (can get children with database calls)
+    
+            
     
     
