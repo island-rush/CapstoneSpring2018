@@ -46,7 +46,6 @@ include("readexcel.php");
             element.style.zIndex = 100;
             bigblockvisible = "true";
             if (num === 4) {
-                //don't skip
                 skip = "no";
             } else {
                 skip = "yes";
@@ -126,21 +125,21 @@ include("readexcel.php");
                 //document append the troop to the container within the transport (it has the transport id)(from event?)
         }
 
-        function reset_moves() {
-            var copyUnitsMoves = unitsMoves;
-            var allpieces = document.getElementsByClassName("gamepiece");
-            // alert(allpieces);
-            var i;
-            for (i = 0; i < allpieces.length; i++) {
-                var unitName = allpieces[i].getAttribute("data-unitName");
-                // alert(copyUnitsMoves[unitName]);
-                allpieces[i].setAttribute("data-moves", copyUnitsMoves[unitName]);
-            }
-            // alert("gothere,hellow");
-            //TODO: reset in the database as well? (is this functionality even needed / button needed?) (undo does this)
-            //reset in the database as well...
-            //ajax to php file here
-        }
+        // function reset_moves() {
+        //     var copyUnitsMoves = unitsMoves;
+        //     var allpieces = document.getElementsByClassName("gamepiece");
+        //     // alert(allpieces);
+        //     var i;
+        //     for (i = 0; i < allpieces.length; i++) {
+        //         var unitName = allpieces[i].getAttribute("data-unitName");
+        //         // alert(copyUnitsMoves[unitName]);
+        //         allpieces[i].setAttribute("data-moves", copyUnitsMoves[unitName]);
+        //     }
+        //     // alert("gothere,hellow");
+        //     //TODO: reset in the database as well? (is this functionality even needed / button needed?) (undo does this)
+        //     //reset in the database as well...
+        //     //ajax to php file here
+        // }
 
         function allowDrop(event) {
             event.preventDefault();
