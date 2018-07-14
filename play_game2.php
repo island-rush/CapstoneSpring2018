@@ -12,6 +12,8 @@ include("readexcel.php");
         var hovertimer;
         var bigblockvisible = "true";  //used in check_prevent_popup (prevent if not already visible)
         var skip = "no";
+        var skipclear = 2; //2 is don't skip, 3 is skip TODO: change these and other weird shit
+        var skipdrop1 = 8; //8 is don't skip, 4 is skip
 
         var unitsMoves = <?php include("unit_moves.php"); ?>;
 
@@ -36,12 +38,17 @@ include("readexcel.php");
         }
 
         //TODO: make this the main make_big function, and put bigblocks within the special islands?
-        function make_visible(ev, element) {
+        function make_visible(ev, element, num) {
             ev.preventDefault();
             hideall_big();
             element.firstElementChild.style.display = "block";
             bigblockvisible = "true";
-            skip = "yes";
+            if (num === 4) {
+                //don't skip
+                skip = "no";
+            } else {
+                skip = "yes";
+            }
         }
 
         function make_big(ev, element) {
@@ -71,38 +78,50 @@ include("readexcel.php");
 
         function drop(event, element) {
             event.preventDefault();
-            var placementId = event.dataTransfer.getData("placementId");
-            var newPos = event.target.getAttribute("data-positionId");
-            var oldPos = event.dataTransfer.getData("positionId");
-            var moves = event.dataTransfer.getData("moves");
-            // TODO: check validity of moves and adjust ajax php function call below inside the if
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function () {
-                if (this.readyState === 4 && this.status === 200) {
-                    var answer = this.responseText;
-                    // alert(placementId);
-                    // alert(newPos);
-                    // alert(oldPos);
-                    // alert(answer);
-                    if (answer !== "false") {
-                        var xmlhttp2 = new XMLHttpRequest();
-                        //TODO: This may be good as GET instead of POST
-                        xmlhttp2.open("POST", "update_position.php?placementId=" + placementId + "&newPos=" + newPos + "&oldPos=" + oldPos + "&newmoves=" + answer, true);
-                        xmlhttp2.send();
-                        element.appendChild(document.querySelector("[data-placementId='" + placementId + "']"));
-                        //this line not getting called?
-                        document.querySelector("[data-placementId='" + placementId + "']").setAttribute("data-moves", answer);
+            if (skipdrop1 === 8) {
+                var placementId = event.dataTransfer.getData("placementId");
+                var newPos = event.target.getAttribute("data-positionId");
+                var oldPos = event.dataTransfer.getData("positionId");
+                var moves = event.dataTransfer.getData("moves");
+                // TODO: check validity of moves and adjust ajax php function call below inside the if
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState === 4 && this.status === 200) {
+                        var answer = this.responseText;
+                        // alert(placementId);
+                        // alert(newPos);
+                        // alert(oldPos);
+                        // alert(answer);
+                        if (answer !== "false") {
+                            var xmlhttp2 = new XMLHttpRequest();
+                            //TODO: This may be good as GET instead of POST
+                            xmlhttp2.open("POST", "update_position.php?placementId=" + placementId + "&newPos=" + newPos + "&oldPos=" + oldPos + "&newmoves=" + answer, true);
+                            xmlhttp2.send();
+                            element.appendChild(document.querySelector("[data-placementId='" + placementId + "']"));
+                            //this line not getting called?
+                            document.querySelector("[data-placementId='" + placementId + "']").setAttribute("data-moves", answer);
+                        }
                     }
-                }
-            };
-            xmlhttp.open("POST", "checkvalid.php?newPos=" + newPos + "&oldPos=" + oldPos + "&moves=" + moves, true);
-            xmlhttp.send();
+                };
+                xmlhttp.open("POST", "checkvalid.php?newPos=" + newPos + "&oldPos=" + oldPos + "&moves=" + moves, true);
+                xmlhttp.send();
+            }
+            skipdrop1 = 8;
+
         }
 
         function drop2(event, element) {
             event.preventDefault();
             //still check valid drop get the position from the grid parent?
-            //list other steps here....
+            //need the placementId of the transport unit (to add to the troop unit's placement)
+            //need the positionId of the transport unit (to add to the troop unit's position)
+            //need the old pos of what was dragged to add to the movement
+            //need the old transport id of what was dragged to add to the movement
+            //need the moves of the troop to make sure it was a valid move into the position of where the transport is
+            //ajax request to the checkvalid.php?newPos..oldpos...moves...
+            //if valid move
+                //ajax to update_position with placementId of troop, newpos/oldpos, newmoves, and new transportId/old tranportId?
+                //document append the troop to the container within the transport (it has the transport id)(from event?)
         }
 
         function reset_moves() {
@@ -124,7 +143,7 @@ include("readexcel.php");
         function allowDrop(event) {
             event.preventDefault();
             if (event.target.getAttribute("draggable") == "true") {
-                event.dataTransfer.dropEffect = "none";  // can't drop into itself
+                event.dataTransfer.dropEffect = "none";  // can't drop into itself...need to learn more about how this works (could break things?...since idk)
             } else {
                 event.dataTransfer.dropEffect = "all";
             }
@@ -140,14 +159,17 @@ include("readexcel.php");
             event.preventDefault();
             // alert("dragged over");
             clearTimeout(hovertimer);
-            hovertimer = setTimeout(function() {make_visible(event, element)}, 1000);
+            hovertimer = setTimeout(function() {make_visible(event, element, 4)}, 1000);
         }
 
         // TODO: may make one of these functions island depended, so doesnt reset each time when enter 2 seperate special islands waiting for 3rd to close
         function clear_hover_timer(event) {
             event.preventDefault();
-            clearTimeout(hovertimer);
-            hovertimer = setTimeout(function() { hideall_big();}, 1000);
+            if (skipclear === 2) {
+                clearTimeout(hovertimer);
+                hovertimer = setTimeout(function() { hideall_big();}, 1000);
+            }
+            skipclear = 2;
         }
 
         function check_prevent_popup(event) {
@@ -156,13 +178,6 @@ include("readexcel.php");
                 clearTimeout(hovertimer);
             }
         }
-
-        // function check_prevent_popup2(event) {
-        //     event.preventDefault();
-        //     if (bigblockvisible === "false") {
-        //         clearTimeout(hovertimer);
-        //     }
-        // }
 
         function create_piece_placement(event) {
             event.preventDefault();
@@ -178,6 +193,7 @@ include("readexcel.php");
             xmlhttp.send();
         }
 
+        //TODO: this only called once, possibly just move this into the call itself on the body
         function hidecover(event) {
             //this messes it up? (not sure why, but don't need it for now...not testing cross browser stuff)
             // event.preventDefault();
