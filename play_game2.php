@@ -74,8 +74,17 @@ include("readexcel.php");
             //function set inside "display_pieces.php"
             event.dataTransfer.setData("placementId", event.target.getAttribute("data-placementId"));
             event.dataTransfer.setData("positionId", event.target.parentNode.getAttribute("data-positionId"));
+            event.dataTransfer.setData("oldtrans", event.target.getAttribute("data-trans"));
             event.dataTransfer.setData("moves", event.target.getAttribute("data-moves"));
         }
+
+        // function drag2(event) {
+        //     //function set inside "display_pieces.php"
+        //     event.dataTransfer.setData("placementId", event.target.getAttribute("data-placementId"));
+        //     event.dataTransfer.setData("positionId", event.target.parentNode.getAttribute("data-positionId"));
+        //     event.dataTransfer.setData("", event.target.getAttribute("data-trans"));
+        //     event.dataTransfer.setData("moves", event.target.getAttribute("data-moves"));
+        // }
 
         function drop(event, element) {
             event.preventDefault();
@@ -84,23 +93,26 @@ include("readexcel.php");
                 var newPos = event.target.getAttribute("data-positionId");
                 var oldPos = event.dataTransfer.getData("positionId");
                 var moves = event.dataTransfer.getData("moves");
+                var oldtrans = event.dataTransfer.getData("oldtrans");
+                var newtrans = null;  //still null because not dropped into a container
                 // TODO: check validity of moves and adjust ajax php function call below inside the if
                 var xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function () {
                     if (this.readyState === 4 && this.status === 200) {
                         var answer = this.responseText;
-                        // alert(placementId);
-                        // alert(newPos);
-                        // alert(oldPos);
-                        // alert(answer);
                         if (answer !== "false") {
                             var xmlhttp2 = new XMLHttpRequest();
                             //TODO: This may be good as GET instead of POST
-                            xmlhttp2.open("POST", "update_position.php?placementId=" + placementId + "&newPos=" + newPos + "&oldPos=" + oldPos + "&newmoves=" + answer, true);
+                            xmlhttp2.open("POST", "update_position.php?placementId=" + placementId + "&newPos=" + newPos + "&oldPos=" + oldPos + "&newmoves=" + answer + "&oldtrans=" + oldtrans + "&newtrans=" + newtrans, true);
                             xmlhttp2.send();
                             element.appendChild(document.querySelector("[data-placementId='" + placementId + "']"));
-                            //this line not getting called?
                             document.querySelector("[data-placementId='" + placementId + "']").setAttribute("data-moves", answer);
+                            //if transport, update data-positionId of container (its only child)
+                            var gamepiece = document.querySelector("[data-placementId='" + placementId + "']");
+                            var unitName = gamepiece.getAttribute("data-unitName");
+                            if (unitName === "transport") {
+                                gamepiece.firstChild.setAttribute("data-positionId", element.getAttribute("data-positionId"));
+                            }
                         }
                     }
                 };
@@ -111,14 +123,36 @@ include("readexcel.php");
 
         }
 
+        // TODO: make drop1 and drop2 the same, only difference now is the newtrans doesnt get set to null (and appending?)
         function drop2(event, element) {
             event.preventDefault();
-            //still check valid drop get the position from the grid parent?
-            //need the placementId of the transport unit (to add to the troop unit's placement)
-            //need the positionId of the transport unit (to add to the troop unit's position)
-            //need the old pos of what was dragged to add to the movement
-            //need the old transport id of what was dragged to add to the movement
-            //need the moves of the troop to make sure it was a valid move into the position of where the transport is
+            var placementId = event.dataTransfer.getData("placementId"); //piece that moved
+            // var transportPiece = event.target.parentNode;
+            var newPos =  event.target.parentNode.parentNode.getAttribute("data-positionId"); //where is it moving to (get from the parent?)(getting from grid)
+            var oldPos = event.dataTransfer.getData("positionId"); //where did it move from (put this into the movement for undo)
+            var moves = event.dataTransfer.getData("moves");  //moves left for the piece (same)
+            var oldtrans = event.dataTransfer.getData("oldtrans");  //oldtrans that was on it (put this into the movement for undo)
+            var newtrans = event.target.parentNode.getAttribute("data-placementId");  //what to set inside the placement of moved piece (as new trans)
+
+            //movement has the placementId (of piece), oldPosition, oldTransId, moves, placementId (of trans)
+
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    var answer = this.responseText;
+                    if (answer !== "false") {
+                        var xmlhttp2 = new XMLHttpRequest();
+                        //TODO: This may be good as GET instead of POST
+                        xmlhttp2.open("POST", "update_position.php?placementId=" + placementId + "&newPos=" + newPos + "&oldPos=" + oldPos + "&newmoves=" + answer + "&oldtrans=" + oldtrans + "&newtrans=" + newtrans, true);
+                        xmlhttp2.send();
+                        element.appendChild(document.querySelector("[data-placementId='" + placementId + "']"));
+                        document.querySelector("[data-placementId='" + placementId + "']").setAttribute("data-moves", answer);
+                    }
+                }
+            };
+            xmlhttp.open("POST", "checkvalid.php?newPos=" + newPos + "&oldPos=" + oldPos + "&moves=" + moves, true);
+            xmlhttp.send();
+
             //ajax request to the checkvalid.php?newPos..oldpos...moves...
             //if valid move
                 //ajax to update_position with placementId of troop, newpos/oldpos, newmoves, and new transportId/old tranportId?
@@ -202,6 +236,7 @@ include("readexcel.php");
         }
 
         function throwaway(event, trashbox) {
+            //TODO: doesn't handle pieces within the transport and shit, or it might...idk no testing has happened
             event.preventDefault();
             //TODO: add logic to not throw away pieces already placed onto the board...(undo for those...)(check event/add more details to event if needed)
             var placementId = event.dataTransfer.getData("placementId");
@@ -223,9 +258,26 @@ include("readexcel.php");
                     var gamepiece = document.querySelector("[data-placementId='" + decoded.placementId + "']");
                     var move2 = parseInt(gamepiece.getAttribute("data-moves"));
                     var update_move = move2 + decoded.movementCost;
-                    document.querySelector("[data-positionId='" + decoded.oldPositionId + "']").removeChild(gamepiece);
-                    document.querySelector("[data-positionId='" + decoded.newPositionId + "']").appendChild(gamepiece);
                     gamepiece.setAttribute("data-moves", update_move);
+                    var fromtrans = decoded.fromtrans;
+                    var totrans = decoded.totrans;
+                    gamepiece.setAttribute("data-trans", totrans);
+                    //if the fromtrans was not null, need to remove it from the container (id = fromtrans)
+                    if (fromtrans != null) {
+                        //remove from container
+                        var container = document.querySelector("[data-placementId='" + fromtrans + "']").firstChild;
+                        container.removeChild(gamepiece);
+                    } else {
+                        //remove from gridblock
+                        document.querySelector("[data-positionId='" + decoded.oldPositionId + "']").removeChild(gamepiece);
+                    }
+                    //if the totrans was not null, need to add it to the container (id = totrans)
+                    if (totrans != null) {
+                        var container = document.querySelector("[data-placementId='" + fromtrans + "']").firstChild;
+                        container.appendChild(gamepiece);
+                    } else {
+                        document.querySelector("[data-positionId='" + decoded.newPositionId + "']").appendChild(gamepiece);
+                    }
                 }
             };
             xmlhttp.open("GET", "movement_undo.php", true);

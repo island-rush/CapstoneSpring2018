@@ -20,6 +20,7 @@ $movementId = $r['movementId'];
 $movementCost = $r['movementCost'];
 $movementFromPosition = $r['movementFromPosition'];
 $movementNowPlacement = $r['movementNowPlacement'];
+$movementFromTransport = $r['movementFromTransport'];
 
 $query = 'SELECT * FROM placements WHERE placementId = ?';
 $query = $db->prepare($query);
@@ -29,12 +30,14 @@ $results = $query->get_result();
 $r= $results->fetch_assoc();
 
 $nowPosition = $r['positionId'];
+$nowtrans = $r['transportId'];
+//special things to do if it was inside of a transport?
 $currentMoves = $r['currentMoves'];
 $newCurrentMoves = $currentMoves + $movementCost;
 
-$query = 'UPDATE placements SET positionId = ?, currentMoves = ? WHERE (placementId = ?)';
+$query = 'UPDATE placements SET positionId = ?, currentMoves = ?, transportId = ? WHERE (placementId = ?)';
 $query = $db->prepare($query);
-$query->bind_param("iii", $movementFromPosition, $newCurrentMoves, $movementNowPlacement);
+$query->bind_param("iiii", $movementFromPosition, $newCurrentMoves, $movementFromTransport, $movementNowPlacement);
 $query->execute();
 
 $query = 'DELETE FROM movements WHERE movementId = ?';
@@ -42,5 +45,5 @@ $query = $db->prepare($query);
 $query->bind_param("i", $movementId);
 $query->execute();
 
-$arr = array('placementId' => $movementNowPlacement, 'oldPositionId' => $nowPosition, 'newPositionId' => $movementFromPosition, 'movementCost' => $movementCost);
+$arr = array('placementId' => $movementNowPlacement, 'fromtrans' => $nowtrans, 'oldPositionId' => $nowPosition, 'newPositionId' => $movementFromPosition, 'movementCost' => $movementCost, 'totrans' => $movementFromTransport);
 echo json_encode($arr);

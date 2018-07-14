@@ -9,6 +9,8 @@ $gameId = 1;
 $unitId = 6;
 //get unit moves
 $unitMoves = 5;
+//unit trans?
+$trans = null;
 
 $teamId = 'red';
 $positionId = 119;
@@ -16,10 +18,12 @@ $positionId = 119;
 //also get this from the button
 $unitName = 'test_piece';
 
-$query = 'INSERT INTO placements (gameId, unitId, teamId, currentMoves, positionId) VALUES(?, ?, ?, ?, ?)';
+$query = 'INSERT INTO placements (gameId, unitId, teamId, transportId, currentMoves, positionId) VALUES(?, ?, ?, ?, ?, ?)';
 $query = $db->prepare($query);
-$query->bind_param("iisii", $gameId, $unitId, $teamId, $unitMoves, $positionId);
+$query->bind_param("iisiii", $gameId, $unitId, $teamId, $trans, $unitMoves, $positionId);
 $query->execute();
+
+//TODO: what would happen if you try to trash a transport piece with (container in it) and or pieces in it (probably doesn't delete the pieces inside of it from database...)
 
 $query = 'SELECT LAST_INSERT_ID()';
 $query = $db->prepare($query);
@@ -28,7 +32,7 @@ $results = $query->get_result();
 $num_results = $results->num_rows;
 $r= $results->fetch_assoc();
 $newPlacementId = $r['LAST_INSERT_ID()'];
-echo "<div class='".$unitName." game_piece' data-unitName='".$unitName."' data-moves='".$unitMoves."' data-placementId='".$newPlacementId."' draggable='true' ondragstart='drag(event, this)'></div>";
+echo "<div class='".$unitName." game_piece' data-trans='".$trans."' data-unitName='".$unitName."' data-moves='".$unitMoves."' data-placementId='".$newPlacementId."' draggable='true' ondragstart='drag(event, this)'></div>";
 
 //TODO: check for errors on all of these
 
