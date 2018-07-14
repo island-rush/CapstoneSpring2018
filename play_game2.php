@@ -30,6 +30,7 @@ include("readexcel.php");
                 var z;
                 for (z = 0; z < y.length; z++) {
                     y[z].style.display = "none";
+                    y[z].style.zIndex = 10;
                 }
 
                 bigblockvisible = "false";
@@ -42,6 +43,7 @@ include("readexcel.php");
             ev.preventDefault();
             hideall_big();
             element.firstElementChild.style.display = "block";
+            element.style.zIndex = 100;
             bigblockvisible = "true";
             if (num === 4) {
                 //don't skip

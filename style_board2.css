@@ -168,17 +168,19 @@ html,body {
     width: 225%;
     background-color: yellow;
     margin: 0%;
-    opacity: .99;
+    /*opacity: .99;*/
     position: absolute;
-    z-index: 50;
+    z-index: 25;
 }
+
+/*TODO: figure out how to make container above game_pieces...when the container is a child of gamepiece...?*/
 
 .game_piece{
     width: 45%;
     height: 45%;
     /*opacity: .99;*/
     visibility: visible;
-    z-index: 10;
+    z-index: 1;
     float: left;
     position: relative;
 }
