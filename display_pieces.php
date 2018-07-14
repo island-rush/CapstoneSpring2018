@@ -16,13 +16,14 @@ if (isset($positionId)) {
             echo "<div class='".$unitName." game_piece' data-unitName='".$unitName."' data-moves='".$unitMoves."' ";
 
             // other pieces don't do stuff when you click them (or they take the parent click (hideall probably))
+            //possibly other methods that are specific to this? (does dropping change for a transport div / container?)
             if ($unitName == "transport") {
-                echo "onclick='make_visible(event, this)' ";
+                echo "onclick='make_visible(event, this)' ondragover='allowDrop(event)' ondragenter='clear_hover_timer(event)' ondrop='' ";
             }
 
             echo "data-placementId='".$placementId."' draggable='true' ondragstart='drag(event, this)'>";
             if ($unitName == "transport") {
-                echo "<div class='transportContainer' draggable='false'></div>";
+                echo "<div class='transportContainer' ondragenter='clearTimeout(hovertimer)'></div>";
             }
             echo "</div>";
         }

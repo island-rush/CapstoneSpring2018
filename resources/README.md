@@ -210,9 +210,9 @@ NOTES ABOUT TRANSPORT (during call between spencer and jack) + other thoughts ab
             movement will update the positions, and update the transport id to null (beforeTransportId) (it will store the new one in the placement table)
                 (note to update the placement table
         -accessing the transport's insides/storing what is inside of it?
-            onclick to make the popup
+            onclick to make the popup (done)
             possibly use the same hover over methods
-            hideall needs to include it
+            hideall needs to include it (done)
 -----------------------
 major changes that effect lots of shit for transport
     update placements table for transportId

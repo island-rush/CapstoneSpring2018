@@ -99,6 +99,12 @@ include("readexcel.php");
             xmlhttp.send();
         }
 
+        function drop2(event, element) {
+            event.preventDefault();
+            //still check valid drop get the position from the grid parent?
+            //list other steps here....
+        }
+
         function reset_moves() {
             var copyUnitsMoves = unitsMoves;
             var allpieces = document.getElementsByClassName("gamepiece");
@@ -130,6 +136,13 @@ include("readexcel.php");
             hovertimer = setTimeout(function() { make_big(event, element);}, 1000);
         }
 
+        function start_hover_timer2(event, element) {
+            event.preventDefault();
+            // alert("dragged over");
+            clearTimeout(hovertimer);
+            hovertimer = setTimeout(function() {make_visible(event, element)}, 1000);
+        }
+
         // TODO: may make one of these functions island depended, so doesnt reset each time when enter 2 seperate special islands waiting for 3rd to close
         function clear_hover_timer(event) {
             event.preventDefault();
@@ -143,6 +156,13 @@ include("readexcel.php");
                 clearTimeout(hovertimer);
             }
         }
+
+        // function check_prevent_popup2(event) {
+        //     event.preventDefault();
+        //     if (bigblockvisible === "false") {
+        //         clearTimeout(hovertimer);
+        //     }
+        // }
 
         function create_piece_placement(event) {
             event.preventDefault();
@@ -212,7 +232,7 @@ include("readexcel.php");
         <div class="subside_panel" id="middle_panel">
             Phase2<br>
             <button onclick="undo_movement(event)">Undo a movement</button>
-            <button onclick="reset_moves()">Rest Moves for all pieces</button>
+<!--            <button onclick="reset_moves()">Rest Moves for all pieces</button>-->
         </div>
         <div class="subside_panel" id="bottom_panel">Other</div>
     </div>
@@ -313,6 +333,7 @@ include("readexcel.php");
             <div class="gridblock" ondragenter="clear_hover_timer(event)" data-positionId="53" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 53; include("display_pieces.php"); ?></div>
             <div class="gridblock" ondragenter="clear_hover_timer(event)" data-positionId="54" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 54; include("display_pieces.php"); ?></div>
             <div class="gridblock" ondragenter="clear_hover_timer(event)" data-positionId="55" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 55; include("display_pieces.php"); ?></div>
+<!--            TODO: seriously refactor to put this inside of the special_islands once mastered uninheriting of functions between child and parent-->
             <div id="bigblock1" class="bigblock bigblock3x3" ondragenter="clearTimeout(hovertimer);">
                 <div class="gridblockTiny" id="pos1a" data-positionId="76" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 76; include("display_pieces.php"); ?></div>
                 <div class="gridblockTiny" id="pos1b" data-positionId="77" onclick="hideall_big()" ondragover="allowDrop(event)" ondrop="drop(event, this)"><?php $positionId = 77; include("display_pieces.php"); ?></div>
