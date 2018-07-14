@@ -17,7 +17,7 @@ if (isset($positionId)) {
             $placementId = $r['placementId'];
             //TODO: don't echo a non-transport with the trans set (these will get echo'd inside of a trans)
 
-            if ($unitName != "transport" && $trans != null) {
+            if ($trans == null) {
                 echo "<div class='".$unitName." game_piece' data-trans='".$trans."' data-unitName='".$unitName."' data-moves='".$unitMoves."' ";
 
                 // other pieces don't do stuff when you click them (or they take the parent click (hideall probably))

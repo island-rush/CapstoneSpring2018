@@ -23,6 +23,36 @@ $oldPos = $_REQUEST['oldPos'];
 //if it is, need to find out all pieces that have this placementId in their transportId (in placements table)
 //for each of those pieces, update in the database the positionId of them
 
+$query = 'SELECT * FROM placements NATURAL JOIN units WHERE placementId = ?';
+$query = $db->prepare($query);
+$query->bind_param("i", $placementId);
+$query->execute();
+$results = $query->get_result();
+$r= $results->fetch_assoc();
+$unitName = $r['unitName'];
+$transportPosition = $r['positionId'];
+
+if ($unitName == "transport") {
+    //get all placements that have the transportId = this placementId
+    //update their positions to be the position of the placement...not changing transId or moves (same moves inside transport...still inside of it)
+    $query = 'SELECT * FROM placements WHERE (gameId = ?) AND (transportId = ?)';
+    $query = $db->prepare($query);
+    $query->bind_param("ii", $gameId, $placementId);
+    $query->execute();
+    $results = $query->get_result();
+    $num_results = $results->num_rows;
+    if ($num_results > 0) {
+        for ($i=0; $i < $num_results; $i++) {
+            $r = $results->fetch_assoc();
+            $apiece = $r['placementId'];
+            $query = 'UPDATE placements SET positionId = ? WHERE (placementId = ?)';
+            $query = $db->prepare($query);
+            $query->bind_param("ii", $newPos, $apiece);
+            $query->execute();
+        }
+    }
+}
+//TODO: make sure transports can't go into transports (or whatever)(other logic for what can fit in it)
 
 
 
