@@ -22,7 +22,7 @@ $oldPos = $_REQUEST['oldPos'];
 //find out if transport (select from placement table and get the unit name?)(with a join)
 //if it is, need to find out all pieces that have this placementId in their transportId (in placements table)
 //for each of those pieces, update in the database the positionId of them
-
+//TODO: and gameId? (everything inside the same game, turn, phase)
 $query = 'SELECT * FROM placements NATURAL JOIN units WHERE placementId = ?';
 $query = $db->prepare($query);
 $query->bind_param("i", $placementId);
@@ -30,7 +30,6 @@ $query->execute();
 $results = $query->get_result();
 $r= $results->fetch_assoc();
 $unitName = $r['unitName'];
-$transportPosition = $r['positionId'];
 
 if ($unitName == "transport") {
     //get all placements that have the transportId = this placementId

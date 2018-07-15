@@ -17,7 +17,7 @@ if (isset($positionId)) {
             $placementId = $r['placementId'];
             //TODO: don't echo a non-transport with the trans set (these will get echo'd inside of a trans)
 
-            if ($trans == null) {
+            if ($trans == 999999) {
                 echo "<div class='".$unitName." game_piece' data-trans='".$trans."' data-unitName='".$unitName."' data-moves='".$unitMoves."' ";
 
                 // other pieces don't do stuff when you click them (or they take the parent click (hideall probably))
@@ -29,11 +29,11 @@ if (isset($positionId)) {
                 echo "data-placementId='".$placementId."' draggable='true' ondragstart='drag(event, this)'>";
 
                 if ($unitName == "transport") {
-                    echo "<div class='transportContainer' data-positionId='".$containerPos."' ondragleave='check_prevent_popup(event)' ondragover='allowDrop(event)' ondrop='drop(event, this); skipdrop1 = 4;'>";
+                    echo "<div class='transportContainer' data-containerPos='".$containerPos."' ondragleave='check_prevent_popup(event)' ondragover='allowDrop(event)' ondrop='drop2(event, this); skipdrop1 = 4;'>";
 
                     $query = 'SELECT * FROM placements WHERE (gameId = ?) AND (transportId = ?)';
                     $query = $db->prepare($query);
-                    $query->bind_param("ii", $gameId, $trans);
+                    $query->bind_param("ii", $gameId, $placementId);
                     $query->execute();
                     $results = $query->get_result();
                     $num_results = $results->num_rows;

@@ -30,7 +30,7 @@ include("readexcel.php");
                 var z;
                 for (z = 0; z < y.length; z++) {
                     y[z].style.display = "none";
-                    y[z].style.zIndex = 10;
+                    y[z].style.zIndex = 25;
                 }
 
                 bigblockvisible = "false";
@@ -73,6 +73,7 @@ include("readexcel.php");
         function drag(event) {
             //function set inside "display_pieces.php"
             event.dataTransfer.setData("placementId", event.target.getAttribute("data-placementId"));
+            //this is fucked because parents of transport may not have positionId?
             event.dataTransfer.setData("positionId", event.target.parentNode.getAttribute("data-positionId"));
             event.dataTransfer.setData("oldtrans", event.target.getAttribute("data-trans"));
             event.dataTransfer.setData("moves", event.target.getAttribute("data-moves"));
@@ -94,7 +95,7 @@ include("readexcel.php");
                 var oldPos = event.dataTransfer.getData("positionId");
                 var moves = event.dataTransfer.getData("moves");
                 var oldtrans = event.dataTransfer.getData("oldtrans");
-                var newtrans = null;  //still null because not dropped into a container
+                var newtrans = 999999;  //still null because not dropped into a container
                 // TODO: check validity of moves and adjust ajax php function call below inside the if
                 var xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function () {
@@ -103,6 +104,12 @@ include("readexcel.php");
                         if (answer !== "false") {
                             var xmlhttp2 = new XMLHttpRequest();
                             //TODO: This may be good as GET instead of POST
+                            // alert(placementId);
+                            // alert(newPos);
+                            // alert(oldPos);
+                            // alert(moves);
+                            // alert(oldtrans);
+                            // alert(newtrans);
                             xmlhttp2.open("POST", "update_position.php?placementId=" + placementId + "&newPos=" + newPos + "&oldPos=" + oldPos + "&newmoves=" + answer + "&oldtrans=" + oldtrans + "&newtrans=" + newtrans, true);
                             xmlhttp2.send();
                             element.appendChild(document.querySelector("[data-placementId='" + placementId + "']"));
@@ -111,7 +118,7 @@ include("readexcel.php");
                             var gamepiece = document.querySelector("[data-placementId='" + placementId + "']");
                             var unitName = gamepiece.getAttribute("data-unitName");
                             if (unitName === "transport") {
-                                gamepiece.firstChild.setAttribute("data-positionId", element.getAttribute("data-positionId"));
+                                gamepiece.firstChild.setAttribute("data-containerPos", element.getAttribute("data-positionId"));
                             }
                         }
                     }
@@ -120,7 +127,6 @@ include("readexcel.php");
                 xmlhttp.send();
             }
             skipdrop1 = 8;
-
         }
 
         // TODO: make drop1 and drop2 the same, only difference now is the newtrans doesnt get set to null (and appending?)
@@ -263,7 +269,7 @@ include("readexcel.php");
                     var totrans = decoded.totrans;
                     gamepiece.setAttribute("data-trans", totrans);
                     //if the fromtrans was not null, need to remove it from the container (id = fromtrans)
-                    if (fromtrans != null) {
+                    if (fromtrans !== 999999) {
                         //remove from container
                         var container = document.querySelector("[data-placementId='" + fromtrans + "']").firstChild;
                         container.removeChild(gamepiece);
@@ -272,7 +278,7 @@ include("readexcel.php");
                         document.querySelector("[data-positionId='" + decoded.oldPositionId + "']").removeChild(gamepiece);
                     }
                     //if the totrans was not null, need to add it to the container (id = totrans)
-                    if (totrans != null) {
+                    if (totrans !== 999999) {
                         var container = document.querySelector("[data-placementId='" + fromtrans + "']").firstChild;
                         container.appendChild(gamepiece);
                     } else {

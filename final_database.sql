@@ -213,7 +213,7 @@ CREATE TABLE IF NOT EXISTS `placements`(
     `gameId` int(5) NOT NULL,
     `unitId` int(5) NOT NULL,
     `teamId` varchar(10) NOT NULL,
-	`transportId` int(3),
+	`transportId` int(16) NOT NULL,
     `currentMoves` int(3) NOT NULL,
     `positionId` int(4) NOT NULL,
     PRIMARY KEY(`placementId`),
@@ -224,8 +224,8 @@ CREATE TABLE IF NOT EXISTS `placements`(
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 -- Insert placements into table.
-INSERT INTO `placements` VALUES (1, 1, 6, 'red', null, 5, 1);
-INSERT INTO `placements` VALUES (2, 1, 1, 'red', null, 5, 2);
+INSERT INTO `placements` VALUES (1, 1, 6, 'red', 999999, 5, 1);
+-- INSERT INTO `placements` VALUES (2, 1, 1, 'red', null, 5, 2);
 -- INSERT INTO `placements` VALUES (3, 1, 2, 'red', 10, 3);
 -- INSERT INTO `placements` VALUES (4, 1, 3, 'red', 10, 4);
 -- INSERT INTO `placements` VALUES (5, 1, 4, 'red', 10, 5);

@@ -10,7 +10,7 @@ $unitId = 6;
 //get unit moves
 $unitMoves = 5;
 //unit trans?
-$trans = null;
+$trans = 999999;
 
 $teamId = 'red';
 $positionId = 119;
@@ -32,6 +32,7 @@ $results = $query->get_result();
 $num_results = $results->num_rows;
 $r= $results->fetch_assoc();
 $newPlacementId = $r['LAST_INSERT_ID()'];
+//TODO: need container to be placed inside if it is a transport
 echo "<div class='".$unitName." game_piece' data-trans='".$trans."' data-unitName='".$unitName."' data-moves='".$unitMoves."' data-placementId='".$newPlacementId."' draggable='true' ondragstart='drag(event, this)'></div>";
 
 //TODO: check for errors on all of these
