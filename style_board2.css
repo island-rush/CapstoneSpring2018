@@ -1,5 +1,5 @@
 /*TODO: Consolidate these better (multi classes for single divs...bigblock class not implemented yet)*/
-/*TODO: find out way to stop google from caching the css etc...*/
+/*TODO: possibly use this for the home.php as well, what is even on there?*/
 
 html,body {
     /*width: 100%;*/
@@ -168,16 +168,16 @@ html,body {
 .transportContainer{
     height: 200%;
     width: 200%;
-    background-color: mediumpurple;
+    background-color: black;
     margin: 0%;
     /*opacity: .99;*/
     position: absolute;
     z-index: 25;
 }
 
-.transportContainer > .test_piece{
-    background-image: url("resources/Image files/test_piece.png");
-}
+/*.transportContainer > .test_piece{*/
+    /*background-color: black;*/
+/*}*/
 
 /*TODO: figure out how to make container above game_pieces...when the container is a child of gamepiece...?*/
 
@@ -191,20 +191,23 @@ html,body {
 
 /*//TODO: better naming convention for these? (get a solid convention going and stick with it (add to readme...)))*/
 /*TODO: images for other pieces not working, figure out what format is best*/
-.test_piece {background-image: url("resources/Image files/test_piece.png");
-}
-.transport{
-    /*background-image: url("resources/Image files/test_piece.png");*/
-    background-color: black;
-}
-.aircraftCarrier{background-image: url("resources/Image files/test_piece.png");}
-.destroyer{background-image: url("resources/Image files/test_piece.png");}
-.submarine{background-image: url("resources/Image files/test_piece.png");}
-.soldier{background-image: url("resources/Image files/test_piece.png");}
+.transport{background-color: black;}
+.submarine{background-color: red;}
+.destroyer{background-color: indianred;}
+.aircraftCarrier{background-color: yellow;}
+.soldier{background-color: lightgreen;}
+.artillery{background-color: greenyellow;}
+.tank{background-color: lawngreen;}
+.marine{background-color: deepskyblue;}
+.lav{background-color: dodgerblue;}
+.attackHeli{background-color: lightblue;}
+.sam{background-color: blue;}
+.fighter{background-color: mediumpurple;}
+.bomber{background-color: purple;}
+.stealthBomber{background-color: violet;}
+.tanker{background-color: maroon;}
+.test_piece{background-color: deeppink;}
 
-/*.transportContainer > .test_piece{*/
-    /*background-image: url("resources/Image files/test_piece.png");*/
-/*}*/
 
 .gridblockTiny{
     margin-right: 1px;
