@@ -31,6 +31,11 @@ include("readexcel.php");
                 for (z = 0; z < y.length; z++) {
                     y[z].style.display = "none";
                     y[z].style.zIndex = 25;
+                    // var children = y[z].childNodes;
+                    // var v;
+                    // for (v = 0; v < children.length; v++) {
+                    //     children[v].style.zIndex = 20;
+                    // }
                 }
 
                 bigblockvisible = "false";
@@ -44,6 +49,16 @@ include("readexcel.php");
             hideall_big();
             element.firstElementChild.style.display = "block";
             element.style.zIndex = 100;
+            element.firstElementChild.style.zIndex = 200;
+            //make all of the children higher index?
+            // var children = element.childNodes;
+            // var x;
+            // for (x = 0; x < children.length; x++) {
+            //     children[x].style.zIndex = 150;
+            // }
+
+
+
             bigblockvisible = "true";
             if (num === 4) {
                 skip = "no";

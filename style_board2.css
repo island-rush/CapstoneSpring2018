@@ -173,21 +173,24 @@ html,body {
     z-index: 25;
 }
 
+.transportContainer > .test_piece{
+    background-image: url("resources/Image files/test_piece.png");
+}
+
 /*TODO: figure out how to make container above game_pieces...when the container is a child of gamepiece...?*/
 
 .game_piece{
-    width: 45%;
-    height: 45%;
-    /*opacity: .99;*/
-    visibility: visible;
-    z-index: 10;
+    width: 40%;
+    height: 40%;
+    z-index: 20;
     float: left;
     position: relative;
 }
 
 /*//TODO: better naming convention for these? (get a solid convention going and stick with it (add to readme...)))*/
 /*TODO: images for other pieces not working, figure out what format is best*/
-.test_piece{background-image: url("resources/Image files/test_piece.png");}
+.test_piece {background-image: url("resources/Image files/test_piece.png");
+}
 .transport{
     /*background-image: url("resources/Image files/test_piece.png");*/
     background-color: black;
@@ -196,6 +199,10 @@ html,body {
 .destroyer{background-image: url("resources/Image files/test_piece.png");}
 .submarine{background-image: url("resources/Image files/test_piece.png");}
 .soldier{background-image: url("resources/Image files/test_piece.png");}
+
+/*.transportContainer > .test_piece{*/
+    /*background-image: url("resources/Image files/test_piece.png");*/
+/*}*/
 
 .gridblockTiny{
     margin-right: 1px;
