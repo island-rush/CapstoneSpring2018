@@ -60,6 +60,7 @@ html,body {
     width: 210px;
     height: 212px;
     float: left;
+    margin-right: 2px;
 }
 
 .gridblockLeftBig:hover{
@@ -79,6 +80,7 @@ html,body {
     background-color: rgba(236, 1, 255, 0.16)
 }
 
+/*//TODO: make the margins on sides of grids (big and small) better so that it fits the background image*/
 .gridblock{
     z-index: 5;
     position: relative;
@@ -164,8 +166,8 @@ html,body {
 
 /*//TODO: make this line up better?*/
 .transportContainer{
-    height: 225%;
-    width: 225%;
+    height: 200%;
+    width: 200%;
     background-color: mediumpurple;
     margin: 0%;
     /*opacity: .99;*/
@@ -180,8 +182,8 @@ html,body {
 /*TODO: figure out how to make container above game_pieces...when the container is a child of gamepiece...?*/
 
 .game_piece{
-    width: 40%;
-    height: 40%;
+    width: 50%;
+    height: 50%;
     z-index: 20;
     float: left;
     position: relative;

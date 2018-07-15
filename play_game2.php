@@ -45,6 +45,8 @@ include("readexcel.php");
 
         //TODO: make this the main make_big function, and put bigblocks within the special islands?
         function make_visible(ev, element, num) {
+            //TODO: there is a bug with this poping up when it should stay gone, probably something to do with skips and cleartimers and things like that, dragging either into or out of transport
+            //dragging something in, then quickly clicking water grid, makes it pop up again (figure out order of what is called)?
             ev.preventDefault();
             hideall_big();
             element.firstElementChild.style.display = "block";
