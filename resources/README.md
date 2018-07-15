@@ -223,6 +223,22 @@ major changes that effect lots of shit for transport
         inserting the movement
         also updating positions of the troops inside the transport
             check if UnitName = transport...then do extra steps (loop through the children) (can get children with database calls)
+
+
+More random thoughts moving forward
+    with more restrictions comes less bugs/glitches/unwanted events
+        such as
+            making sure all pieces placed before moving to next phase
+            making sure player cant trash pieces if not the right phase (purchasing)
+            making sure player cant move other team's pieces (more checks on it)
+            all of these can maybe go into the checkvalid.php (cause already checking movement)
+            but maybe disable grabbing / selecting if not the right phase? (first check in the php files could be for right phase/turn...etc)
+                or enable grabbing but it doesn't actually move (like same what happens with outside valid moves)
+            can't trash transport with things inside because that would never happen
+            can't move enemy troops cause not allowed
+            can't move transport onto land cause that isn't allowed (checks in the position table?)
+                NEED TO RIGHT DOWN ALL OF THESE LITTLE RULES
+                    and find the best places to enforce them in the code
     
             
     
