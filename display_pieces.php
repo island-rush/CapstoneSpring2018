@@ -29,7 +29,7 @@ if (isset($positionId)) {
                 echo "data-placementId='".$placementId."' draggable='true' ondragstart='drag(event, this)'>";
 
                 if ($unitName == "transport") {
-                    echo "<div class='transportContainer' data-containerPos='".$containerPos."' ondragleave='check_prevent_popup(event)' ondragover='allowDrop(event)' ondrop='drop2(event, this); skipdrop1 = 4;'>";
+                    echo "<div class='transportContainer' data-positionId='".$containerPos."' ondragleave='check_prevent_popup(event)' ondragover='allowDrop(event)' ondrop='drop2(event, this); skipdrop1 = 4;'>";
 
                     $query = 'SELECT * FROM placements NATURAL JOIN units WHERE (gameId = ?) AND (transportId = ?)';
                     $query = $db->prepare($query);

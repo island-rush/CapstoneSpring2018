@@ -88,19 +88,10 @@ include("readexcel.php");
         function drag(event) {
             //function set inside "display_pieces.php"
             event.dataTransfer.setData("placementId", event.target.getAttribute("data-placementId"));
-            //this is fucked because parents of transport may not have positionId?
             event.dataTransfer.setData("positionId", event.target.parentNode.getAttribute("data-positionId"));
             event.dataTransfer.setData("oldtrans", event.target.getAttribute("data-trans"));
             event.dataTransfer.setData("moves", event.target.getAttribute("data-moves"));
         }
-
-        // function drag2(event) {
-        //     //function set inside "display_pieces.php"
-        //     event.dataTransfer.setData("placementId", event.target.getAttribute("data-placementId"));
-        //     event.dataTransfer.setData("positionId", event.target.parentNode.getAttribute("data-positionId"));
-        //     event.dataTransfer.setData("", event.target.getAttribute("data-trans"));
-        //     event.dataTransfer.setData("moves", event.target.getAttribute("data-moves"));
-        // }
 
         function drop(event, element) {
             event.preventDefault();
@@ -168,6 +159,7 @@ include("readexcel.php");
                         xmlhttp2.send();
                         element.appendChild(document.querySelector("[data-placementId='" + placementId + "']"));
                         document.querySelector("[data-placementId='" + placementId + "']").setAttribute("data-moves", answer);
+                        document.querySelector("[data-placementId='" + placementId + "']").setAttribute("data-trans", newtrans);
                     }
                 }
             };
@@ -294,7 +286,7 @@ include("readexcel.php");
                     }
                     //if the totrans was not null, need to add it to the container (id = totrans)
                     if (totrans !== 999999) {
-                        var container = document.querySelector("[data-placementId='" + fromtrans + "']").firstChild;
+                        var container = document.querySelector("[data-placementId='" + totrans + "']").firstChild;
                         container.appendChild(gamepiece);
                     } else {
                         document.querySelector("[data-positionId='" + decoded.newPositionId + "']").appendChild(gamepiece);

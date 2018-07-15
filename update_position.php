@@ -2,6 +2,8 @@
 session_start();
 include("db.php");
 
+$gameId = $_SESSION['gameId'];
+
 //TODO: think about making the game faster by dropping first, then if not valid, move it back? (more responsive game) (maybe my computer is just slow with running everything) (also old)
 
 //TODO: make sure matrix works by testing spots can't move to?
